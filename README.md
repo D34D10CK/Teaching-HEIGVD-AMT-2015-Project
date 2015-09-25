@@ -4,10 +4,10 @@ Welcome to the home of the AMT Project. This is where you will find information 
 
 ## Members
 
-Léonard Berney
-Sacha Bron
-David Villa
-Marc Pellet
+- Léonard Berney
+- Sacha Bron
+- David Villa
+- Marc Pellet
 
 ## How to use this repo
 
