@@ -5,12 +5,12 @@
 
 ### Team
 
-Last name, first name | Github id | Main role in the project
-------|
-xxx | xxx | xxx
-xxx | xxx | xxx
-xxx | xxx | xxx
-xxx | xxx | xxx
+Last name, first name | Github id   | Main role in the project
+----------------------+-------------+-------------------------
+Berney Léonard        | D3410CK     | ???
+Bron Sacha            | BinaryBrain | Views
+Villa David           | ???         | ???
+Pellet Marc           | ???         | ???
 
 ### Tasks realized by the different team members
 
