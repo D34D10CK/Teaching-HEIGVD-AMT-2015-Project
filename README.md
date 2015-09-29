@@ -2,13 +2,6 @@
 
 Welcome to the home of the AMT Project. This is where you will find information about the project (specifications, evaluation, etc.).
 
-## Members
-
-- Léonard Berney
-- Sacha Bron
-- David Villa
-- Marc Pellet
-
 ## How to use this repo
 
 ### What should we do with this repo?
