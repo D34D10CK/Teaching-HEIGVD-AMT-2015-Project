@@ -7,7 +7,7 @@
 
 Last name, first name | Github id   | Main role in the project
 ----------------------|-------------|-------------------------
-Berney Léonard        | D3410CK     | ???
+Berney Léonard        | D3410CK     | Database
 Bron Sacha            | BinaryBrain | Views
 Villa David           | ???         | ???
 Pellet Marc           | ???         | ???
