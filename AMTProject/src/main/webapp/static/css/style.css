@@ -22,3 +22,19 @@ html, body {
 #dashboard-menu h3 {
     text-align: center;
 }
+
+#dashboard-content .logged-in-bar {
+    text-align: right;
+}
+
+#dashboard-content .logged-in-bar a {
+    margin-left: 20px;
+}
+
+#dashboard-content table {
+    margin-top: 100px;
+}
+
+#dashboard-content h1 {
+    margin-bottom: 50px;
+}
