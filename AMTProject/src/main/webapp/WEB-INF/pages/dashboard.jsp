@@ -1,13 +1,5 @@
 <%@include file="includes/header.jsp" %>
-<div id="dashboard-menu">
-<h3><a href="dashboard">Apps</a></h3>
-<h3><a href="account">Account</a></h3>
-</div>
-<div class="container-fluid" id="dashboard-content">
-    <div class="logged-in-bar">
-        Logged in as ???
-        <a class="btn btn-warning">Logout</a>
-    </div>
+<%@include file="includes/dashboard-menu.jsp" %>
     <h1 class="text-center">Your Apps</h1>
     <div class="text-center"><a href="new-app" class="btn btn-primary">Register New App</a></div>
 
