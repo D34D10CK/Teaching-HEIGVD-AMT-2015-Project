@@ -24,6 +24,27 @@ public class Application {
         this.userId = userId;
         this.enable = enable;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public String getAPIkey() {
+        return APIkey;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+    
     
     
 }

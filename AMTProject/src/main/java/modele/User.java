@@ -21,6 +21,22 @@ public class User {
         this.lastName = lastName;
         this.userId = userId;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
     
     
 }
