@@ -27,7 +27,7 @@ public class RegistrationServlet extends HttpServlet {
         if(password.equals(passwordConfirm)){
             User u = new User(email, firstName, lastName);
             System.out.println(u);
-            req.getRequestDispatcher("/WEB-INF/pages/Dashboard.jsp").forward(req, resp);
+            req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         }else{
             System.out.println(password + " != " + passwordConfirm );
             req.getRequestDispatcher("/WEB-INF/pages/registration.jsp").forward(req, resp);
