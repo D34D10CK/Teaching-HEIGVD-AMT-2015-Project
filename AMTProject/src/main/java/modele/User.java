@@ -15,11 +15,10 @@ public class User {
     String lastName;
     int userId;
 
-    public User(String email, String firstName, String lastName, int userId) {
+    public User(String email, String firstName, String lastName) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userId = userId;
     }
 
     public String getEmail() {
@@ -37,6 +36,12 @@ public class User {
     public int getUserId() {
         return userId;
     }
+
+    @Override
+    public String toString() {
+        return "User{" + "email=" + email + ", firstName=" + firstName + ", lastName=" + lastName + ", userId=" + userId + '}';
+    }
+    
     
     
 }

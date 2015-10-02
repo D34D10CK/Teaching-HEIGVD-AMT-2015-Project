@@ -1,35 +1,35 @@
 <%@include file="includes/header.jsp" %>
 <div class="container">
     <h1 class="text-center">Registration</h1>
-    <form class="form-horizontal" method="post">
+    <form class="form-horizontal" method="post" action="registration">
         <div class="form-group">
             <label for="input-email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="input-email" placeholder="Email">
+                <input type="email" class="form-control" id="input-email" placeholder="Email" name="email">
             </div>
         </div>
         <div class="form-group">
-            <label for="input-first-name" class="col-sm-2 control-label">First Name</label>
+            <label for="input-first-name" class="col-sm-2 control-label" >First Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-first-name" placeholder="First Name">
+                <input type="text" class="form-control" id="input-first-name" placeholder="First Name" name="first-name">
             </div>
         </div>
         <div class="form-group">
             <label for="input-last-name" class="col-sm-2 control-label">Last Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-last-name" placeholder="Last Name">
+                <input type="text" class="form-control" id="input-last-name" placeholder="Last Name" name="last-name">
             </div>
         </div>
         <div class="form-group">
             <label for="input-password" class="col-sm-2 control-label">Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="input-password" placeholder="Password">
+                <input type="password" class="form-control" id="input-password" placeholder="Password" name="password">
             </div>
         </div>
         <div class="form-group">
             <label for="input-password-confirm" class="col-sm-2 control-label">Confirm Password</label>
             <div class="col-sm-10">
-                <input type="password" class="form-control" id="input-password-confirm" placeholder="Confirm Password">
+                <input type="password" class="form-control" id="input-password-confirm" placeholder="Confirm Password" name="password-confirm">
             </div>
         </div>
         <div class="form-group">
