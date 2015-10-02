@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-warning">Cancel</button>
+                <a href="home" class="btn btn-warning">Cancel</a>
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>
