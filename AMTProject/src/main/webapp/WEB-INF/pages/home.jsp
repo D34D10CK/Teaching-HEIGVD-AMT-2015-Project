@@ -9,7 +9,7 @@
                         <input type="password" class="form-control" placeholder="Password">
                         <input type="submit" class="btn btn-default">
                     </form>
-                    <button class="navbar-right btn btn-default navbar-btn">create account</button>
+                    <a href="registration" class="navbar-right btn btn-default navbar-btn">create account</a>
                 </div>
             </div>
         </nav>
