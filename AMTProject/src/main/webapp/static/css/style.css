@@ -1,0 +1,24 @@
+html, body {
+    height: 100%;
+}
+
+#dashboard-content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 300px;
+    right: 0;
+}
+
+#dashboard-menu {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    border-right: 1px black solid;
+}
+
+#dashboard-menu h3 {
+    text-align: center;
+}
