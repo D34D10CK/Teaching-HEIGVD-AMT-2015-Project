@@ -11,6 +11,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>AMT Project</title>
 
-    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+      <link href="static/css/bootstrap.min.css" rel="stylesheet">
+      <link href="static/css/style.css" rel="stylesheet">
   </head>
   <body>
