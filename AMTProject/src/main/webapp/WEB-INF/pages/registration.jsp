@@ -1,7 +1,7 @@
 <%@include file="includes/header.jsp" %>
 <div class="container">
     <h1 class="text-center">Registration</h1>
-    <form class="form-horizontal">
+    <form class="form-horizontal" method="post">
         <div class="form-group">
             <label for="input-email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
