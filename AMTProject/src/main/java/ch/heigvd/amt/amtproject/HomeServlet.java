@@ -12,6 +12,9 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("accountCreated", 42);
+		req.setAttribute("applicationManaged", 42);
+		req.setAttribute("userByApp", 42);
         req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
     }
 }

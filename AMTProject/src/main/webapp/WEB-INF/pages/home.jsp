@@ -15,9 +15,9 @@
         </nav>
 
         <h1 class="text-center">Welcome to GamY!</h1>
-        <p>??? accounts created</p>
-        <p>??? applications managed</p>
-        <p>??? users created by applications during the last 30 days</p>
+        <p>${requestScope.accountCreated} accounts created</p>
+        <p>${requestScope.applicationManaged} applications managed</p>
+        <p>${requestScope.userByApp} users created by applications during the last 30 days</p>
         
 <%@include file="includes/footer.jsp" %>
 
