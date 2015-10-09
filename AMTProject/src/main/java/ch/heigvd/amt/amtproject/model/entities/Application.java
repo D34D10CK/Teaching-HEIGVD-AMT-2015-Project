@@ -4,9 +4,14 @@ import java.util.Random;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(name = "Application.findByApiKey", query = "select id from Application a where a.key = :key")
+})
 public class Application extends AbstractEntity<Long> {
 
     @Column(nullable = false, unique = true)
@@ -17,17 +22,21 @@ public class Application extends AbstractEntity<Long> {
     private User user;
 
     public Application() {
-        char[] chars = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-        StringBuilder builder = new StringBuilder();
-        Random random = new Random();
-        
-        for (int i = 0; i < 20; i++) {
-            builder.append(chars[random.nextInt(chars.length)]);
-        }       
-        apiKey = builder.toString(); //FIXME: check for uniqueness
     }
 
-    public Application(User user) {
+    public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(String apiKey) {
+        this.apiKey = apiKey;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
         this.user = user;
     }
 }
