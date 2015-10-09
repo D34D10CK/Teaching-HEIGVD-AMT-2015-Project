@@ -21,6 +21,7 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
             } catch (Exception e) {
             }
         }
+        app = new Application();
         app.setApiKey(apiKey);
     }
 
