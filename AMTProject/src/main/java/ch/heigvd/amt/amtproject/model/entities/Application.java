@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Application.findByApiKey", query = "select id from Application a where a.key = :key")
+    @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey")
 })
 public class Application extends AbstractEntity<Long> {
 
@@ -21,6 +21,9 @@ public class Application extends AbstractEntity<Long> {
     @ManyToOne
     private User user;
 
+    @NotNull
+    private String name;
+    
     public Application() {
     }
 
