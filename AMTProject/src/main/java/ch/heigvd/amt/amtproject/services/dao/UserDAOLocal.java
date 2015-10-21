@@ -15,5 +15,7 @@ import javax.ejb.Local;
 @Local
 public interface UserDAOLocal extends IGenericDAO<User, Long>{
 
+    User testConnection(String username, String password);
+
     
 }

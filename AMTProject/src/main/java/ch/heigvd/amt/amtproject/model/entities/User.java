@@ -3,11 +3,16 @@ package ch.heigvd.amt.amtproject.model.entities;
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Entity
+@NamedQueries({
+  @NamedQuery(name = "User.testConnection", query = "SELECT u FROM User u WHERE u.email = :username and u.password = :password")
+})
 public class User extends AbstractEntity<Long> {
 
     @NotNull

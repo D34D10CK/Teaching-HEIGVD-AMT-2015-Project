@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import ch.heigvd.amt.amtproject.model.entities.User;
-import ch.heigvd.amt.amtproject.services.UserManager;
-import ch.heigvd.amt.amtproject.services.UserManagerLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import java.time.Clock;
 import javax.ejb.EJB;
@@ -17,7 +15,7 @@ import javax.ejb.EJB;
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
     @EJB
-    UserManagerLocal userManager;
+    UserDAOLocal userDAO;
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +37,7 @@ public class RegistrationServlet extends HttpServlet {
         if(password.equals(passwordConfirm)){
             User u = new User(email, firstName, lastName, password);
             System.out.println(u);
-            userManager.createUser(u);
+            userDAO.create(u);
             req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         }else{
             System.out.println(password + " != " + passwordConfirm );
