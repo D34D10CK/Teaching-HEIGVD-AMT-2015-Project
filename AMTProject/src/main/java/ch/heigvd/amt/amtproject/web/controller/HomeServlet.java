@@ -35,7 +35,7 @@ public class HomeServlet extends HttpServlet {
             req.setAttribute("error", "Login failed");
             req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
         }else{
-            //req.getSession().setAttribute("user", u);
+            req.getSession().setAttribute("user", u);
             req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         }
     }

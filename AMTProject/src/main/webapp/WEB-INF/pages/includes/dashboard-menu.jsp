@@ -4,6 +4,6 @@
 </div>
 <div class="container-fluid" id="dashboard-content">
     <div class="logged-in-bar">
-        Logged in as ???
+        Logged in as ${name}
         <a class="btn btn-warning">Logout</a>
     </div>

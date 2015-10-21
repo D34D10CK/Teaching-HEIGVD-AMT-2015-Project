@@ -38,6 +38,7 @@ public class RegistrationServlet extends HttpServlet {
             User u = new User(email, firstName, lastName, password);
             System.out.println(u);
             userDAO.create(u);
+            req.getSession().setAttribute("user", u);
             req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         }else{
             System.out.println(password + " != " + passwordConfirm );

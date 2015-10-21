@@ -14,14 +14,14 @@
                 <textarea class="form-control" rows="6" id="input-description" placeholder="Description" name="description"></textarea>
             </div>
         </div>
-        <!--
+        
         <div class="form-group">
             <label for="input-api-key" class="col-sm-2 control-label">API Key</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-api-key" value="sk3kf9sjs3n1am" name="api-key" disabled="disabled">
+                <input type="text" class="form-control" id="input-api-key" value="${apiKey}" name="api-key" disabled="disabled">
             </div>
         </div>
-        -->
+        
         <div class="form-group">
             <label class="col-sm-2 control-label">Change State</label>
             <div class="col-sm-10">

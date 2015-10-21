@@ -5,6 +5,7 @@
 
     <table class="table table-hover">
         <tr>
+            <th>${name} </th>
             <th>Name</th>
             <th>Descrition</th>
             <th>API Key</th>

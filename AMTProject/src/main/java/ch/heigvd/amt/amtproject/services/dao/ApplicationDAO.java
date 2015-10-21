@@ -7,22 +7,15 @@ import java.util.Random;
 @Stateless
 public class ApplicationDAO extends GenericDAO<Application, Long> implements ApplicationDAOLocal {
 
-    public void makeApiKey() {
-        String apiKey = generateApiKey();
-        Application app = null;
-        try {
-            app = (Application) em.createNamedQuery("Application.findByApiKey").setParameter("key", apiKey).getSingleResult();
-        } catch (Exception e) {
-        }
-        while (app != null) {
-            apiKey = generateApiKey();
-            try {
-                app = (Application) em.createNamedQuery("Application.findByApiKey").setParameter("key", apiKey).getSingleResult();
-            } catch (Exception e) {
-            }
-        }
-        app = new Application();
-        app.setApiKey(apiKey);
+    @Override
+    public String makeApiKey() {
+        String apiKey;
+        
+        do{
+           apiKey = generateApiKey();
+        }while(keyAlreadyExists(apiKey));
+
+        return apiKey;
     }
 
     private String generateApiKey() {
@@ -35,4 +28,16 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
         }
         return builder.toString();
     }
+
+    @Override
+    public boolean keyAlreadyExists(String apiKey) {
+        Application app = null;
+        try {
+            app = (Application) em.createNamedQuery("Application.findByApiKey").setParameter("key", apiKey).getSingleResult();
+        } catch (Exception e) {
+        }
+        return app != null;
+    }
+    
+    
 }

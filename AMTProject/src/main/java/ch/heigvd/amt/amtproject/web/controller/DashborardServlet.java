@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import ch.heigvd.amt.amtproject.model.entities.User;
 
 @WebServlet("/dashboard")
 public class DashborardServlet extends HttpServlet {
@@ -17,8 +18,14 @@ public class DashborardServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Object model = appsManager.getAllApps();
-		req.setAttribute("apps", model);
+        if(req.getSession(false) == null){
+            req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
+        }
+        Object model = appsManager.getAllApps();
+	req.setAttribute("apps", model);
+        User u = (User)req.getSession().getAttribute("user");
+        req.setAttribute("name", u.getEmail());
+       
         req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
     }
 }

@@ -24,8 +24,20 @@ public class Application extends AbstractEntity<Long> {
     @NotNull
     private String name;
     
+    @NotNull
+    private String description;
+    
     public Application() {
     }
+
+    public Application(String apiKey, User user, String name, String description) {
+        this.apiKey = apiKey;
+        this.user = user;
+        this.name = name;
+        this.description = description;
+    }
+    
+    
 
     public String getApiKey() {
         return apiKey;
@@ -42,4 +54,22 @@ public class Application extends AbstractEntity<Long> {
     public void setUser(User user) {
         this.user = user;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    
+    
 }
