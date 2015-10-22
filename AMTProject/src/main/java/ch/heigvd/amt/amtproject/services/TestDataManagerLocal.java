@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.heigvd.amt.amtproject.services.dao;
+package ch.heigvd.amt.amtproject.services;
 
-import ch.heigvd.amt.amtproject.model.entities.Application;
 import javax.ejb.Local;
 
 /**
@@ -13,9 +12,8 @@ import javax.ejb.Local;
  * @author Marc
  */
 @Local
-public interface ApplicationDAOLocal extends IGenericDAO<Application, Long>{
+public interface TestDataManagerLocal {
 
-    public String makeApiKey();
-
+    void generateTestData();
     
 }
