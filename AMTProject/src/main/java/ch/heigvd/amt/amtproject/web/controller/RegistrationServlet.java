@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
-import java.time.Clock;
 import javax.ejb.EJB;
 
 
@@ -39,7 +38,7 @@ public class RegistrationServlet extends HttpServlet {
             System.out.println(u);
             userDAO.create(u);
             req.getSession().setAttribute("user", u);
-            req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+            resp.sendRedirect("dashboard");
         }else{
             System.out.println(password + " != " + passwordConfirm );
             req.getRequestDispatcher("/WEB-INF/pages/registration.jsp").forward(req, resp);

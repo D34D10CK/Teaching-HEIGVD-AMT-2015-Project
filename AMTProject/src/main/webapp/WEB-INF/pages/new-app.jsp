@@ -21,6 +21,8 @@
                 <input type="text" class="form-control" id="input-api-key" value="${apiKey}" name="api-key" disabled="disabled">
             </div>
         </div>
+            <input type="hidden" name="apiKey" value="${apiKey}">
+           
         
         <div class="form-group">
             <label class="col-sm-2 control-label">Change State</label>

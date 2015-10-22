@@ -36,7 +36,7 @@ public class HomeServlet extends HttpServlet {
             req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
         }else{
             req.getSession().setAttribute("user", u);
-            req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+            resp.sendRedirect("dashboard");
         }
     }
     
