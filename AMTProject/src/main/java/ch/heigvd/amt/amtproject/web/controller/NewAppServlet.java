@@ -37,12 +37,13 @@ public class NewAppServlet extends HttpServlet {
             Application temp = new Application(apiKey, u, name, description);
             System.out.println(temp.getApiKey());
             applicationDAO.create(temp);
+            resp.sendRedirect("dashboard");
             /*req.setAttribute("apiKey", apiKey);
             req.getRequestDispatcher("/WEB-INF/pages/new-app.jsp").forward(req, resp);
                     */
             
         }
-        req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+        //req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
         
         
         

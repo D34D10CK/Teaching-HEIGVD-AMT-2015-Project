@@ -12,22 +12,16 @@
             <th>Users</th>
             <th>Actions</th>
         </tr>
+        <c:forEach items="${apps}" var="app">
+            <tr>
+                <th>${app.name}</th>
+                <th>${app.description}</th>
+                <th>${app.name}</th>
+                <td><a href="list-users?id=1">10203</a></td>
+                <td><a href="app-details" class="btn btn-sm btn-primary">Edit</a> <a class="btn btn-sm btn-success">Enable</a></td>
+            </tr>
+        </c:forEach>
 
-        <tr>
-            <td>My App</td>
-            <td>This app is great</td>
-            <td>23jrh2k3jhk23h</td>
-            <td><a href="list-users?id=1">10203</a></td>
-            <td><a href="app-details" class="btn btn-sm btn-primary">Edit</a> <a class="btn btn-sm btn-success">Enable</a></td>
-        </tr>
-
-        <tr>
-            <td>CoolApp 2.0</td>
-            <td>The coolest App ever!</td>
-            <td>v8wkq3j9sk39djwl</td>
-            <td><a href="list-users?id=2">4</a></td>
-            <td><a href="app-details" class="btn btn-sm btn-primary">Edit</a> <a class="btn btn-sm btn-danger">Disable</a></td>
-        </tr>
     </table>
 
   <%@include file="includes/footer.jsp" %>

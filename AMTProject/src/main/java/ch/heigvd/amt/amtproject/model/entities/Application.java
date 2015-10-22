@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey")
-})
+    @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey"), 
+    @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.user = :user")})
 public class Application extends AbstractEntity<Long> {
 
     @Column(nullable = false, unique = true)
