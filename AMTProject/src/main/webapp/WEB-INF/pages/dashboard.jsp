@@ -14,11 +14,11 @@
         </tr>
         <c:forEach items="${apps}" var="app">
             <tr>
-                <th>${app.name}</th>
-                <th>${app.description}</th>
-                <th>${app.name}</th>
+                <td>${app.name}</td>
+                <td>${app.description}</td>
+                <td>${app.apiKey}</td>
                 <td><a href="list-users?id=1">10203</a></td>
-                <td><a href="app-details" class="btn btn-sm btn-primary">Edit</a> <a class="btn btn-sm btn-success">Enable</a></td>
+                <td><a href="app-details?action=edit&appId=${app.id}" class="btn btn-sm btn-primary">Edit</a> <a class="btn btn-sm btn-success">Enable</a></td>
             </tr>
         </c:forEach>
 

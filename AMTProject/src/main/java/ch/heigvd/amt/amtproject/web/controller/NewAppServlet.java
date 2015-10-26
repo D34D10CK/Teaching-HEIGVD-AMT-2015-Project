@@ -30,20 +30,15 @@ public class NewAppServlet extends HttpServlet {
         String description = req.getParameter("description");
         String apiKey = req.getParameter("apiKey");
         HttpSession sess = req.getSession(false);
-        if(sess == null){
-            req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
-        }else{
-            User u = (User)sess.getAttribute("user");
-            Application temp = new Application(apiKey, u, name, description);
-            System.out.println(temp.getApiKey());
-            applicationDAO.create(temp);
-            resp.sendRedirect("dashboard");
-            /*req.setAttribute("apiKey", apiKey);
-            req.getRequestDispatcher("/WEB-INF/pages/new-app.jsp").forward(req, resp);
-                    */
+        
+        User u = (User)sess.getAttribute("user");
+        Application temp = new Application(apiKey, u, name, description);
+
+        applicationDAO.create(temp);
+        resp.sendRedirect("dashboard");
             
-        }
-        //req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+    
+        
         
         
         

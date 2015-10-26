@@ -27,6 +27,9 @@ public class Application extends AbstractEntity<Long> {
     @NotNull
     private String description;
     
+    @NotNull
+    private boolean enable;
+    
     public Application() {
     }
 
@@ -69,6 +72,14 @@ public class Application extends AbstractEntity<Long> {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public boolean isEnable() {
+        return enable;
+    }
+
+    public void setEnable(boolean enable) {
+        this.enable = enable;
     }
     
     

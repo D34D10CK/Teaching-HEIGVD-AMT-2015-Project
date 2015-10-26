@@ -18,10 +18,10 @@
         <div class="form-group">
             <label for="input-api-key" class="col-sm-2 control-label">API Key</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-api-key" value="${apiKey}" name="api-key" disabled="disabled">
+                <input type="text" class="form-control" id="input-api-key" value="${apiKey}" name="apiKey" readonly="readonly">
             </div>
         </div>
-            <input type="hidden" name="apiKey" value="${apiKey}">
+            
            
         
         <div class="form-group">
