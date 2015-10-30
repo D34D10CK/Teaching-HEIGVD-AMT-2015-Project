@@ -5,19 +5,19 @@
         <div class="form-group">
             <label for="input-email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
-                <input type="email" class="form-control" id="input-email" placeholder="Email" name="email"  readonly="readonly">
+                <input type="email" class="form-control" id="input-email" placeholder="Email" name="email"  readonly="readonly" value="${user.email}">
             </div>
         </div>
         <div class="form-group">
             <label for="input-first-name" class="col-sm-2 control-label" >First Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-first-name" placeholder="First Name" name="first-name">
+                <input type="text" class="form-control" id="input-first-name" placeholder="First Name" name="first-name" value="${user.firstName}">
             </div>
         </div>
         <div class="form-group">
             <label for="input-last-name" class="col-sm-2 control-label">Last Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-last-name" placeholder="Last Name" name="last-name">
+                <input type="text" class="form-control" id="input-last-name" placeholder="Last Name" name="last-name" value="${user.lastName}">
             </div>
         </div>
         <div class="form-group">
@@ -34,7 +34,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <a href="home" class="btn btn-warning">Cancel</a>
+                <a href="dashboard" class="btn btn-warning">Cancel</a>
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>

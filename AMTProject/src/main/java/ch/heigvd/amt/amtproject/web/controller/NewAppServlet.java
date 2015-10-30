@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.web.controller;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
@@ -20,7 +21,7 @@ public class NewAppServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("apiKey", applicationDAO.makeApiKey());
+        req.setAttribute("apiKey", new ApiKey().getApiKey());
         req.getRequestDispatcher("/WEB-INF/pages/new-app.jsp").forward(req, resp);
     }
 
