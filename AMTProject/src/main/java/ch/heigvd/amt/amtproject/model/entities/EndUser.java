@@ -21,14 +21,14 @@ import javax.persistence.TemporalType;
 public class EndUser extends AbstractEntity<Long>{
     
     @Column(nullable = false, unique = true)
-    String UserId;
+    private String UserId;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CREATION_TS", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
     private Calendar dateCrea;
     
     @ManyToOne
-    Application app;
+    private Application app;
     
     public EndUser() {
     }
