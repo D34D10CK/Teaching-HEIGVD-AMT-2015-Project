@@ -27,7 +27,7 @@ public class AppDetailsServlet extends HttpServlet {
             
             Application app = applicationDAO.findById(id);
             req.setAttribute("app", app);
-            req.setAttribute("apiKey", app.getApiKey());
+            
             req.getRequestDispatcher("/WEB-INF/pages/app-details.jsp").forward(req, resp);
         }else if(action.equalsIgnoreCase("disable")){
             Application app = applicationDAO.findById(id);

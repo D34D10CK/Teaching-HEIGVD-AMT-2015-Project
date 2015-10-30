@@ -4,6 +4,7 @@ import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +18,9 @@ import javax.servlet.http.HttpSession;
 public class NewAppServlet extends HttpServlet {
     @EJB
     ApplicationDAOLocal applicationDAO;
+    
+    @EJB
+    ApiKeyDAOLocal apiKeyDAO;
     
     
     @Override
@@ -34,6 +38,8 @@ public class NewAppServlet extends HttpServlet {
         
         User u = (User)sess.getAttribute("user");
         ApiKey key = new ApiKey(apiKey);
+
+        apiKeyDAO.create(key);
         Application temp = new Application(key, u, name, description);
 
         applicationDAO.create(temp);
