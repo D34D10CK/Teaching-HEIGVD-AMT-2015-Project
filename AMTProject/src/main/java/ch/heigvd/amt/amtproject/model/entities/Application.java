@@ -32,9 +32,6 @@ public class Application extends AbstractEntity<Long> {
     @NotNull
     private boolean enable;
     
-    @OneToMany(mappedBy="app")
-    private List<User> users;
-    
     public Application() {
     }
 

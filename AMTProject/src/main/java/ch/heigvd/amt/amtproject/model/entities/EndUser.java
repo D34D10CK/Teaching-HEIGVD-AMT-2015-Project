@@ -10,6 +10,8 @@ import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -21,6 +23,7 @@ public class EndUser extends AbstractEntity<Long>{
     @Column(nullable = false, unique = true)
     String UserId;
     
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CREATION_TS", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
     private Calendar dateCrea;
     
