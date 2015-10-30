@@ -7,10 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
+import javax.ejb.EJB;
 
 @WebServlet("/account")
 public class AccountServlet extends HttpServlet {
-
+    @EJB
+    UserDAOLocal userDAO;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user =  (User)req.getSession().getAttribute("user");
@@ -18,4 +22,30 @@ public class AccountServlet extends HttpServlet {
         req.setAttribute("name", user.getEmail());
         req.getRequestDispatcher("/WEB-INF/pages/account.jsp").forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("--------- DEBUT ----------");
+        String email = req.getParameter("email");
+        String firstName = req.getParameter("first-name");
+        String lastName = req.getParameter("last-name");
+        String password = req.getParameter("password");
+        String passwordConfirm = req.getParameter("password-confirm");
+        
+        if(password.equals(passwordConfirm)){
+            User modifiedUser = new User(email, firstName, lastName, password);
+            User currentUser = (User)req.getSession().getAttribute("user");
+            System.out.println("Current user ID : " + currentUser.getId());
+            modifiedUser.setId(currentUser.getId());
+            System.out.println("New user ID : " + modifiedUser.getId());
+            
+            userDAO.update(modifiedUser);
+            req.getSession().setAttribute("user", modifiedUser);
+            resp.sendRedirect("dashboard");
+        }else{
+            System.out.println(password + " != " + passwordConfirm );
+            req.getRequestDispatcher("/WEB-INF/pages/account.jsp").forward(req, resp);
+        }
+    }
+    
 }

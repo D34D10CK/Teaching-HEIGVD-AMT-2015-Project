@@ -1,7 +1,7 @@
 <%@include file="includes/header.jsp" %>
 <%@include file="includes/dashboard-menu.jsp" %>
     <h1 class="text-center">Edit Account Details</h1>
-    <form class="form-horizontal" method="post" action="registration">
+    <form class="form-horizontal" method="post" action="account">
         <div class="form-group">
             <label for="input-email" class="col-sm-2 control-label">Email</label>
             <div class="col-sm-10">
@@ -35,7 +35,7 @@
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <a href="dashboard" class="btn btn-warning">Cancel</a>
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">Edit</button>
             </div>
         </div>
     </form>

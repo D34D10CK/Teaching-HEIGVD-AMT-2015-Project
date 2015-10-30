@@ -23,10 +23,6 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-
-        
-        
         String email = req.getParameter("email");
         String firstName = req.getParameter("first-name");
         String lastName = req.getParameter("last-name");
