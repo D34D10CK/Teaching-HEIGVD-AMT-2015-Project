@@ -21,7 +21,7 @@ public class Role extends AbstractEntity<Long>{
     private String role;
     
     @ManyToMany
-    List<User> users;
+    private List<User> users;
 
     public Role() {
     }
