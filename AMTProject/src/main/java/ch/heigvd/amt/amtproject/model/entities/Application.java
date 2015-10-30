@@ -8,6 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -16,8 +17,6 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.user = :user")})
 public class Application extends AbstractEntity<Long> {
 
-    @Column(nullable = false, unique = true)
-    private String apiKey;
 
     @NotNull
     @ManyToOne
@@ -35,10 +34,13 @@ public class Application extends AbstractEntity<Long> {
     @OneToMany(mappedBy="app")
     private List<User> users;
     
+    @OneToOne
+    private ApiKey apiKey;
+    
     public Application() {
     }
 
-    public Application(String apiKey, User user, String name, String description) {
+    public Application(ApiKey apiKey, User user, String name, String description) {
         this.apiKey = apiKey;
         this.user = user;
         this.name = name;
@@ -47,11 +49,11 @@ public class Application extends AbstractEntity<Long> {
     
     
 
-    public String getApiKey() {
+    public ApiKey getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(String apiKey) {
+    public void setApiKey(ApiKey apiKey) {
         this.apiKey = apiKey;
     }
 
