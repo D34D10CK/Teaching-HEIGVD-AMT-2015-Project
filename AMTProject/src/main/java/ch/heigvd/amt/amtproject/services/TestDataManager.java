@@ -5,10 +5,12 @@
  */
 package ch.heigvd.amt.amtproject.services;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.model.entities.Application;
+import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -24,6 +26,9 @@ public class TestDataManager implements TestDataManagerLocal {
     
     @EJB
     ApplicationDAOLocal applicationDAO;
+    
+    @EJB
+    ApiKeyDAOLocal apiKeyDAO;
 
     @Override
     public void generateTestData() {
@@ -33,9 +38,19 @@ public class TestDataManager implements TestDataManagerLocal {
         userDAO.create(u);
         userDAO.create(u2);
         
-        Application a = new Application(applicationDAO.makeApiKey(), u, "app1", "c'est la première app");
-        Application a2 = new Application(applicationDAO.makeApiKey(), u2, "app2", "c'est une autre app");
-        Application a3 = new Application(applicationDAO.makeApiKey(), u, "app3", "Et bim une troisième app");
+        ApiKey key1 = new ApiKey();
+        ApiKey key2 = new ApiKey();
+        ApiKey key3 = new ApiKey();
+        
+        apiKeyDAO.create(key1);
+        apiKeyDAO.create(key2);
+        apiKeyDAO.create(key3);
+        
+        
+        
+        Application a = new Application(key1, u, "app1", "c'est la première app");
+        Application a2 = new Application(key2, u2, "app2", "c'est une autre app");
+        Application a3 = new Application(key3, u, "app3", "Et bim une troisième app");
         
         applicationDAO.create(a);
         applicationDAO.create(a2);

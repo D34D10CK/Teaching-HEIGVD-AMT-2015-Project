@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.web.controller;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
@@ -26,6 +27,7 @@ public class AppDetailsServlet extends HttpServlet {
             
             Application app = applicationDAO.findById(id);
             req.setAttribute("app", app);
+            req.setAttribute("apiKey", app.getApiKey());
             req.getRequestDispatcher("/WEB-INF/pages/app-details.jsp").forward(req, resp);
         }else if(action.equalsIgnoreCase("disable")){
             Application app = applicationDAO.findById(id);
@@ -40,11 +42,14 @@ public class AppDetailsServlet extends HttpServlet {
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         String apiKey = req.getParameter("apiKey");
+        Long idApiKey = Long.valueOf(req.getParameter("idApiKey"));
         Long id = Long.valueOf(req.getParameter("id"));
         HttpSession sess = req.getSession(false);
         
         User u = (User)sess.getAttribute("user");
-        Application temp = new Application(apiKey, u, name, description);
+        ApiKey key = new ApiKey(apiKey);
+        key.setId(idApiKey);
+        Application temp = new Application(key, u, name, description);
         temp.setId(id);
 
         applicationDAO.update(temp);

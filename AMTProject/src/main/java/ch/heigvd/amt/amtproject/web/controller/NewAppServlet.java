@@ -33,7 +33,8 @@ public class NewAppServlet extends HttpServlet {
         HttpSession sess = req.getSession(false);
         
         User u = (User)sess.getAttribute("user");
-        Application temp = new Application(apiKey, u, name, description);
+        ApiKey key = new ApiKey(apiKey);
+        Application temp = new Application(key, u, name, description);
 
         applicationDAO.create(temp);
         resp.sendRedirect("dashboard");
