@@ -1,11 +1,13 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
-import java.util.Random;
+
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -29,6 +31,9 @@ public class Application extends AbstractEntity<Long> {
     
     @NotNull
     private boolean enable;
+    
+    @OneToMany(mappedBy="app")
+    private List<User> users;
     
     public Application() {
     }
