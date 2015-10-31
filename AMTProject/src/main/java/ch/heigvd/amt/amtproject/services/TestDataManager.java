@@ -11,6 +11,10 @@ import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import ch.heigvd.amt.amtproject.model.entities.User;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.RoleDAO;
+import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
+import ch.heigvd.amt.amtproject.model.entities.EndUser;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -29,6 +33,12 @@ public class TestDataManager implements TestDataManagerLocal {
     
     @EJB
     ApiKeyDAOLocal apiKeyDAO;
+    
+    @EJB
+    RoleDAOLocal roleDAO;
+ 
+    @EJB
+    EndUserDAOLocal enduUserDAO;
 
     @Override
     public void generateTestData() {
@@ -48,14 +58,27 @@ public class TestDataManager implements TestDataManagerLocal {
         
         
         
-        Application a = new Application(key1, u, "app1", "c'est la première app");
+        Application a1 = new Application(key1, u, "app1", "c'est la première app");
         Application a2 = new Application(key2, u2, "app2", "c'est une autre app");
         Application a3 = new Application(key3, u, "app3", "Et bim une troisième app");
         
-        applicationDAO.create(a);
+        applicationDAO.create(a1);
         applicationDAO.create(a2);
         applicationDAO.create(a3);
         
+        for(int i = 0; i < 154; i++){
+            createEndUser(a3);
+            createEndUser(a1);
+            createEndUser(a2);
+        }
+           
+        
+    }
+    
+    private void createEndUser(Application app){
+        EndUser e = new EndUser();
+        e.setApp(app);
+        enduUserDAO.create(e);
     }
 
     // Add business logic below. (Right-click in editor and choose

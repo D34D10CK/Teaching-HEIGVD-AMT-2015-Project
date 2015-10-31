@@ -26,7 +26,7 @@
             <div class="form-group">
                 <label for="input-users" class="col-sm-2 control-label">Number of users</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="input-users" value="???" name="api-key" disabled="disabled">
+                    <input type="text" class="form-control" id="input-users" value="${app.endUsers.size()}" name="api-key" disabled="disabled">
                 </div>
             </div>
             <div class="form-group">

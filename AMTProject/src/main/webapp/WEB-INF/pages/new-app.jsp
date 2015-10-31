@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <a href="home" class="btn btn-warning">Cancel</a>
+                <a href="dashboard" class="btn btn-warning">Cancel</a>
                 <button type="submit" class="btn btn-primary">Register</button>
             </div>
         </div>

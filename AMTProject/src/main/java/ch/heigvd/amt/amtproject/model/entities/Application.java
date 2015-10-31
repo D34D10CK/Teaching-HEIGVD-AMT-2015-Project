@@ -33,6 +33,9 @@ public class Application extends AbstractEntity<Long> {
     @OneToOne
     private ApiKey apiKey;
     
+    @OneToMany(mappedBy = "app")
+    private List<EndUser> endUsers;
+    
     public Application() {
     }
 
@@ -83,6 +86,14 @@ public class Application extends AbstractEntity<Long> {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public List<EndUser> getEndUsers() {
+        return endUsers;
+    }
+
+    public void setEndUsers(List<EndUser> endUsers) {
+        this.endUsers = endUsers;
     }
     
     

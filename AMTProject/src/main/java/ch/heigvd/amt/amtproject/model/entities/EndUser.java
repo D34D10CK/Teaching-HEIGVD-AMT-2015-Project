@@ -6,10 +6,13 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
 import java.util.Calendar;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -17,11 +20,14 @@ import javax.persistence.TemporalType;
  *
  * @author Marc
  */
+@NamedQueries({
+    @NamedQuery(name="EndUser.findByApp", query ="select e from EndUser e where e.app = :app")
+})
 @Entity
 public class EndUser extends AbstractEntity<Long>{
-    
+     
     @Column(nullable = false, unique = true)
-    private String UserId;
+    private String userId;
     
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CREATION_TS", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP", insertable=false, updatable=false)
@@ -31,14 +37,23 @@ public class EndUser extends AbstractEntity<Long>{
     private Application app;
     
     public EndUser() {
+        userId = UUID.randomUUID().toString();
     }
 
+    public EndUser(String userId, Calendar dateCrea, Application app) {
+        this.userId = userId;
+        this.dateCrea = dateCrea;
+        this.app = app;
+    }
+    
+    
+
     public String getUserId() {
-        return UserId;
+        return userId;
     }
 
     public void setUserId(String UserId) {
-        this.UserId = UserId;
+        this.userId = UserId;
     }
 
     public Calendar getDateCrea() {
