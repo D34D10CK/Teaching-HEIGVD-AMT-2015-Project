@@ -5,13 +5,13 @@
         <div class="form-group">
             <label for="input-name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="input-name" placeholder="Name" name="name">
+                <input type="text" class="form-control" id="input-name" placeholder="Name" name="name" required="required">
             </div>
         </div>
         <div class="form-group">
             <label for="input-description" class="col-sm-2 control-label">Description</label>
             <div class="col-sm-10">
-                <textarea class="form-control" rows="6" id="input-description" placeholder="Description" name="description"></textarea>
+                <textarea class="form-control" rows="6" id="input-description" placeholder="Description" name="description" required="required"></textarea>
             </div>
         </div>
         

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
@@ -16,11 +18,17 @@ public class HomeServlet extends HttpServlet {
     @EJB
     UserDAOLocal userDAO;
     
+    @EJB
+    ApplicationDAOLocal appDAO;
+    
+    @EJB
+    EndUserDAOLocal endUserDAO;
+    
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("accountCreated", 42);
-	req.setAttribute("applicationManaged", 42);
-	req.setAttribute("userByApp", 42);
+        req.setAttribute("accountCreated", userDAO.count());
+	req.setAttribute("applicationManaged", appDAO.count());
+	req.setAttribute("userByApp", endUserDAO.count());
         req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
     }
 
@@ -31,6 +39,9 @@ public class HomeServlet extends HttpServlet {
         
         User u = userDAO.testConnection(username, password);
         if(u == null){
+            req.setAttribute("accountCreated", userDAO.count());
+            req.setAttribute("applicationManaged", appDAO.count());
+            req.setAttribute("userByApp", endUserDAO.count());
             req.setAttribute("prevUsername", username);
             req.setAttribute("error", "Login failed");
             req.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(req, resp);
