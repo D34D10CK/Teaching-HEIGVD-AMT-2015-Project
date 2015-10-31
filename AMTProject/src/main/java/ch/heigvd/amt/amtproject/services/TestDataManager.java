@@ -5,16 +5,15 @@
  */
 package ch.heigvd.amt.amtproject.services;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
+import ch.heigvd.amt.amtproject.model.entities.*;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
-import ch.heigvd.amt.amtproject.model.entities.User;
-import ch.heigvd.amt.amtproject.model.entities.Application;
+
 import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAO;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
-import ch.heigvd.amt.amtproject.model.entities.EndUser;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -72,7 +71,11 @@ public class TestDataManager implements TestDataManagerLocal {
             createEndUser(a2);
         }
            
+        Role r1 = new Role("admin");
+        Role r2 = new Role("developper");
         
+        roleDAO.create(r1);
+        roleDAO.create(r2);
     }
     
     private void createEndUser(Application app){
