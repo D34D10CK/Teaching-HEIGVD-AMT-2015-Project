@@ -24,4 +24,6 @@
 
     </table>
 
+<script src="static/js/fetch.js"></script>
+<script src="static/js/enable-button.js"></script>
   <%@include file="includes/footer.jsp" %>
