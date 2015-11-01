@@ -57,9 +57,9 @@ public class TestDataManager implements TestDataManagerLocal {
         
         
         
-        Application a1 = new Application(key1, u, "app1", "c'est la première app");
-        Application a2 = new Application(key2, u2, "app2", "c'est une autre app");
-        Application a3 = new Application(key3, u, "app3", "Et bim une troisième app");
+        Application a1 = new Application(key1, u, "app1", "c'est la première app", true);
+        Application a2 = new Application(key2, u2, "app2", "c'est une autre app", true);
+        Application a3 = new Application(key3, u, "app3", "Et bim une troisième app", false);
         
         applicationDAO.create(a1);
         applicationDAO.create(a2);
@@ -74,8 +74,8 @@ public class TestDataManager implements TestDataManagerLocal {
         Role r1 = new Role("admin");
         Role r2 = new Role("developper");
         
-        roleDAO.create(r1);
-        roleDAO.create(r2);
+        //roleDAO.create(r1);
+        //roleDAO.create(r2);
     }
     
     private void createEndUser(Application app){

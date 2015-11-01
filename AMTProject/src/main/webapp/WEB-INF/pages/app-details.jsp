@@ -32,7 +32,8 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">Change State</label>
                 <div class="col-sm-10">
-                    <a class="btn btn-success">Enable</a>
+                    <c:if test="${app.enable}"><a  class="btn btn-sm btn-success enable-button">Enable</a></td></c:if>
+                    <c:if test="${!app.enable}"><a class="btn btn-sm btn-danger enable-button">Disable</a></td></c:if>
                 </div>
             </div>
             <div class="form-group">

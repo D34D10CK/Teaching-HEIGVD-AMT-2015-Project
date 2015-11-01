@@ -23,17 +23,19 @@ public class AppDetailsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String action = req.getParameter("action");
         long id = Long.valueOf(req.getParameter("appId"));
+        Application app = applicationDAO.findById(id);
         if(action.equalsIgnoreCase("edit")){
             
-            Application app = applicationDAO.findById(id);
+            
             req.setAttribute("app", app);
             
             req.getRequestDispatcher("/WEB-INF/pages/app-details.jsp").forward(req, resp);
         }else if(action.equalsIgnoreCase("disable")){
-            Application app = applicationDAO.findById(id);
+            
             app.setEnable(!app.isEnable());
             applicationDAO.update(app);
-            req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+            //req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
+            resp.sendRedirect("dashboard");
         }
     }
 
@@ -49,7 +51,7 @@ public class AppDetailsServlet extends HttpServlet {
         User u = (User)sess.getAttribute("user");
         ApiKey key = new ApiKey(apiKey);
         key.setId(idApiKey);
-        Application temp = new Application(key, u, name, description);
+        Application temp = new Application(key, u, name, description, true);
         temp.setId(id);
 
         applicationDAO.update(temp);

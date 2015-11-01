@@ -39,11 +39,12 @@ public class Application extends AbstractEntity<Long> {
     public Application() {
     }
 
-    public Application(ApiKey apiKey, User user, String name, String description) {
+    public Application(ApiKey apiKey, User user, String name, String description, boolean enable) {
         this.apiKey = apiKey;
         this.user = user;
         this.name = name;
         this.description = description;
+        this.enable = enable;
     }
     
     

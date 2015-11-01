@@ -18,11 +18,13 @@
                 <td>${app.description}</td>
                 <td>${app.apiKey.apiKey}</td>
                 <td><a href="list-users?appId=${app.id}&page=0">${app.endUsers.size()}</a></td>
-                <td><a href="#" class="btn btn-sm btn-primary">Edit</a> <a data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td>
+                <td><a href="app-details?action=edit&appId=${app.id}" class="btn btn-sm btn-primary">Edit</a>
+                <c:if test="${app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td></c:if>
+                <c:if test="${!app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-danger enable-button">Disable</a></td></c:if>
             </tr>
         </c:forEach>
     </table>
 
 <script src="static/js/fetch.js"></script>
-<script src="static/js/dashboard.js"></script>
+
   <%@include file="includes/footer.jsp" %>

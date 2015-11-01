@@ -40,7 +40,7 @@ public class NewAppServlet extends HttpServlet {
         ApiKey key = new ApiKey(apiKey);
 
         apiKeyDAO.create(key);
-        Application temp = new Application(key, u, name, description);
+        Application temp = new Application(key, u, name, description, true);
 
         applicationDAO.create(temp);
         resp.sendRedirect("dashboard");
