@@ -24,7 +24,7 @@ Pellet Marc           | ???         | ???
 ### How to use the application
 ### How to update, build and deploy the application
 
-Building the application should be pretty straightforward. 
+Building the application should be pretty straightforward.      
 Deploying the application can be done on the admin console of glassfish (localhost:4848).
 Before beig able to run the application, the user must create a local mysql database named "AMTdatabase" and a user
 "AMTuser" with password "amtpassword".
