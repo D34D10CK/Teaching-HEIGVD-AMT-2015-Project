@@ -27,7 +27,7 @@ Pellet Marc           | ???         | ???
 Building the application should be pretty straightforward.      
 Deploying the application can be done on the admin console of glassfish (localhost:4848).
 Before beig able to run the application, the user must create a local mysql database named "AMTdatabase" and a user
-"AMTuser" with password "amtpassword".
+"AMTUser" with password "amtpassword".
 
 ### How to run the automated test procedure
 
