@@ -5,6 +5,8 @@ if (document.readyState !== 'loading') {
 }
 
 function run() {
+    document.querySelector("#menu-apps-link").classList.add('active');
+
     var enableButtons = document.querySelectorAll('.enable-button');
 
     [].forEach.call(enableButtons, function (button) {

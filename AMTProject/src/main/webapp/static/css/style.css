@@ -38,3 +38,7 @@ html, body {
 #dashboard-content h1 {
     margin-bottom: 50px;
 }
+
+#dashboard-menu a.active {
+    background-color: #3fb618;
+}

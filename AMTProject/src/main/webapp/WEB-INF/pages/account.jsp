@@ -39,5 +39,6 @@
             </div>
         </div>
     </form>
+    <script src="static/js/account.js"></script>
     <%@include file="includes/footer.jsp" %>
 

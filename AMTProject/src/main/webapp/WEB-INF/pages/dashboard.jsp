@@ -21,9 +21,8 @@
                 <td><a href="#" class="btn btn-sm btn-primary">Edit</a> <a data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td>
             </tr>
         </c:forEach>
-
     </table>
 
 <script src="static/js/fetch.js"></script>
-<script src="static/js/enable-button.js"></script>
+<script src="static/js/dashboard.js"></script>
   <%@include file="includes/footer.jsp" %>
