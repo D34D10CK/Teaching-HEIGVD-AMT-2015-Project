@@ -9,8 +9,8 @@ Last name, first name | Github id   | Main role in the project
 ----------------------|-------------|-------------------------
 Berney Léonard        | D3410CK     | Database
 Bron Sacha            | BinaryBrain | Views
-Villa David           | ???         | ???
-Pellet Marc           | ???         | ???
+Villa David           | yoaaaarp    | Controller
+Pellet Marc           | Marcpellet  | Controller
 
 ### Tasks realized by the different team members
 
