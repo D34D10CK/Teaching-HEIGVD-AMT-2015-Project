@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.heigvd.amt.amtproject.utils;
-
-
 
 import ch.heigvd.amt.amtproject.services.TestDataManagerLocal;
 import java.util.concurrent.atomic.AtomicLong;
@@ -96,10 +89,8 @@ public class MonitoringListener implements ServletContextListener, HttpSessionLi
 
   private TestDataManagerLocal lookupTestDataManagerLocal() {
     try {
-      Context c = new InitialContext();
-      //String lookupValue ="java:module/TestDataManagerLocal";
-      //String lookupValue = "java:global/MVCDemo/TestDataManager!ch.heigvd.amt.mvcdemo.services.TestDataManagerLocal";
-      String lookupValue = "java:global/AMTProject/TestDataManager";
+		Context c = new InitialContext();
+		String lookupValue ="java:module/TestDataManager";
 
       return (TestDataManagerLocal) c.lookup(lookupValue);
     } catch (NamingException ne) { 

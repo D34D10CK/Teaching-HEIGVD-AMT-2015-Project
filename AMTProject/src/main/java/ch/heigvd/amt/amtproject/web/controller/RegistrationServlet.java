@@ -10,7 +10,6 @@ import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import javax.ejb.EJB;
 
-
 @WebServlet("/registration")
 public class RegistrationServlet extends HttpServlet {
     @EJB

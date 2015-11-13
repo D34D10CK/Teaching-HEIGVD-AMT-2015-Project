@@ -14,7 +14,6 @@ import java.io.IOException;
 import javax.ejb.EJB;
 import java.util.List;
 
-
 @WebServlet("/list-users")
 public class ListUsersServlet extends HttpServlet {
 
