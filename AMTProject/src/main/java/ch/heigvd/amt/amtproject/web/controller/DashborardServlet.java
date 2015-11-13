@@ -1,6 +1,5 @@
 package ch.heigvd.amt.amtproject.web.controller;
 
-
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;

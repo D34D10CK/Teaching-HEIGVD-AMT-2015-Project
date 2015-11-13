@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ch.heigvd.amt.amtproject.model.entities;
 
 import java.util.Calendar;
@@ -16,10 +11,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-/**
- *
- * @author Marc
- */
 @NamedQueries({
     @NamedQuery(name="EndUser.findByApp", query ="select e from EndUser e where e.app = :app")
 })
