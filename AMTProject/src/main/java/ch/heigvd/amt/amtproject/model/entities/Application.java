@@ -2,7 +2,6 @@ package ch.heigvd.amt.amtproject.model.entities;
 
 
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -14,12 +13,12 @@ import javax.validation.constraints.NotNull;
 @Entity
 @NamedQueries({
     @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey"), 
-    @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.user = :user")})
+    @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.account = :user")})
 public class Application extends AbstractEntity<Long> {
 
     @NotNull
     @ManyToOne
-    private User user;
+    private Account account;
 
     @NotNull
     private String name;
@@ -39,9 +38,9 @@ public class Application extends AbstractEntity<Long> {
     public Application() {
     }
 
-    public Application(ApiKey apiKey, User user, String name, String description, boolean enable) {
+    public Application(ApiKey apiKey, Account user, String name, String description, boolean enable) {
         this.apiKey = apiKey;
-        this.user = user;
+        this.account = user;
         this.name = name;
         this.description = description;
         this.enable = enable;
@@ -57,12 +56,12 @@ public class Application extends AbstractEntity<Long> {
         this.apiKey = apiKey;
     }
 
-    public User getUser() {
-        return user;
+    public Account getUser() {
+        return account;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(Account user) {
+        this.account = user;
     }
 
     public String getName() {

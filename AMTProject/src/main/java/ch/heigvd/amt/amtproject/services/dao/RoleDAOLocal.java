@@ -5,7 +5,7 @@
  */
 package ch.heigvd.amt.amtproject.services.dao;
 
-import ch.heigvd.amt.amtproject.model.entities.Role;
+import ch.heigvd.amt.amtproject.model.entities.UserRole;
 import javax.ejb.Local;
 
 /**
@@ -13,6 +13,6 @@ import javax.ejb.Local;
  * @author Marc
  */
 @Local
-public interface RoleDAOLocal extends IGenericDAO<Role, Long> {
+public interface RoleDAOLocal extends IGenericDAO<UserRole, Long> {
     
 }

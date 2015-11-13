@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import javax.persistence.FieldResult;
 import javax.servlet.annotation.WebFilter;
 
@@ -82,7 +82,7 @@ public class SecurityFilter implements Filter {
      * If the user has been authenticated before, then the AuthenticationServlet has placed
      * an object (in this case a String) in the HTTP session. We can retrieve it.
      */
-    User principal = (User) httpRequest.getSession().getAttribute("user");
+    Account principal = (Account) httpRequest.getSession().getAttribute("user");
     if (principal == null && isTargetUrlProtected) {
       /*
        * The user has not been authenticated and tries to access a protected resource,

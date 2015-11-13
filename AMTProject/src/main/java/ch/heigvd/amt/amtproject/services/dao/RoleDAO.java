@@ -6,13 +6,13 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
 import javax.ejb.Stateless;
-import ch.heigvd.amt.amtproject.model.entities.Role;
+import ch.heigvd.amt.amtproject.model.entities.UserRole;
 /**
  *
  * @author Marc
  */
 @Stateless
-public class RoleDAO extends GenericDAO<Role, Long>implements RoleDAOLocal {
+public class RoleDAO extends GenericDAO<UserRole, Long>implements RoleDAOLocal {
 
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")

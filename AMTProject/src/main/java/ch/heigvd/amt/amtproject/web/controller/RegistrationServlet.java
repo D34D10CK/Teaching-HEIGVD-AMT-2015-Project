@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import javax.ejb.EJB;
 
@@ -30,7 +30,7 @@ public class RegistrationServlet extends HttpServlet {
         String passwordConfirm = req.getParameter("password-confirm");
         
         if(password.equals(passwordConfirm)){
-            User u = new User(email, firstName, lastName, password);
+            Account u = new Account(email, firstName, lastName, password);
             System.out.println(u);
             userDAO.create(u);
             req.getSession().setAttribute("user", u);

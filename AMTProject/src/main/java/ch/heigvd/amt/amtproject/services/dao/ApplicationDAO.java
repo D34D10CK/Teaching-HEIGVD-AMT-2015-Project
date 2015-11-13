@@ -2,7 +2,7 @@ package ch.heigvd.amt.amtproject.services.dao;
 
 import javax.ejb.Stateless;
 import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -18,7 +18,7 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
     }
 
     @Override
-    public List<Application> getAppList(User user) {
+    public List<Application> getAppList(Account user) {
         return em.createNamedQuery("Application.findByUser").setParameter("user", user).getResultList();  
     }
     

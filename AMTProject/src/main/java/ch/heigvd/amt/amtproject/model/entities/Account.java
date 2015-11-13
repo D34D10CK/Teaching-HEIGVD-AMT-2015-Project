@@ -1,7 +1,7 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
-import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -11,11 +11,11 @@ import javax.validation.constraints.Pattern;
 
 @Entity
 @NamedQueries({
-  @NamedQuery(name = "User.testConnection", query = "SELECT u FROM User u WHERE u.email = :username and u.password = :password")
+    @NamedQuery(name = "Account.testConnection", query = "SELECT u FROM Account u WHERE u.email = :username and u.password = :password")
 })
-public class User extends AbstractEntity<Long> {
+public class Account extends AbstractEntity<Long> {
 
-    @NotNull
+    @Column(nullable = false, unique = true)
     @Pattern(regexp = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\."
             + "[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@"
             + "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?",
@@ -30,15 +30,14 @@ public class User extends AbstractEntity<Long> {
 
     @NotNull
     private String password;
-    
-    @OneToMany(mappedBy = "user")
-    private List<Application> applications = new LinkedList<>();
 
-    public User() {
+    @OneToMany(mappedBy = "account")
+    private List<Application> applications;
 
+    public Account() {
     }
 
-    public User(String email, String firstName, String lastName, String password) {
+    public Account(String email, String firstName, String lastName, String password) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;

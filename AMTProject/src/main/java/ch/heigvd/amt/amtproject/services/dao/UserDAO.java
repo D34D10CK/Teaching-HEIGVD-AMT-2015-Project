@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package ch.heigvd.amt.amtproject.services.dao;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 
 import javax.ejb.Stateless;
 import javax.persistence.NoResultException;
@@ -14,13 +14,13 @@ import javax.persistence.NoResultException;
  * @author Marc
  */
 @Stateless
-public class UserDAO extends GenericDAO<User, Long> implements UserDAOLocal {
+public class UserDAO extends GenericDAO<Account, Long> implements UserDAOLocal {
 
     @Override
-    public User testConnection(String username, String password) {
-        User u = null;
+    public Account testConnection(String username, String password) {
+        Account u = null;
         try{
-            u = (User)em.createNamedQuery("User.testConnection").setParameter("username", username).setParameter("password", password).getSingleResult();
+            u = (Account)em.createNamedQuery("User.testConnection").setParameter("username", username).setParameter("password", password).getSingleResult();
         }catch(NoResultException e){
             
         }

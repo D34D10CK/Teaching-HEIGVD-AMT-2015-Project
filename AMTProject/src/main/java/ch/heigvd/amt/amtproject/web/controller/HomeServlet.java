@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 
@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
         
-        User u = userDAO.testConnection(username, password);
+        Account u = userDAO.testConnection(username, password);
         if(u == null){
             req.setAttribute("accountCreated", userDAO.count());
             req.setAttribute("applicationManaged", appDAO.count());

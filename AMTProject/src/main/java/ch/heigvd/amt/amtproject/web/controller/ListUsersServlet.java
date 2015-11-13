@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.web.controller;
 
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.model.entities.EndUser;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
@@ -37,7 +37,7 @@ public class ListUsersServlet extends HttpServlet {
 
         page = page > nbPages ? nbPages : page;
         List<EndUser> endUsers = endUserDAO.findByAppAndPage(app, (int)NB_BY_PAGE, page);
-        User u = (User)req.getSession().getAttribute("user");
+        Account u = (Account)req.getSession().getAttribute("user");
         
         req.setAttribute("appId", appId);
         req.setAttribute("appName", app.getName());

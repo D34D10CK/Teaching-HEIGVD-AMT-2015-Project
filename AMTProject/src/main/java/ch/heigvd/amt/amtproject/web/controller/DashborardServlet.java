@@ -8,7 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import javax.servlet.http.HttpSession;
 
@@ -22,7 +22,7 @@ public class DashborardServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
         
         
-        User u = (User)session.getAttribute("user");
+        Account u = (Account)session.getAttribute("user");
         
         Object model = applicationDAO.getAppList(u);
 	req.setAttribute("apps", model);

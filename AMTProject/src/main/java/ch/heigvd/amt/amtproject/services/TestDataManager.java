@@ -41,8 +41,8 @@ public class TestDataManager implements TestDataManagerLocal {
 
     @Override
     public void generateTestData() {
-        User u = new User("test@t.com", "t", "t", "t");
-        User u2 = new User("marc@heig-vd.ch", "Marc", "Pellet", "bonjour");
+        Account u = new Account("test@t.com", "t", "t", "t");
+        Account u2 = new Account("marc@heig-vd.ch", "Marc", "Pellet", "bonjour");
         
         userDAO.create(u);
         userDAO.create(u2);
@@ -71,8 +71,8 @@ public class TestDataManager implements TestDataManagerLocal {
             createEndUser(a2);
         }
            
-        Role r1 = new Role("admin");
-        Role r2 = new Role("developper");
+        UserRole r1 = new UserRole("admin");
+        UserRole r2 = new UserRole("developper");
         
         //roleDAO.create(r1);
         //roleDAO.create(r2);

@@ -2,7 +2,7 @@ package ch.heigvd.amt.amtproject.web.controller;
 
 import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,7 +48,7 @@ public class AppDetailsServlet extends HttpServlet {
         Long id = Long.valueOf(req.getParameter("id"));
         HttpSession sess = req.getSession(false);
         
-        User u = (User)sess.getAttribute("user");
+        Account u = (Account)sess.getAttribute("user");
         ApiKey key = new ApiKey(apiKey);
         key.setId(idApiKey);
         Application temp = new Application(key, u, name, description, true);

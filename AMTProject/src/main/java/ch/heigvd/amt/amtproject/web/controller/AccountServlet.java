@@ -6,7 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import javax.ejb.EJB;
 
@@ -17,7 +17,7 @@ public class AccountServlet extends HttpServlet {
     
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user =  (User)req.getSession().getAttribute("user");
+        Account user =  (Account)req.getSession().getAttribute("user");
         req.setAttribute("user", user);
         req.setAttribute("name", user.getEmail());
         req.getRequestDispatcher("/WEB-INF/pages/account.jsp").forward(req, resp);
@@ -33,8 +33,8 @@ public class AccountServlet extends HttpServlet {
         String passwordConfirm = req.getParameter("password-confirm");
         
         if(password.equals(passwordConfirm)){
-            User modifiedUser = new User(email, firstName, lastName, password);
-            User currentUser = (User)req.getSession().getAttribute("user");
+            Account modifiedUser = new Account(email, firstName, lastName, password);
+            Account currentUser = (Account)req.getSession().getAttribute("user");
             System.out.println("Current user ID : " + currentUser.getId());
             modifiedUser.setId(currentUser.getId());
             System.out.println("New user ID : " + modifiedUser.getId());

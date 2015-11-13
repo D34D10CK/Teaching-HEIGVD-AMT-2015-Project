@@ -5,7 +5,7 @@
  */
 package ch.heigvd.amt.amtproject.services.dao;
 
-import ch.heigvd.amt.amtproject.model.entities.User;
+import ch.heigvd.amt.amtproject.model.entities.Account;
 import javax.ejb.Local;
 
 /**
@@ -13,9 +13,9 @@ import javax.ejb.Local;
  * @author Marc
  */
 @Local
-public interface UserDAOLocal extends IGenericDAO<User, Long>{
+public interface UserDAOLocal extends IGenericDAO<Account, Long>{
 
-    User testConnection(String username, String password);
+    Account testConnection(String username, String password);
 
     
 }
