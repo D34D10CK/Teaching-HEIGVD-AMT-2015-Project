@@ -96,10 +96,8 @@ public class MonitoringListener implements ServletContextListener, HttpSessionLi
 
   private TestDataManagerLocal lookupTestDataManagerLocal() {
     try {
-      Context c = new InitialContext();
-      //String lookupValue ="java:module/TestDataManagerLocal";
-      //String lookupValue = "java:global/MVCDemo/TestDataManager!ch.heigvd.amt.mvcdemo.services.TestDataManagerLocal";
-      String lookupValue = "java:global/AMTProject/TestDataManager";
+		Context c = new InitialContext();
+		String lookupValue ="java:module/TestDataManager";
 
       return (TestDataManagerLocal) c.lookup(lookupValue);
     } catch (NamingException ne) { 
