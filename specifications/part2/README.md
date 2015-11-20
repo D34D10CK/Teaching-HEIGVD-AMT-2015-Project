@@ -19,7 +19,7 @@ The objective of the second part of the project is to design, implement and vali
 We will not give you a complete and detailed specification (i.e. the specification of a REST API) at the beginning of this phase. Instead, we will design it together, week by week. We want to see regular progress and we will ask for interim presentations and reports. Here is the high-level planning for the phase:
 
 Week | Date | Goals and activities
-------|------------------------------
+------|------------------------------|---------
 1 | 06.11.2015 | Specification of the gamification features; first design of the domain model and of the REST APIs
 2 | 13.11.2015 | Design of the event stream processing service; implementation of the REST APIs; definition of the demonstration strategy
 3 | 20.11.2015 | Implementation of the event stream processing and of the REST APIs; implementation of the demonstration strategy; definition of validation strategy
