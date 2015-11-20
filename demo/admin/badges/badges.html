@@ -1,0 +1,14 @@
+<template name="adminBadgesTemplate">
+	<h2>Manage Badges</h2>
+	<table class="table table-bordered">
+		<tbody>
+			<tr><th>Name</th><th>Image</th></tr>
+			{{#each badges}}
+				<tr>
+					<td>{{ name }}</td>
+					<td><img src="{{ img }}" class="small-badge"></td>
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+</template>
