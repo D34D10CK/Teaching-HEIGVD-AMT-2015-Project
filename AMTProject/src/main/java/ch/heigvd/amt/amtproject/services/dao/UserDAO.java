@@ -11,7 +11,7 @@ public class UserDAO extends GenericDAO<Account, Long> implements UserDAOLocal {
     public Account testConnection(String username, String password) {
         Account u = null;
         try{
-            u = (Account)em.createNamedQuery("User.testConnection").setParameter("username", username).setParameter("password", password).getSingleResult();
+            u = (Account)em.createNamedQuery("Account.testConnection").setParameter("username", username).setParameter("password", password).getSingleResult();
         }catch(NoResultException e){
             
         }
