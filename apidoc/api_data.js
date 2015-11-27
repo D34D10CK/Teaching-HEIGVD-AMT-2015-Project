@@ -4,7 +4,7 @@ define({ "api": [
     "url": "/badges/:id",
     "title": "Delete a badge",
     "name": "DeleteBadges",
-    "group": "badges",
+    "group": "Badges",
     "version": "0.1.0",
     "parameter": {
       "fields": {
@@ -38,33 +38,14 @@ define({ "api": [
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "badges"
-  },
-  {
-    "type": "GET",
-    "url": "/badges/:id",
-    "title": "Get a single badge",
-    "name": "GetBadge",
-    "group": "badges",
-    "version": "0.1.0",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"CoolBadge\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "specifications/api-doc.java",
-    "groupTitle": "badges"
+    "groupTitle": "Badges"
   },
   {
     "type": "GET",
     "url": "/badges",
     "title": "Get every badges",
     "name": "GetBadges",
-    "group": "badges",
+    "group": "Badges",
     "version": "0.1.0",
     "success": {
       "examples": [
@@ -76,14 +57,14 @@ define({ "api": [
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "badges"
+    "groupTitle": "Badges"
   },
   {
     "type": "POST",
     "url": "/badges",
     "title": "Add a new badge",
     "name": "PostBadges",
-    "group": "badges",
+    "group": "Badges",
     "version": "0.1.0",
     "parameter": {
       "fields": {
@@ -108,14 +89,14 @@ define({ "api": [
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "badges"
+    "groupTitle": "Badges"
   },
   {
     "type": "PUT",
     "url": "/badges/:id",
     "title": "Update a badge",
     "name": "PutBadges",
-    "group": "badges",
+    "group": "Badges",
     "version": "0.1.0",
     "parameter": {
       "fields": {
@@ -156,6 +137,6 @@ define({ "api": [
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "badges"
+    "groupTitle": "Badges"
   }
 ] });
