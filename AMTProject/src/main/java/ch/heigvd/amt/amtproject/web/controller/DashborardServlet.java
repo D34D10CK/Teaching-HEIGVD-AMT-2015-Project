@@ -23,7 +23,7 @@ public class DashborardServlet extends HttpServlet {
         
         Account u = (Account)session.getAttribute("user");
         
-        Object model = applicationDAO.getAppList(u);
+        Object model = applicationDAO.getAppListWithNumber(u);
 	req.setAttribute("apps", model);
         
         req.setAttribute("name", u.getEmail());

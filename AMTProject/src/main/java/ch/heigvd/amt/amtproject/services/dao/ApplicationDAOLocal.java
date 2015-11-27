@@ -12,5 +12,7 @@ public interface ApplicationDAOLocal extends IGenericDAO<Application, Long>{
 
     List<Application> getAppList(Account user);
 
+    List<Object> getAppListWithNumber(Account user);
+
     
 }

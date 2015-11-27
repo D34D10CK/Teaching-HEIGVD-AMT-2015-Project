@@ -36,6 +36,7 @@ public class ListUsersServlet extends HttpServlet {
 
         page = page > nbPages ? nbPages : page;
         List<EndUser> endUsers = endUserDAO.findByAppAndPage(app, (int)NB_BY_PAGE, page);
+        
         Account u = (Account)req.getSession().getAttribute("user");
         
         req.setAttribute("appId", appId);

@@ -21,6 +21,11 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
     public List<Application> getAppList(Account user) {
         return em.createNamedQuery("Application.findByUser").setParameter("user", user).getResultList();  
     }
+
+    @Override
+    public List<Object> getAppListWithNumber(Account user) {
+        return em.createNamedQuery("Application.findNumberByUser").setParameter("user", user).getResultList();
+    }
     
     
 
