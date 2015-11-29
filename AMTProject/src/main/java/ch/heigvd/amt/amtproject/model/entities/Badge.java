@@ -2,26 +2,34 @@ package ch.heigvd.amt.amtproject.model.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@NamedQueries({
+    // requete a completer !!!
+    @NamedQuery(name = "Badge.findAllByApiKey", query = ""), 
+    @NamedQuery(name = "Badge.findById", query = ""),
+})
 public class Badge extends AbstractEntity<Long> {
 
+    // TODO comment modifier pour avoir un nom unique par badge
+    // d'une même application mais pouvant être utilisé par une
+    // autre application
     @Column(unique = true, nullable = false)
     private String name;
 
     @NotNull
-    @Lob
-    private byte[] picture;
+    private String imageUrl;
 
     @ManyToOne
     private Application app;
 
-    public Badge(String name, byte[] picture, Application app) {
+    public Badge(String name, String url, Application app) {
         this.name = name;
-        this.picture = picture;
+        imageUrl = url;
         this.app = app;
     }
 
@@ -40,12 +48,12 @@ public class Badge extends AbstractEntity<Long> {
         this.name = name;
     }
 
-    public byte[] getPicture() {
-        return picture;
+    public String getPictureUrl() {
+        return imageUrl;
     }
 
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
+    public void setPictureUrl(String url) {
+        imageUrl = url;
     }
 
     public void setApp(Application app) {
