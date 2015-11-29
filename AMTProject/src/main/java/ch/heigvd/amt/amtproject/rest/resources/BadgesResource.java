@@ -43,7 +43,7 @@ public class BadgesResource {
      */
     @GET
     @Produces("application/json")
-    public List<BadgeDTO> getAppBadges(@PathParam(value="apiKey") String appApiKey){
+    public List<BadgeSummaryDTO> getAppBadges(@PathParam(value="apiKey") String appApiKey){
         return null;
     }
     
