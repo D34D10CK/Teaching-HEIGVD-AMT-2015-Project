@@ -13,14 +13,6 @@ package ch.heigvd.amt.amtproject.rest;
  * Injection (CDI). This is often used as an alternative to EJB-based dependency
  * injection (CDI was added to Java EE later).
  * 
- * You should read the code in the following order:
- * - SystemResource.java
- * - BeersResource.java
- * - SectorsResource.java
- * - CompaniesResource.java
- * - EmployeesResource.java
- * - HiringFormsResource.java
- * 
  * The .dto package contains Data Transfer Object (DTO) classes, which define
  * what data is exchanged with HTTP clients via the REST API endpoint (in and
  * out).

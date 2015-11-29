@@ -5,10 +5,11 @@
  */
 package ch.heigvd.amt.amtproject.rest.resources;
 
-import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.BadgeDAOLocal;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
+import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
+import ch.heigvd.amt.amtproject.rest.dto.BadgeSummaryDTO;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -46,9 +47,22 @@ public class BadgesResource {
         return null;
     }
     
+    /**
+     * Ajoute et lie un nouveau badge à l'application
+     * 
+     * @param newBadge - informations nécessaires à la creation du badge
+     * @return l'URI de la nouvelle ressource
+     */
     @POST
     @Consumes("application/json")
     public Response createBadge(BadgeCreationDTO newBadge){
+        return null;
+    }
+    
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public BadgeDTO getBadge(@PathParam(value = "id") long id){
         return null;
     }
     
