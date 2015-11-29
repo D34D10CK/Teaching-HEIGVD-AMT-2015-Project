@@ -16,9 +16,9 @@ public class Reputation extends AbstractEntity<Long> {
     private List<Badge> badges;
 
     @ManyToOne
-    private UserLevel level;
+    private Level level;
 
-    public Reputation(List<Badge> badges, UserLevel level) {
+    public Reputation(List<Badge> badges, Level level) {
         this.level = level;
         this.badges = badges;
     }
@@ -42,11 +42,11 @@ public class Reputation extends AbstractEntity<Long> {
         this.badges = badges;
     }
 
-    public UserLevel getLevel() {
+    public Level getLevel() {
         return level;
     }
 
-    public void setLevel(UserLevel level) {
+    public void setLevel(Level level) {
         this.level = level;
     }
 

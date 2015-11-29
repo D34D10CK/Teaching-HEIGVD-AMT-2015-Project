@@ -42,7 +42,7 @@ public class Application extends AbstractEntity<Long> {
     private List<Badge> badges;
 
     @OneToMany
-    private List<UserLevel> levels;
+    private List<Level> levels;
 
     public Application() {
     }
@@ -107,7 +107,7 @@ public class Application extends AbstractEntity<Long> {
         return badges;
     }
 
-    public List<UserLevel> getLevels() {
+    public List<Level> getLevels() {
         return levels;
     }
 
@@ -123,7 +123,7 @@ public class Application extends AbstractEntity<Long> {
         this.badges = badges;
     }
 
-    public void setLevels(List<UserLevel> levels) {
+    public void setLevels(List<Level> levels) {
         this.levels = levels;
     }
 }

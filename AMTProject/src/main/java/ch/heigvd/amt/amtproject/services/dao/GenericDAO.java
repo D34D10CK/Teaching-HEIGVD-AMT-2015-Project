@@ -13,7 +13,7 @@ import javax.persistence.PersistenceContext;
 public class GenericDAO<T extends AbstractEntity<PK>, PK> implements IGenericDAO<T, PK> {
 
   @PersistenceContext
-  EntityManager em;
+  protected EntityManager em;
 
   private final Class<T> jpaEntityClass;
 
