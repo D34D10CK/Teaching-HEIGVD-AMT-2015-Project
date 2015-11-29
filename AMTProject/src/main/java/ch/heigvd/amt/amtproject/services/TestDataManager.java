@@ -6,7 +6,6 @@ import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 
 import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
-import ch.heigvd.amt.amtproject.services.dao.RoleDAO;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
 
 import javax.ejb.EJB;
@@ -62,8 +61,8 @@ public class TestDataManager implements TestDataManagerLocal {
             createEndUser(a2);
         }
            
-        UserRole r1 = new UserRole("admin");
-        UserRole r2 = new UserRole("developper");
+        //UserRole r1 = new UserRole("admin");
+        //UserRole r2 = new UserRole("developper");
         
         //roleDAO.create(r1);
         //roleDAO.create(r2);
