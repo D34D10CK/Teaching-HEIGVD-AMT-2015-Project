@@ -88,8 +88,8 @@ public class SecurityFilter implements Filter {
        * The user has not been authenticated and tries to access a protected resource,
        * we display the login page (and interrupt the request processing pipeline).
        */
-        
-      request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
+      request.getRequestDispatcher("/home").forward(request, response);
+      //request.getRequestDispatcher("/WEB-INF/pages/home.jsp").forward(request, response);
     } else {
       /*
        * We authorize the access, so we can tell the request processing pipeline to

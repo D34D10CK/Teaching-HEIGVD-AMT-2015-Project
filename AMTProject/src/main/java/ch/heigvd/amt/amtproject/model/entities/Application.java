@@ -1,6 +1,5 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
-
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -12,8 +11,12 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
+
     @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey"), 
-    @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.account = :user")})
+    @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.account = :user"),
+    @NamedQuery(name = "Application.findNumberByUser" , query = "select a, count(eu) from Application a, EndUser eu where eu.app = a and a.account = :user group by eu.app")
+})
+
 public class Application extends AbstractEntity<Long> {
 
     @NotNull
@@ -22,19 +25,25 @@ public class Application extends AbstractEntity<Long> {
 
     @NotNull
     private String name;
-    
+
     @NotNull
     private String description;
-    
+
     @NotNull
     private boolean enable;
-    
+
     @OneToOne
     private ApiKey apiKey;
-    
+
     @OneToMany(mappedBy = "app")
     private List<EndUser> endUsers;
-    
+
+    @OneToMany
+    private List<Badge> badges;
+
+    @OneToMany
+    private List<UserLevel> levels;
+
     public Application() {
     }
 
@@ -45,8 +54,6 @@ public class Application extends AbstractEntity<Long> {
         this.description = description;
         this.enable = enable;
     }
-    
-    
 
     public ApiKey getApiKey() {
         return apiKey;
@@ -92,9 +99,31 @@ public class Application extends AbstractEntity<Long> {
         return endUsers;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public List<Badge> getBadges() {
+        return badges;
+    }
+
+    public List<UserLevel> getLevels() {
+        return levels;
+    }
+
     public void setEndUsers(List<EndUser> endUsers) {
         this.endUsers = endUsers;
     }
-    
-    
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public void setBadges(List<Badge> badges) {
+        this.badges = badges;
+    }
+
+    public void setLevels(List<UserLevel> levels) {
+        this.levels = levels;
+    }
 }
