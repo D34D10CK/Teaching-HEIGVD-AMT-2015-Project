@@ -44,6 +44,9 @@ public class Application extends AbstractEntity<Long> {
     @OneToMany
     private List<Level> levels;
 
+    @OneToMany
+    private List<Rule> rules;
+    
     public Application() {
     }
 
@@ -111,6 +114,10 @@ public class Application extends AbstractEntity<Long> {
         return levels;
     }
 
+    public List<Rule> getRules() {
+        return rules;
+    }
+
     public void setEndUsers(List<EndUser> endUsers) {
         this.endUsers = endUsers;
     }
@@ -125,5 +132,9 @@ public class Application extends AbstractEntity<Long> {
 
     public void setLevels(List<Level> levels) {
         this.levels = levels;
+    }
+
+    public void setRules(List<Rule> rules) {
+        this.rules = rules;
     }
 }

@@ -8,7 +8,7 @@ package ch.heigvd.amt.amtproject.rest.resources;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Badge;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
-import ch.heigvd.amt.amtproject.services.dao.BadgeDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAOLocal;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeSummaryDTO;

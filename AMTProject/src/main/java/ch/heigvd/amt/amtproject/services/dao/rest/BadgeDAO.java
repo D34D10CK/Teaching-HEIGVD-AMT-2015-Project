@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ch.heigvd.amt.amtproject.services.dao;
+package ch.heigvd.amt.amtproject.services.dao.rest;
 
 import ch.heigvd.amt.amtproject.model.entities.Badge;
+import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
 import java.util.List;
 import javax.ejb.Stateless;
 
