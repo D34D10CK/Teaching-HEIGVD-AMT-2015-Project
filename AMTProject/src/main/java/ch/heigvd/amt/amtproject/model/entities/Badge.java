@@ -9,7 +9,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    // requete a completer !!!
     @NamedQuery(name = "Badge.findAllByApiKey", query = ""), 
     @NamedQuery(name = "Badge.findById", query = ""),
 })

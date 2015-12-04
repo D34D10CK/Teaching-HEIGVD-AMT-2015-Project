@@ -5,10 +5,13 @@
  */
 package ch.heigvd.amt.amtproject.rest.dto;
 
+import java.net.URI;
+
 /**
  *
  * @author David
  */
 public class BadgeSummaryDTO {
-    
+    private URI href;
+    private String name;
 }

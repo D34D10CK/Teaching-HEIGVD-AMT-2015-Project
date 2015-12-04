@@ -5,10 +5,10 @@
  */
 package ch.heigvd.amt.amtproject.services.dao;
 
-/**
- *
- * @author David
- */
-public class BadgeDAOLocal {
+import ch.heigvd.amt.amtproject.model.entities.Badge;
+import javax.ejb.Local;
+
+@Local
+public interface BadgeDAOLocal extends IGenericDAO<Badge, Long>{
     
 }
