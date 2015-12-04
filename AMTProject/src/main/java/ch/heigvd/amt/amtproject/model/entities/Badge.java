@@ -9,9 +9,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    // requete a completer !!!
-    @NamedQuery(name = "Badge.findAllByApiKey", query = ""), 
-    @NamedQuery(name = "Badge.findById", query = ""),
+    @NamedQuery(name = "Badge.findAllByApiKey", query = "select b from Badge b, Application a where b.app = a and a.apiKey = :apiKey")
 })
 public class Badge extends AbstractEntity<Long> {
 

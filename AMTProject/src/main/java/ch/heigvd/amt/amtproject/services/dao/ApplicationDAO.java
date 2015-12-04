@@ -4,7 +4,6 @@ import javax.ejb.Stateless;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Account;
 import java.util.List;
-import java.util.Random;
 import java.util.UUID;
 
 @Stateless
@@ -27,8 +26,9 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
         return em.createNamedQuery("Application.findNumberByUser").setParameter("user", user).getResultList();
     }
     
-    
-
-    
+    @Override
+    public Application getAppByApiKey(String apiKey) {
+        return (Application) em.createNamedQuery("Application.findByApiKey").setParameter("apiKey", apiKey).getSingleResult();
+    }
     
 }
