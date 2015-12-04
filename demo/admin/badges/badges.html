@@ -2,13 +2,13 @@
 	<h2>Manage Badges</h2>
 
 	<h3>Existing Badges</h3>
-	<table class="table table-bordered">
+	<table class="table table-bordered" id="existing-badges">
 		<tbody>
 			<tr><th>Name</th><th>Image</th><th>Actions</th></tr>
 			{{#each badges}}
 				<tr>
 					<td>{{ name }}</td>
-					<td><img src="{{ img }}" class="small-badge"></td>
+					<td><img src="{{ url }}" class="small-badge"></td>
 					<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus"></span></button></td>
 				</tr>
 			{{/each}}
@@ -20,9 +20,9 @@
 		<tbody>
 			<tr><th>Name</th><th>Image</th><th>Actions</th></tr>
 			<tr>
-				<td><input type="text" placeholder="Text"></td>
-				<td><input type="url" placeholder="URL"></td>
-				<td><button class="btn btn-success btn-sm"><span class="glyphicon glyphicon-plus"></span></button></td>
+				<td><input type="text" placeholder="Text" id="new-badge-name"></td>
+				<td><input type="url" placeholder="URL" id="new-badge-url"></td>
+				<td><button class="btn btn-success btn-sm" id="add-new-badge"><span class="glyphicon glyphicon-plus"></span></button></td>
 			</tr>
 		</tbody>
 	</table>
