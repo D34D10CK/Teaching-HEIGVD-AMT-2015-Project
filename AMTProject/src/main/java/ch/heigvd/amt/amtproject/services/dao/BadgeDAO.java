@@ -5,6 +5,7 @@
  */
 package ch.heigvd.amt.amtproject.services.dao;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Badge;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -12,7 +13,7 @@ import javax.ejb.Stateless;
 @Stateless
 public class BadgeDAO extends GenericDAO<Badge, Long> implements BadgeDAOLocal {
     @Override
-    public List<Badge> getAppBadges(String apiKey){
-        return em.createNamedQuery("Application.findByUser").setParameter("apiKey", apiKey).getResultList();
+    public List<Badge> getAppBadges(ApiKey apiKey){
+        return em.createNamedQuery("Application.findByApiKey").setParameter("apiKey", apiKey).getResultList();
     }
 }

@@ -5,6 +5,7 @@
  */
 package ch.heigvd.amt.amtproject.rest.resources;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Badge;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
@@ -81,7 +82,7 @@ public class BadgesResource {
      */
     @GET
     @Produces("application/json")
-    public List<BadgeSummaryDTO> getAppBadges(@HeaderParam("api-key") String apiKey){
+    public List<BadgeSummaryDTO> getAppBadges(@HeaderParam("api-key") ApiKey apiKey){
         List<BadgeSummaryDTO> result = new ArrayList<>();
         List<Badge> appBadges = badgesDAO.getAppBadges(apiKey);
         for (Badge badge : appBadges) {
