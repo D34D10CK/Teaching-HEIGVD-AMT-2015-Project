@@ -13,11 +13,13 @@ import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeSummaryDTO;
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.HeaderParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -63,7 +65,7 @@ public class BadgesResource {
         URI href = uriInfo
         .getBaseUriBuilder()
         .path(BadgesResource.class)
-        .path(BadgesResource.class, "getCompany")
+        .path(BadgesResource.class, "getBadge")
         .build(badgeId);
 
         return Response
@@ -74,20 +76,44 @@ public class BadgesResource {
     /**
      * Retourne la liste des badges existants liés à l'application
      * 
-     * @param appApiKey - api key unique identifiant l'application
+     * @param apiKey - api-key unique identifiant l'application
      * @return la liste des badges
      */
     @GET
     @Produces("application/json")
-    public List<BadgeSummaryDTO> getAppBadges(@PathParam(value="apiKey") String appApiKey){
-        return null;
+    public List<BadgeSummaryDTO> getAppBadges(@HeaderParam("api-key") String apiKey){
+        List<BadgeSummaryDTO> result = new ArrayList<>();
+        List<Badge> appBadges = badgesDAO.getAppBadges(apiKey);
+        for (Badge badge : appBadges) {
+            BadgeSummaryDTO dto = new BadgeSummaryDTO();
+            populateSummaryDTOFromEntity(badge, dto);
+            result.add(dto);
+        }
+        return result;
     }
     
     @GET
     @Path("/{id}")
     @Produces("application/json")
     public BadgeDTO getBadge(@PathParam(value = "id") long id){
-        return null;
+        Badge badge = badgesDAO.findById(id);
+        BadgeDTO dto = new BadgeDTO();
+        populateDTOFromEntity(badge, dto);
+        return dto;
     }
     
+    private void populateSummaryDTOFromEntity(Badge badge, BadgeSummaryDTO dto){
+        long badgeId = badge.getId();
+        URI badgeHref = uriInfo
+        .getAbsolutePathBuilder()
+        .path(BadgesResource.class, "getBadge")
+        .build(badgeId);
+        dto.setHref(badgeHref);
+        dto.setName(badge.getName());
+    }
+    
+    private void populateDTOFromEntity(Badge badge, BadgeDTO dto){
+        populateSummaryDTOFromEntity(badge, dto);
+        dto.setImageUrl(badge.getPictureUrl());
+    }
 }

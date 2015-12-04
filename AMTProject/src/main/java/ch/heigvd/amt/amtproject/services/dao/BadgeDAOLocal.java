@@ -6,9 +6,10 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
 import ch.heigvd.amt.amtproject.model.entities.Badge;
+import java.util.List;
 import javax.ejb.Local;
 
 @Local
 public interface BadgeDAOLocal extends IGenericDAO<Badge, Long>{
-    
+    List<Badge> getAppBadges(String apiKey);
 }
