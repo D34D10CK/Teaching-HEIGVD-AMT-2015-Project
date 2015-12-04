@@ -11,4 +11,6 @@ import javax.ejb.Stateless;
 @Stateless
 public class BadgeDAO extends GenericDAO<Badge, Long> {
     
+    
+    
 }
