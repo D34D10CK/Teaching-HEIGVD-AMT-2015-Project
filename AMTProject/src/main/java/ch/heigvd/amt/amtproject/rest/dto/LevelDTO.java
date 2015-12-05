@@ -3,6 +3,9 @@ package ch.heigvd.amt.amtproject.rest.dto;
 import ch.heigvd.amt.amtproject.model.entities.Level;
 import javax.ejb.Stateless;
 
+/**
+ * Un DTO pour transférer un Level. Contient tous les champs sauf ID
+ */
 @Stateless
 public class LevelDTO {
 

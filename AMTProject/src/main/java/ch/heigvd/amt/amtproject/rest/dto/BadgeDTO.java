@@ -1,6 +1,3 @@
-/**
- * 
- */
 package ch.heigvd.amt.amtproject.rest.dto;
 
 /**
@@ -8,6 +5,7 @@ package ch.heigvd.amt.amtproject.rest.dto;
  * @author David
  */
 public class BadgeDTO extends BadgeSummaryDTO {
+
     private String imageUrl;
 
     public String getImageUrl() {
@@ -17,6 +15,4 @@ public class BadgeDTO extends BadgeSummaryDTO {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
-    
-    
 }
