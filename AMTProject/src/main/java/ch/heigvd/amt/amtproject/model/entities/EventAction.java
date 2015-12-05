@@ -8,8 +8,8 @@ import javax.persistence.NamedQuery;
 
 @Entity
 @NamedQueries({
-    // A COMPLETETETASDJ OASJDIOAS DASDASDASDasd
-    @NamedQuery(name = "Action.findAllByApiKey", query = "...")
+	// TODO add query
+	// @NamedQuery(name = "Action.findAllByApiKey", query = "...")
 })
 public class EventAction extends AbstractEntity<Long>{
     @Column(unique = true, nullable = false)

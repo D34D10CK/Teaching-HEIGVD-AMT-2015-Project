@@ -15,8 +15,8 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-    // A COMPLETETETASDJ OASJDIOAS DASDASDASDasd
-    @NamedQuery(name = "Rule.findAllByEventAndConditions", query = "...")
+	// TODO add query
+    // @NamedQuery(name = "Rule.findAllByEventAndConditions", query = "...")
 })
 public class Rule extends AbstractEntity<Long>{
     @OneToMany

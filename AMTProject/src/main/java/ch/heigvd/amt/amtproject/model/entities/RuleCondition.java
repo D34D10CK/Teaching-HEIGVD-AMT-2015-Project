@@ -14,8 +14,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    // A COMPLETETETASDJ OASJDIOAS DASDASDASDasd
-    @NamedQuery(name = "Condition.findAllByRuleId", query = "...")
+    // TODO add query
+    // @NamedQuery(name = "Condition.findAllByRuleId", query = "...")
 })
 public class RuleCondition extends AbstractEntity<Long>{
     @Column(unique = true, nullable = false)
