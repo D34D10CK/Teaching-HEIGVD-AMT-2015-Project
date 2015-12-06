@@ -11,6 +11,6 @@ public class BadgeDAO extends GenericDAO<Badge, Long> implements BadgeDAOLocal {
 
     @Override
     public List<Badge> getAppBadges(ApiKey apiKey) {
-        return em.createNamedQuery("Application.findByApiKey").setParameter("apiKey", apiKey).getResultList();
+       return em.createNamedQuery("Badge.findAllByApiKey").setParameter("apiKey", apiKey).getResultList();
     }
 }

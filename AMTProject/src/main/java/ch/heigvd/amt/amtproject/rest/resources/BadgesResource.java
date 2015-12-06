@@ -51,8 +51,6 @@ public class BadgesResource {
         badge.setName(newBadge.getBadgeName());
         badge.setPictureUrl(newBadge.getUrl());
         badge.setApp(app);
-
-
         
         long badgeId = badgesDAO.create(badge);
         
