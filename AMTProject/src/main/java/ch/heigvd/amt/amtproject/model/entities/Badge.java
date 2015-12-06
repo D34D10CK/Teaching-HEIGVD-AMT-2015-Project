@@ -46,11 +46,11 @@ public class Badge extends AbstractEntity<Long> {
         this.name = name;
     }
 
-    public String getPictureUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setPictureUrl(String url) {
+    public void setImageUrl(String url) {
         imageUrl = url;
     }
 

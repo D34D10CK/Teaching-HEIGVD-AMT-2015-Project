@@ -6,19 +6,18 @@
  * sa requête pour le bon déroulement de l'opération
  * 
  * apiKey : apikey de l'application appelante
- * imgUrl    : url de l'image a utiliser pour le badge
- * imgName   : nom du badge en question
+ * imgUrl : url de l'image a utiliser pour le badge
+ * name   : nom du badge en question
  */
 package ch.heigvd.amt.amtproject.rest.dto;
 
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 
 public class BadgeCreationDTO {
     private Application app;
     private String imgUrl;
-    private String badgeName;
+    private String name;
 
 	public Application getApp() {
 		return app;
@@ -36,11 +35,11 @@ public class BadgeCreationDTO {
         imgUrl = url;
     }
     
-    public String getBadgeName(){
-        return badgeName;
+    public String getName(){
+        return name;
     }
     
-    public void setBadgeName(String name){
-        badgeName = name;
+    public void setName(String name){
+        this.name = name;
     }
 }
