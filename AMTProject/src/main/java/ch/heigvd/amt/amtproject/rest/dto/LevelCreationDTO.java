@@ -1,10 +1,12 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
+
 public class LevelCreationDTO {
 
     private String name;
     private int requiredPoints;
-    private String apiKey;
+    private ApiKey apiKey;
 
     public String getName() {
         return name;
@@ -22,11 +24,11 @@ public class LevelCreationDTO {
         this.requiredPoints = requiredPoints;
     }
 
-    public String getApiKey() {
+    public ApiKey getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(String apiKey) {
+    public void setApiKey(ApiKey apiKey) {
         this.apiKey = apiKey;
     }
 }

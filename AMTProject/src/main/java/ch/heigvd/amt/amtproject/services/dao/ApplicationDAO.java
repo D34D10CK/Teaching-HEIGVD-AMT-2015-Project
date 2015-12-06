@@ -1,6 +1,8 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
 import javax.ejb.Stateless;
+
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Account;
 import java.util.List;
@@ -27,7 +29,7 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
     }
     
     @Override
-    public Application getAppByApiKey(String apiKey) {
+    public Application getAppByApiKey(ApiKey apiKey) {
         return (Application) em.createNamedQuery("Application.findByApiKey").setParameter("apiKey", apiKey).getSingleResult();
     }
     

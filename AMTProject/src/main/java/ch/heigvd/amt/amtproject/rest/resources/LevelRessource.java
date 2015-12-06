@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.resources;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Level;
 import ch.heigvd.amt.amtproject.rest.dto.LevelCreationDTO;
@@ -36,7 +37,7 @@ public class LevelRessource {
 
     @GET
     @Produces("application/json")
-    public List<LevelDTO> getLevels(@HeaderParam("api-key") String apiKey) {
+    public List<LevelDTO> getLevels(@HeaderParam("api-key") ApiKey apiKey) {
         List<LevelDTO> dtos = new ArrayList<>();
         List<Level> levels = levelDAO.getLevels(apiKey);
         for (Level l : levels) {

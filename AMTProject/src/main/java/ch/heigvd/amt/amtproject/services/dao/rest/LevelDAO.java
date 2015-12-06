@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Level;
 import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
 import java.util.List;
@@ -15,7 +16,7 @@ public class LevelDAO extends GenericDAO<Level, Long> implements LevelDAOLocal {
      * @return une List de Level correspondants à l'api key donnée en paramètre
      */
     @Override
-    public List<Level> getLevels(String apiKey) {
+    public List<Level> getLevels(ApiKey apiKey) {
         return em.createNamedQuery("Level.findByApiKey").setParameter("apiKey", apiKey).getResultList();
     }
 }

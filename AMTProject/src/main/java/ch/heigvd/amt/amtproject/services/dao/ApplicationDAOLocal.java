@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Account;
 import java.util.List;
@@ -14,6 +15,6 @@ public interface ApplicationDAOLocal extends IGenericDAO<Application, Long>{
 
     List<Object> getAppListWithNumber(Account user);
     
-    Application getAppByApiKey(String apiKey);
+    Application getAppByApiKey(ApiKey apiKey);
 
 }

@@ -12,16 +12,18 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
+
 public class BadgeCreationDTO {
-    private String appApiKey;
+    private ApiKey appApiKey;
     private String imgUrl;
     private String badgeName;
     
-    public String getAppApiKey(){
+    public ApiKey getAppApiKey(){
         return appApiKey;
     }
     
-    public void setAppApiKey(String apiKey){
+    public void setAppApiKey(ApiKey apiKey){
         appApiKey = apiKey;
     }
     

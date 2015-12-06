@@ -12,7 +12,6 @@ import javax.validation.constraints.NotNull;
 })
 
 @Entity
-@Table(name = "Levels")
 public class Level extends AbstractEntity<Long> {
 
     @ManyToOne
@@ -23,6 +22,15 @@ public class Level extends AbstractEntity<Long> {
 
     @NotNull
     private int requiredPoints;
+
+	public Level() {
+	}
+
+	public Level(String name, int requiredPoints, Application application) {
+		this.name = name;
+		this.requiredPoints = requiredPoints;
+		this.application = application;
+	}
 
     public Application getApplication() {
         return application;

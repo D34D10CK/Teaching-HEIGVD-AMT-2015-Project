@@ -1,15 +1,15 @@
 package ch.heigvd.amt.amtproject.services;
 
 import ch.heigvd.amt.amtproject.model.entities.*;
-import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 
 import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
-import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAO;
 import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.rest.LevelDAO;
+import ch.heigvd.amt.amtproject.services.dao.rest.LevelDAOLocal;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -33,7 +33,10 @@ public class TestDataManager implements TestDataManagerLocal {
 	EndUserDAOLocal enduUserDAO;
 
 	@EJB
-	BadgeDAOLocal badgeDAOLocal;
+	BadgeDAOLocal badgeDAO;
+
+	@EJB
+	LevelDAOLocal levelDAO;
 
     @Override
     public void generateTestData() {
@@ -70,10 +73,16 @@ public class TestDataManager implements TestDataManagerLocal {
 		Badge b1 = new Badge("Test1", "https://playfoursquare.s3.amazonaws.com/badge/300/local.png", a1);
 		Badge b2 = new Badge("Test2", "https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png", a1);
 
-		badgeDAOLocal.create(b1);
-		badgeDAOLocal.create(b2);
+		badgeDAO.create(b1);
+		badgeDAO.create(b2);
 
-        //UserRole r1 = new UserRole("admin");
+		Level l1 = new Level("Newbie", 100, a1);
+		Level l2 = new Level("Rookie", 200, a1);
+
+		//LevelDAO.create(l1);
+		//LevelDAO.create(l2);
+
+		//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");
         
         //roleDAO.create(r1);
