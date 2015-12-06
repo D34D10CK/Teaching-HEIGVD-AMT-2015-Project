@@ -67,7 +67,7 @@ public class RulesResource {
     
     @GET
     @Produces("application/json")
-    public List<RuleSummaryDTO> getAppRules(@HeaderParam("api-key") ApiKey apiKey){
+    public List<RuleSummaryDTO> getAppRules(@HeaderParam("apiKey") ApiKey apiKey){
         /*
         List<RuleSummaryDTO> result = new ArrayList<>();
         List<Rule> appRules = rulesDAO.getAppRules(apiKey);
