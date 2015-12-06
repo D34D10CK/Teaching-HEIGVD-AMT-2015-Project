@@ -64,3 +64,34 @@
  * @apiErrorExample Error-Response:
  *  HTTP/1.1 404 Not Found
  */
+
+//Levels
+/**
+ * @api {GET} /levels Retrieves the levels
+ * @apiName GetLevels
+ * @apiGroup Levels
+ * @apiVersion 0.1.0
+ *
+ * @apiSuccessExample Success-Response:
+ * HTTP/1.1 200 OK
+ * [{
+ * 	"name": "level1"
+ * 	"requiredPoints": 9001
+ * }]
+ *
+ * @apiErrorExample Error-Response:
+ * HTTP/1.1 404 Not Found
+ */
+
+/**
+ * @api {POST} /levels
+ * @apiName PostLevels
+ * @apiGroup Levels
+ * @apiVersion 0.1.0
+ *
+ * @apiParam {Name} Name of the level
+ * @apiParam {RequiredPoints} Points required for the level
+ *
+ * @apiSuccessExample Success-Response:
+ * HTTP/1.1 201 Created
+ */
