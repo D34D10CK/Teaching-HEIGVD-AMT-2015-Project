@@ -1,6 +1,6 @@
 if (Meteor.isServer) {
 	API_URL = "http://localhost:8080/AMTProject/api/";
-	API_KEY = '8b628357-9e5f-4008-a117-557e623637c4';
+	API_KEY = 'ffd25aed-37f5-4552-9be2-c35859a0f08e';
 
 	Meteor.methods({
 		refreshLevels: function () {
