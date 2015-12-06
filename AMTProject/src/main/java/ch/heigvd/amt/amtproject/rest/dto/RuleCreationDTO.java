@@ -9,10 +9,7 @@ import ch.heigvd.amt.amtproject.model.entities.EventAction;
 import ch.heigvd.amt.amtproject.model.entities.RuleCondition;
 import java.util.List;
 
-/**
- *
- * @author David
- */
+
 public class RuleCreationDTO {
     private String appApiKey;
     private String eventType;

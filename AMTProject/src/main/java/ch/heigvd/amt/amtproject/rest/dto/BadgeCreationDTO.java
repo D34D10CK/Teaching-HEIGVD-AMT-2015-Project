@@ -11,10 +11,7 @@
  */
 package ch.heigvd.amt.amtproject.rest.dto;
 
-/**
- *
- * @author David
- */
+
 public class BadgeCreationDTO {
     private String appApiKey;
     private String imgUrl;
