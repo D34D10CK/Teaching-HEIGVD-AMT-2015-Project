@@ -22,7 +22,7 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
     }
 
     @Override
-    public List<Object[]> getAppListWithNumber(Account user) {
+    public List<Object> getAppListWithNumber(Account user) {
         return em.createNamedQuery("Application.findNumberByUser").setParameter("user", user).getResultList();
     }
 

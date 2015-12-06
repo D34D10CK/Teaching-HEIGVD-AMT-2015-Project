@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
     @NamedQuery(name = "Application.findByApiKey", query = "select a from Application a where a.apiKey = :apiKey"), 
     @NamedQuery(name = "Application.findByUser", query = "select a from Application a where a.account = :user"),
-    @NamedQuery(name = "Application.findNumberByUser" , query = "select a, count(eu) from Application a, EndUser eu where eu.app = a and a.account = :user group by eu.app")
+    @NamedQuery(name = "Application.findNumberByUser" , query = "select count(eu) from Application a, EndUser eu where eu.app = a and a.account = :user group by eu.app")
 })
 
 public class Application extends AbstractEntity<Long> {

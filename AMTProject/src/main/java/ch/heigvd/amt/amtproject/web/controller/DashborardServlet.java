@@ -24,14 +24,13 @@ public class DashborardServlet extends HttpServlet {
         HttpSession session = req.getSession(false);
 
         Account u = (Account) session.getAttribute("user");
-        
 
         List<Application> model = applicationDAO.getAppList(u);
-
-        System.out.println("size: " + model.size());
+        List<Object> users = applicationDAO.getAppListWithNumber(u);
 
         req.setAttribute("apps", model);
         req.setAttribute("name", u.getEmail());
+        req.setAttribute("users", users.get(0));
 
         req.getRequestDispatcher("/WEB-INF/pages/dashboard.jsp").forward(req, resp);
     }

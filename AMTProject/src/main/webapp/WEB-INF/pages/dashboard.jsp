@@ -17,7 +17,7 @@
                 <td>${app.name}</td>
                 <td>${app.description}</td>
                 <td>${app.apiKey.apiKey}</td>
-                <td><a href="list-users?appId=${app.id}&page=0">${app}</a></td>
+                <td><a href="list-users?appId=${app.id}&page=0">${users}</a></td>
                 <td><a href="app-details?action=edit&appId=${app.id}" class="btn btn-sm btn-primary">Edit</a>
                 <c:if test="${app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td></c:if>
                 <c:if test="${!app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-danger enable-button">Disable</a></td></c:if>
