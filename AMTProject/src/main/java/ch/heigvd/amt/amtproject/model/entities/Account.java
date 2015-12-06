@@ -75,4 +75,12 @@ public class Account extends AbstractEntity<Long> {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public List<Application> getApplications() {
+        return applications;
+    }
+
+    public void setApplications(List<Application> applications) {
+        this.applications = applications;
+    }
 }

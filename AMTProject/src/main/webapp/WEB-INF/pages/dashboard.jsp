@@ -14,13 +14,13 @@
         </tr>
         <c:forEach items="${apps}" var="app">
             <tr>
-                <td>${app[0].name}</td>
-                <td>${app[0].description}</td>
-                <td>${app[0].apiKey.apiKey}</td>
-                <td><a href="list-users?appId=${app[0].id}&page=0">${app[1]}</a></td>
-                <td><a href="app-details?action=edit&appId=${app[0].id}" class="btn btn-sm btn-primary">Edit</a>
-                <c:if test="${app[0].enable}"><a href="app-details?action=disable&appId=${app[0].id}" data-id="${app[0].id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td></c:if>
-                <c:if test="${!app[0].enable}"><a href="app-details?action=disable&appId=${app[0].id}" data-id="${app[0].id}" data-is-enable="true" class="btn btn-sm btn-danger enable-button">Disable</a></td></c:if>
+                <td>${app.name}</td>
+                <td>${app.description}</td>
+                <td>${app.apiKey.apiKey}</td>
+                <td><a href="list-users?appId=${app.id}&page=0">${app}</a></td>
+                <td><a href="app-details?action=edit&appId=${app.id}" class="btn btn-sm btn-primary">Edit</a>
+                <c:if test="${app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-success enable-button">Enable</a></td></c:if>
+                <c:if test="${!app.enable}"><a href="app-details?action=disable&appId=${app.id}" data-id="${app.id}" data-is-enable="true" class="btn btn-sm btn-danger enable-button">Disable</a></td></c:if>
             </tr>
         </c:forEach>
     </table>

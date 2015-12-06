@@ -13,24 +13,21 @@ public class ApplicationDAO extends GenericDAO<Application, Long> implements App
 
     @Override
     public String makeApiKey() {
-       
         return UUID.randomUUID().toString();
-        
     }
 
     @Override
     public List<Application> getAppList(Account user) {
-        return em.createNamedQuery("Application.findByUser").setParameter("user", user).getResultList();  
+        return em.createNamedQuery("Application.findByUser").setParameter("user", user).getResultList();
     }
 
     @Override
-    public List<Object> getAppListWithNumber(Account user) {
+    public List<Object[]> getAppListWithNumber(Account user) {
         return em.createNamedQuery("Application.findNumberByUser").setParameter("user", user).getResultList();
     }
-    
+
     @Override
     public Application getAppByApiKey(ApiKey apiKey) {
         return (Application) em.createNamedQuery("Application.findByApiKey").setParameter("apiKey", apiKey).getSingleResult();
     }
-    
 }
