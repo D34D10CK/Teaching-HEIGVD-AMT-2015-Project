@@ -44,13 +44,15 @@ public class BadgesResource {
      */
     @POST
     @Consumes("application/json")
-    public Response createBadge(BadgeCreationDTO newBadge){
-        Application app = applicationsDAO.getAppByApiKey(newBadge.getAppApiKey());
-                
+    public Response createBadge(BadgeCreationDTO newBadge, @HeaderParam("apiKey") String apikey){
+        Application app = applicationsDAO.getAppByApiKey(new ApiKey(apikey));
+
         Badge badge = new Badge();
         badge.setName(newBadge.getBadgeName());
         badge.setPictureUrl(newBadge.getUrl());
         badge.setApp(app);
+
+
         
         long badgeId = badgesDAO.create(badge);
         
@@ -63,6 +65,8 @@ public class BadgesResource {
         return Response
         .created(href)
         .build();
+
+		// Response.ok(b.getId()).build();
     }
     
     /**
