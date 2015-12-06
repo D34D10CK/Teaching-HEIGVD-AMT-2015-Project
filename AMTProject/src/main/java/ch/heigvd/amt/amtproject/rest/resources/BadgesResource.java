@@ -24,10 +24,6 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
-/**
- *
- * @author David
- */
 @Stateless
 @Path("badges")
 public class BadgesResource {

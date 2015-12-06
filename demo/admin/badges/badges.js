@@ -34,19 +34,39 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	API_URL = "http://localhost:8080/AMTProject/api/";
-	API_KEY = '8b628357-9e5f-4008-a117-557e623637c4';
+	API_KEY = 'c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26';
 
 	Meteor.methods({
 		refreshBadges: function () {
+
 			HTTP.call('GET', API_URL + "badges", {
 				headers: {
-					'api-key': API_KEY
+					'apiKey': API_KEY
 				}
 			},
 			function (err, result) {
 				console.info(err);
 				console.info(result);
 				console.log(API_URL + "badges");
+			});
+		},
+		newBadge: function(name, url) {
+			HTTP.call('POST', API_URL + "badges", {
+				data: {
+					name: name,
+					imageUrl: url
+				},
+				headers: {
+					'apiKey': API_KEY
+				}
+			},
+			function (err, result) {
+				console.info(err);
+				console.info(result);
+				console.log(API_URL + "badges");
+				var badges = result.data;
+				console.log(badges[0].name);
+				console.log(badges[0].imageUrl);
 			});
 		}
 	});
