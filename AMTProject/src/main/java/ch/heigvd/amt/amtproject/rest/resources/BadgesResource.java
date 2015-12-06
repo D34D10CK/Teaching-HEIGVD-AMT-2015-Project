@@ -8,6 +8,7 @@ import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAOLocal;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeCreationDTO;
 import ch.heigvd.amt.amtproject.rest.dto.BadgeSummaryDTO;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,14 +49,12 @@ public class BadgesResource {
         Application app = applicationsDAO.getAppByApiKey(new ApiKey(apikey));
 
         Badge badge = new Badge();
-        badge.setName(newBadge.getBadgeName());
-        badge.setPictureUrl(newBadge.getUrl());
+        badge.setName(newBadge.getName());
+        badge.setImageUrl(newBadge.getUrl());
         badge.setApp(app);
 
+		long badgeId = badgesDAO.create(badge);
 
-        
-        long badgeId = badgesDAO.create(badge);
-        
         URI href = uriInfo
         .getBaseUriBuilder()
         .path(BadgesResource.class)
@@ -66,7 +65,7 @@ public class BadgesResource {
         .created(href)
         .build();
 
-		// Response.ok(b.getId()).build();
+		// return Response.ok(123).build();
     }
     
     /**
@@ -110,6 +109,6 @@ public class BadgesResource {
     
     private void populateDTOFromEntity(Badge badge, BadgeDTO dto){
         populateSummaryDTOFromEntity(badge, dto);
-        dto.setImageUrl(badge.getPictureUrl());
+        dto.setImageUrl(badge.getImageUrl());
     }
 }
