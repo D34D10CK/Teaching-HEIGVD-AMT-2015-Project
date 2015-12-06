@@ -6,14 +6,13 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
 import ch.heigvd.amt.amtproject.model.entities.EventAction;
-import ch.heigvd.amt.amtproject.model.entities.RuleCondition;
+
 import java.util.List;
 
 
 public class RuleCreationDTO {
     private String appApiKey;
     private String eventType;
-    private List<RuleCondition> conditions;
     private List<EventAction> actions;
 
     public String getAppApiKey() {
@@ -22,10 +21,6 @@ public class RuleCreationDTO {
 
     public String getEventType() {
         return eventType;
-    }
-
-    public List<RuleCondition> getConditions() {
-        return conditions;
     }
 
     public List<EventAction> getActions() {
@@ -38,10 +33,6 @@ public class RuleCreationDTO {
 
     public void setEventType(String eventType) {
         this.eventType = eventType;
-    }
-
-    public void setConditions(List<RuleCondition> conditions) {
-        this.conditions = conditions;
     }
 
     public void setActions(List<EventAction> actions) {

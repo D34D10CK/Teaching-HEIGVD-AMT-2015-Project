@@ -20,9 +20,6 @@ import javax.persistence.OneToMany;
 })
 public class Rule extends AbstractEntity<Long>{
     @OneToMany
-    private List<RuleCondition> conditions;
-    
-    @OneToMany
     private List<EventAction> actions;
     
     @Column(unique = true, nullable = true)
@@ -34,15 +31,10 @@ public class Rule extends AbstractEntity<Long>{
     public Rule() {
     }
 
-    public Rule(List<RuleCondition> conditions, List<EventAction> actions, String eventType, Application app) {
-        this.conditions = conditions;
+    public Rule(List<EventAction> actions, String eventType, Application app) {
         this.actions = actions;
         this.eventType = eventType;
         this.app = app;
-    }
-
-    public List<RuleCondition> getConditions() {
-        return conditions;
     }
 
     public List<EventAction> getActions() {
@@ -55,10 +47,6 @@ public class Rule extends AbstractEntity<Long>{
 
     public Application getApp() {
         return app;
-    }
-
-    public void setConditions(List<RuleCondition> conditions) {
-        this.conditions = conditions;
     }
 
     public void setActions(List<EventAction> actions) {
