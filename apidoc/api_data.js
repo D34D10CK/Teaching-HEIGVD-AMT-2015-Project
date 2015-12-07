@@ -181,15 +181,15 @@ define({ "api": [
             "group": "Parameter",
             "type": "<p>Name</p> ",
             "optional": false,
-            "field": "Name",
-            "description": "<p>of the level</p> "
+            "field": "string",
+            "description": "<p>Name of the level</p> "
           },
           {
             "group": "Parameter",
             "type": "<p>RequiredPoints</p> ",
             "optional": false,
-            "field": "Points",
-            "description": "<p>required for the level</p> "
+            "field": "int",
+            "description": "<p>Points required for the level</p> "
           }
         ]
       }
