@@ -42,6 +42,7 @@ public class BadgesResource {
      * Ajoute et lie un nouveau badge à l'application
      *
      * @param newBadge - informations nécessaires à la creation du badge
+     * @param apikey
      * @return l'URI de la nouvelle ressource
      */
     @POST
@@ -51,7 +52,7 @@ public class BadgesResource {
 
         Badge badge = new Badge();
         badge.setName(newBadge.getName());
-        badge.setImageUrl(newBadge.getUrl());
+        badge.setImageUrl(newBadge.getImageUrl());
         badge.setApp(app);
 
         long badgeId = badgesDAO.create(badge);
