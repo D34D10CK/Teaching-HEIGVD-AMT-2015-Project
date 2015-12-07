@@ -179,16 +179,16 @@
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "<p>Name</p> ",
+            "type": "<p>String</p> ",
             "optional": false,
-            "field": "string",
+            "field": "Name",
             "description": "<p>Name of the level</p> "
           },
           {
             "group": "Parameter",
-            "type": "<p>RequiredPoints</p> ",
+            "type": "<p>Int</p> ",
             "optional": false,
-            "field": "int",
+            "field": "RequiredPoints",
             "description": "<p>Points required for the level</p> "
           }
         ]

@@ -89,8 +89,8 @@
  * @apiGroup Levels
  * @apiVersion 0.1.0
  *
- * @apiParam {Name} string Name of the level
- * @apiParam {RequiredPoints} int Points required for the level
+ * @apiParam {String} Name Name of the level
+ * @apiParam {Int} RequiredPoints Points required for the level
  *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 201 Created
