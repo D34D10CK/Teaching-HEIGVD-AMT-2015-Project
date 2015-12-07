@@ -142,7 +142,7 @@ define({ "api": [
   {
     "type": "GET",
     "url": "/levels",
-    "title": "Retrieves the levels",
+    "title": "Get the levels",
     "name": "GetLevels",
     "group": "Levels",
     "version": "0.1.0",
@@ -170,7 +170,7 @@ define({ "api": [
   {
     "type": "POST",
     "url": "/levels",
-    "title": "",
+    "title": "Post a new Level",
     "name": "PostLevels",
     "group": "Levels",
     "version": "0.1.0",

@@ -67,7 +67,7 @@
 
 //Levels
 /**
- * @api {GET} /levels Retrieves the levels
+ * @api {GET} /levels Get the levels
  * @apiName GetLevels
  * @apiGroup Levels
  * @apiVersion 0.1.0
@@ -84,7 +84,7 @@
  */
 
 /**
- * @api {POST} /levels
+ * @api {POST} /levels Post a new Level
  * @apiName PostLevels
  * @apiGroup Levels
  * @apiVersion 0.1.0
