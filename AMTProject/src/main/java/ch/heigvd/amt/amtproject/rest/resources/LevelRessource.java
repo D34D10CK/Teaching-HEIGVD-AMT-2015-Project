@@ -62,7 +62,6 @@ public class LevelRessource {
         URI href = uriInfo
                 .getBaseUriBuilder()
                 .path(LevelRessource.class)
-                .path(LevelRessource.class, "getLevel")
                 .build(id);
 
         return Response.created(href).build();
