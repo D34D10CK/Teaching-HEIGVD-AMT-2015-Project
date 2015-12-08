@@ -37,7 +37,7 @@ public class LevelRessource {
 
     @GET
     @Produces("application/json")
-    public List<LevelDTO> getLevels(@HeaderParam("apiKey") ApiKey apiKey) {
+    public List<LevelDTO> getLevels(@HeaderParam("apiKey") String apiKey) {
         List<LevelDTO> dtos = new ArrayList<>();
         List<Level> levels = levelDAO.getLevels(apiKey);
         for (Level l : levels) {
