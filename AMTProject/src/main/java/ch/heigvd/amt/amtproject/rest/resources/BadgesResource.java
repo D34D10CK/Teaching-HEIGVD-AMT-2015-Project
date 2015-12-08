@@ -77,7 +77,7 @@ public class BadgesResource {
      */
     @GET
     @Produces("application/json")
-    public List<BadgeSummaryDTO> getAppBadges(@HeaderParam("apiKey") ApiKey apiKey) {
+    public List<BadgeSummaryDTO> getAppBadges(@HeaderParam("apiKey") String apiKey) {
         List<BadgeSummaryDTO> result = new ArrayList<>();
         List<Badge> appBadges = badgesDAO.getAppBadges(apiKey);
         for (Badge badge : appBadges) {
