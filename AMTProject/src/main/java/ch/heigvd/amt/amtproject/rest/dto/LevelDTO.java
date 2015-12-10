@@ -1,7 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
 import ch.heigvd.amt.amtproject.model.entities.Level;
-import javax.ejb.Stateless;
 
 public class LevelDTO {
 

@@ -1,6 +1,5 @@
 package ch.heigvd.amt.amtproject.rest.resources;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Level;
 import ch.heigvd.amt.amtproject.rest.dto.LevelCreationDTO;
