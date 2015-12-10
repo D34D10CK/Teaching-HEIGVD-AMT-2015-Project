@@ -15,14 +15,17 @@ import javax.persistence.OneToMany;
 
 @Entity
 @NamedQueries({
-	// TODO add query
-    // @NamedQuery(name = "Rule.findAllByEventAndConditions", query = "...")
+    @NamedQuery(name = "Rule.findByEventAndConditions", 
+            query = "select r from Rule r where r.eventType = :event and r.conditions = :conditions")
 })
 public class Rule extends AbstractEntity<Long>{
-    @OneToMany
+    @OneToMany(mappedBy = "rule")
     private List<EventAction> actions;
     
-    @Column(unique = true, nullable = true)
+    @OneToMany(mappedBy = "rule")
+    private List<EventCondition> conditions;
+    
+    @Column(unique = false, nullable = false)
     private String eventType;
     
     @ManyToOne
@@ -31,14 +34,19 @@ public class Rule extends AbstractEntity<Long>{
     public Rule() {
     }
 
-    public Rule(List<EventAction> actions, String eventType, Application app) {
+    public Rule(List<EventAction> actions, List<EventCondition> conditions, String eventType, Application app) {
         this.actions = actions;
+        this.conditions = conditions;
         this.eventType = eventType;
         this.app = app;
     }
 
     public List<EventAction> getActions() {
         return actions;
+    }
+    
+    public List<EventCondition> getConditions() {
+        return conditions;
     }
 
     public String getEventType() {
@@ -51,6 +59,10 @@ public class Rule extends AbstractEntity<Long>{
 
     public void setActions(List<EventAction> actions) {
         this.actions = actions;
+    }
+    
+    public void setConditions(List<EventCondition> conditions){
+        this.conditions = conditions;
     }
     
     public void setEventType(String eventType) {

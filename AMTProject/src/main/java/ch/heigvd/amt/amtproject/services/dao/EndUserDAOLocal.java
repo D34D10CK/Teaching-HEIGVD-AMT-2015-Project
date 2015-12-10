@@ -12,4 +12,6 @@ public interface EndUserDAOLocal extends IGenericDAO<EndUser, Long>{
 
     List<EndUser> findByAppAndPage(Application app, int pageize, int pageIndex);
     
+    EndUser findByAppAndUserId(Application app, String userId);
+    
 }

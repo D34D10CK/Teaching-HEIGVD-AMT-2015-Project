@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 @NamedQueries({
     @NamedQuery(name = "BadgeAward.getBadgesOfUser", query = "select b from BadgeAward b where b.endUser.id = :user")
 })
+
 @Entity
 public class BadgeAward extends Award {
 

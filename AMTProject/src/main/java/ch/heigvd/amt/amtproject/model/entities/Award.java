@@ -3,6 +3,7 @@ package ch.heigvd.amt.amtproject.model.entities;
 import java.util.Calendar;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
@@ -16,10 +17,14 @@ public abstract class Award extends AbstractEntity<Long> {
 
     @NotNull
     private String reason;
+    
+    @ManyToOne
+    private EndUser user;
 
-    public Award(Calendar obtainmentDate, String reason) {
+    public Award(Calendar obtainmentDate, String reason, EndUser user) {
         this.reason = reason;
         this.obtainmentDate = obtainmentDate;
+        this.user = user;
     }
 
     public Award() {
@@ -40,4 +45,14 @@ public abstract class Award extends AbstractEntity<Long> {
     public void setReason(String reason) {
         this.reason = reason;
     }
+
+    public EndUser getUser() {
+        return user;
+    }
+
+    public void setUser(EndUser user) {
+        this.user = user;
+    }
+    
+    
 }

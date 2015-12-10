@@ -5,18 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Badge.findAllByApiKey", query = "select b from Badge b, Application a where b.app = a and a.apiKey.apiKey = :apiKey")
+    @NamedQuery(name = "Badge.findAllByApiKey", 
+            query = "select b from Badge b, Application a where b.app = a and a.apiKey.apiKey = :apiKey"),
+    @NamedQuery(name = "Badge.findByNameAndApp",
+            query = "select b from Badge b where b.app = :app and b.name = :name")
 })
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "name"}))
 public class Badge extends AbstractEntity<Long> {
 
-    // TODO comment modifier pour avoir un nom unique par badge
-    // d'une même application mais pouvant être utilisé par une
-    // autre application
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false)
     private String name;
 
     @NotNull
