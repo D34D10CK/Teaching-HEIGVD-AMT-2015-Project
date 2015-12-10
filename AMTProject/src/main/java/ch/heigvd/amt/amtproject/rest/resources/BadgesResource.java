@@ -106,6 +106,7 @@ public class BadgesResource {
                 .build(badgeId);
         dto.setHref(badgeHref);
         dto.setName(badge.getName());
+		dto.setImageUrl(badge.getImageUrl());
     }
 
     private void populateDTOFromEntity(Badge badge, BadgeDTO dto) {
