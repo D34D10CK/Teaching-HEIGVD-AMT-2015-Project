@@ -9,7 +9,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "EventCondition.findByKeyAndValueAndApp", 
-                query = "select e from EventCondition e, Rule r e where e.key = :key and e.value = :value and e.rule = r and r.app = :app")
+                query = "select e from EventCondition e, Rule r where e.key = :key and e.value = :value and e.rule = r and r.app = :app")
 })
 public class EventCondition extends AbstractEntity<Long>{
     @ManyToOne

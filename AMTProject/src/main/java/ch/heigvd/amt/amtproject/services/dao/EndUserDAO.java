@@ -17,4 +17,11 @@ public class EndUserDAO extends GenericDAO<EndUser, Long> implements EndUserDAOL
     public List<EndUser> findByAppAndPage(Application app, int pageSize, int pageIndex) {
         return em.createNamedQuery("EndUser.findByApp").setParameter("app", app).setMaxResults(pageSize).setFirstResult(pageIndex * pageSize).getResultList();
     }
+    
+    @Override
+    public EndUser findByAppAndUserId(Application app, String userId){
+        return (EndUser) em.createNamedQuery("EndUser.findByAppAndUserId")
+                .setParameter("app", app).setParameter("userid", userId)
+                .getSingleResult();
+    }
 }

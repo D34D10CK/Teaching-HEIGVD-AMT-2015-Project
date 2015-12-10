@@ -44,7 +44,7 @@ public class Application extends AbstractEntity<Long> {
     @OneToMany(mappedBy = "application")
     private List<Level> levels;
 
-    @OneToMany
+    @OneToMany(mappedBy = "app")
     private List<Rule> rules;
     
     public Application() {

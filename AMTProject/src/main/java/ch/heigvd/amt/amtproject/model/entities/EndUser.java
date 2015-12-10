@@ -1,21 +1,23 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
 import java.util.Calendar;
+import java.util.List;
 import java.util.UUID;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "EndUser.findByApp", query = "select e from EndUser e where e.app = :app")
+    @NamedQuery(name = "EndUser.findByApp", query = "select e from EndUser e where e.app = :app"),
+    @NamedQuery(name = "EndUser.findByAppAndUserId", query = "select e from EndUser e where e.app = :app and e.userId = :userid")
 })
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "userid"})) 
 public class EndUser extends AbstractEntity<Long> {
@@ -29,6 +31,12 @@ public class EndUser extends AbstractEntity<Long> {
 
     @ManyToOne
     private Application app;
+
+    @OneToMany(mappedBy = "user")
+    List<PointAward> points;
+
+    @OneToMany(mappedBy = "user")
+    List<BadgeAward> badges;
 
     public EndUser() {
         userId = UUID.randomUUID().toString();
@@ -64,4 +72,19 @@ public class EndUser extends AbstractEntity<Long> {
         this.app = app;
     }
 
+    public List<PointAward> getPoints() {
+        return points;
+    }
+
+    public void setPoints(List<PointAward> points) {
+        this.points = points;
+    }
+
+    public List<BadgeAward> getBadges() {
+        return badges;
+    }
+
+    public void setBadges(List<BadgeAward> badges) {
+        this.badges = badges;
+    }
 }
