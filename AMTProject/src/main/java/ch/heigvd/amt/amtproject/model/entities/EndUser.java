@@ -36,7 +36,6 @@ public class EndUser extends AbstractEntity<Long> {
     List<PointAward> points;
 
     @OneToMany(mappedBy = "endUser")
-
     List<BadgeAward> badges;
 
     public EndUser() {
