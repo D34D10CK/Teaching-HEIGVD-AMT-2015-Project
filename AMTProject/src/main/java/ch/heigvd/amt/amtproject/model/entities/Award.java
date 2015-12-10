@@ -8,7 +8,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Award extends AbstractEntity<Long> {
+public abstract class Award extends AbstractEntity<Long> {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
