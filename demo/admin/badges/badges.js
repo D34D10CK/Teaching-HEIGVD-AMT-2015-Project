@@ -1,13 +1,7 @@
 Badges = new Mongo.Collection("badges");
 
 if (Meteor.isClient) {
-	var dummyBadges = [{
-				name: "Newbie",
-				url: "https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png"
-			}, {
-				name: "CTF Time",
-				url: "https://playfoursquare.s3.amazonaws.com/badge/300/local.png"
-			}];
+	Meteor.call("refreshBadges");
 
 	Template.adminBadgesTemplate.helpers({
 		badges: function () {
@@ -23,11 +17,10 @@ if (Meteor.isClient) {
 			var name = document.querySelector('#new-badge-name').value;
 			var url = document.querySelector('#new-badge-url').value;
 
-			$.post(Session.get('API_URL') + '/badges', { name: name, url: url }, function (err, result) {
-				console.log(err);
-				console.log(result);
-				Badges.insert({ name: name, url: url });
-			});
+			var name = document.querySelector('#new-badge-name').value = '';
+			var url = document.querySelector('#new-badge-url').value = '';
+
+			Meteor.call('newBadge', name, url);
 		}
 	});
 }
@@ -35,7 +28,6 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 	Meteor.methods({
 		refreshBadges: function () {
-
 			HTTP.get(API_URL + "badges/", {
 				headers: {
 					'apiKey': API_KEY
@@ -55,7 +47,7 @@ if (Meteor.isServer) {
 				}
 			});
 		},
-		newBadge: function(name, url) {
+		newBadge: function (name, url) {
 			HTTP.call('POST', API_URL + "badges", {
 				data: {
 					name: name,
@@ -66,13 +58,23 @@ if (Meteor.isServer) {
 				}
 			},
 			function (err, result) {
-				console.info(err);
-				console.info(result);
-				console.log(API_URL + "badges");
-				var badges = result.data;
-				console.log(badges[0]);
-				console.log(badges[0].name);
-				console.log(badges[0].imageUrl);
+				var href = result.headers.location;
+				Meteor.call("addBadge", href);
+			});
+		},
+		addBadge: function (href) {
+			HTTP.get(href, {
+				headers: {
+					'apiKey': API_KEY
+				}
+			},
+			function (err, result) {
+				var badge = result.data;
+				Badges.insert({
+					name: badge.name,
+					href: href,
+					url: badge.imageUrl
+				})
 			});
 		}
 	});
