@@ -3,7 +3,7 @@ package ch.heigvd.amt.amtproject.rest.dto;
 
 public class BadgeDTO extends BadgeSummaryDTO {
 
-	private String name;
+    private String name;
     private String imageUrl;
 
 	public BadgeDTO() {

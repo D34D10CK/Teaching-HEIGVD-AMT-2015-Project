@@ -8,16 +8,19 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
+@Entity
 @NamedQueries({
     @NamedQuery(name = "EndUser.findByApp", query = "select e from EndUser e where e.app = :app")
 })
-@Entity
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "userid"})) 
 public class EndUser extends AbstractEntity<Long> {
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String userId;
 
     @Temporal(TemporalType.TIMESTAMP)
