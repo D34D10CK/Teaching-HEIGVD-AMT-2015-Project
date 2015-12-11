@@ -37,11 +37,29 @@ public class LevelRessource {
     public List<LevelDTO> getLevels(@HeaderParam("apiKey") String apiKey) {
         List<LevelDTO> dtos = new ArrayList<>();
         List<Level> levels = levelDAO.getLevels(apiKey);
+
         for (Level l : levels) {
-            dtos.add(new LevelDTO(l));
+            LevelDTO dto = new LevelDTO(l);
+            URI href = uriInfo
+                    .getBaseUriBuilder()
+                    .path(LevelRessource.class)
+                    .path(LevelRessource.class, "getLevel")
+                    .build(l.getId());
+            dto.setHref(href);
+            dtos.add(dto);
         }
 
         return dtos;
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public LevelDTO getLevel(@PathParam(value = "id") long id) {
+        Level level = levelDAO.findById(id);
+        LevelDTO dto = new LevelDTO(level);
+
+        return dto;
     }
 
     @POST
@@ -59,18 +77,17 @@ public class LevelRessource {
         URI href = uriInfo
                 .getBaseUriBuilder()
                 .path(LevelRessource.class)
-				.path(LevelRessource.class, "deleteLevel")
+                .path(LevelRessource.class, "deleteLevel")
                 .build(id);
 
         return Response.created(href).build();
     }
 
-
-	@DELETE
-	@Path("/{id}")
-	public Response deleteLevel(@PathParam(value = "id") long id) {
-		Level level = levelDAO.findById(id);
-		levelDAO.delete(level);
-		return Response.ok().build();
-	}
+    @DELETE
+    @Path("/{id}")
+    public Response deleteLevel(@PathParam(value = "id") long id) {
+        Level level = levelDAO.findById(id);
+        levelDAO.delete(level);
+        return Response.ok().build();
+    }
 }
