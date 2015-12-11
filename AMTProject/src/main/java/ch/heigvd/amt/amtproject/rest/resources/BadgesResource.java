@@ -92,13 +92,13 @@ public class BadgesResource {
         return dto;
     }
 
-	@DELETE
-	@Path("/{id}")
-	public Response deleteBadge(@PathParam(value = "id") long id) {
-		Badge badge = badgesDAO.findById(id);
-		badgesDAO.delete(badge);
-		return Response.ok().build();
-	}
+    @DELETE
+    @Path("/{id}")
+    public Response deleteBadge(@PathParam(value = "id") long id) {
+        Badge badge = badgesDAO.findById(id);
+        badgesDAO.delete(badge);
+        return Response.ok().build();
+    }
 
     private void populateSummaryDTOFromEntity(Badge badge, BadgeSummaryDTO dto) {
         long badgeId = badge.getId();
@@ -108,7 +108,7 @@ public class BadgesResource {
                 .build(badgeId);
         dto.setHref(badgeHref);
         dto.setName(badge.getName());
-		dto.setImageUrl(badge.getImageUrl());
+        dto.setImageUrl(badge.getImageUrl());
     }
 
     private void populateDTOFromEntity(Badge badge, BadgeDTO dto) {

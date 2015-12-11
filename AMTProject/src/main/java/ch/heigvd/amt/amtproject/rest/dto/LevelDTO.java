@@ -1,11 +1,13 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
 import ch.heigvd.amt.amtproject.model.entities.Level;
+import java.net.URI;
 
 public class LevelDTO {
 
     private String name;
     private int requiredPoints;
+    private URI href;
 
     public LevelDTO() {
     }
@@ -29,5 +31,13 @@ public class LevelDTO {
 
     public void setRequiredPoints(int requiredPoints) {
         this.requiredPoints = requiredPoints;
+    }
+
+    public URI getHref() {
+        return href;
+    }
+
+    public void setHref(URI href) {
+        this.href = href;
     }
 }
