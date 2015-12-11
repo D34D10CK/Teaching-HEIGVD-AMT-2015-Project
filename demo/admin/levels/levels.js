@@ -47,6 +47,7 @@ if (Meteor.isServer) {
 
 				for (var i = 0, l = levels.length; i < l; i++) {
 					Levels.insert({
+						href: levels[i].href,
 						name: levels[i].name,
 						requiredPoints: levels[i].requiredPoints
 					})
