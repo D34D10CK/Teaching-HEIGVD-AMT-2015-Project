@@ -21,6 +21,13 @@ if (Meteor.isClient) {
 			document.querySelector('#new-level-points').value = '';
 
 			Meteor.call('newLevel', name, points);
+		},
+		'click .delete-level-button': function (event) {
+			event.preventDefault();
+
+			var href = event.target.getAttribute('data-href');
+
+			Meteor.call('deleteLevel', href);
 		}
 	});
 }
@@ -58,9 +65,20 @@ if (Meteor.isServer) {
 			},
 			function (err, result) {
 				if(err) console.error(err);
-				Levels.insert({ name: name, requiredPoints: requiredPoints });
+				var href = result.headers.location;
+				Levels.insert({ name: name, requiredPoints: requiredPoints, href: href });
 				Meteor.call('refreshLevels');
 			});
 		},
+		deleteLevel: function (href) {
+			HTTP.call('delete', href, {
+				headers: {
+					'apiKey': API_KEY
+				}
+			},
+			function (err, result) {
+				Meteor.call("refreshLevels");
+			});
+		}
 	});
 }

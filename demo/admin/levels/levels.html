@@ -9,7 +9,8 @@
 				<tr>
 					<td>{{ name }}</td>
 					<td>{{ requiredPoints }}</td>
-					<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus"></span></button></td>
+					<td><button class="btn btn-sm btn-danger delete-level-button" data-href="{{ href }}"><span class="glyphicon glyphicon-minus"></span></button></td>
+
 				</tr>
 			{{/each}}
 		</tbody>
