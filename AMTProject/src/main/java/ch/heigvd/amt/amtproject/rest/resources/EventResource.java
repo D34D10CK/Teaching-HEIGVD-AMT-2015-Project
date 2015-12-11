@@ -12,8 +12,10 @@ import ch.heigvd.amt.amtproject.model.entities.Rule;
 import ch.heigvd.amt.amtproject.rest.dto.EventTriggerDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.rest.BadgeAwardDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.EventConditionDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.rest.PointAwardDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.RuleDAOLocal;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -48,12 +50,18 @@ public class EventResource {
     @EJB
     private BadgeDAOLocal badgesDAO;
     
+    @EJB
+    private PointAwardDAOLocal pointAwardsDAO;
+    
+    @EJB
+    private BadgeAwardDAOLocal badgeAwardsDAO;
+    
     @Context
     UriInfo uriInfo;
     
     @POST
     @Consumes("application/json")
-    public Response triggerEvent(EventTriggerDTO dto ,@HeaderParam("apiKey") String apiKey){
+    public Response triggerEvent(EventTriggerDTO dto, @HeaderParam("apiKey") String apiKey){
         // on recupere l'application
         Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
         // on recupere l'utilisateur concerne
@@ -79,16 +87,20 @@ public class EventResource {
         return temp;
     }
     
-    private void applyActions(List<EventAction> actions, EndUser user, Calendar date, Application app){
+    private void applyActions(List<EventAction> actions, EndUser user, long date, Application app){
         
         for (EventAction a : actions){
+            // conversion long (timemillis) into a Calendar
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(date);
             // gestion des pts
             if (a.getNbPoint() != 0){
                 PointAward pa = new PointAward();
                 pa.setReason("none yet");
                 pa.setPoints(a.getNbPoint());
                 pa.setUser(user);
-                pa.setObtainmentDate(date);
+                pa.setObtainmentDate(calendar);
+                pointAwardsDAO.create(pa);
             }
             // gestion des badges
             if (!(a.getBadgeName().isEmpty())){
@@ -98,7 +110,8 @@ public class EventResource {
                 ba.setReason("none yet");
                 ba.setBadge(badge);
                 ba.setUser(user);
-                ba.setObtainmentDate(date);
+                ba.setObtainmentDate(calendar);
+                badgeAwardsDAO.create(ba);
             }
         }
     }

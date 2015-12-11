@@ -9,49 +9,51 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "EventCondition.findByKeyAndValueAndApp", 
-                query = "select e from EventCondition e, Rule r where e.key = :key and e.value = :value and e.rule = r and r.app = :app")
+                query = "select e from EventCondition e, Rule r where e.conditionName = :key and e.conditionValue = :value and e.rule = r and r.app = :app")
 })
 public class EventCondition extends AbstractEntity<Long>{
     @ManyToOne
     private Rule rule;
     
     @Column(nullable = false)
-    private String key;
+    private String conditionName;
     
     @Column(nullable = false)
-    private String value;
+    private String conditionValue;
     
     public EventCondition(){
         
     }
     
-    public EventCondition(String key, String value, Rule rule){
+    public EventCondition(String conditionName, String conditionValue, Rule rule){
         this.rule = rule;
-        this.key = key;
-        this.value = value;
+        this.conditionName = conditionName;
+        this.conditionValue = conditionValue;
     }
 
     public Rule getRule() {
         return rule;
     }
 
-    public String getKey() {
-        return key;
+    public String getConditionName() {
+        return conditionName;
     }
 
-    public String getValue() {
-        return value;
+    public String getConditionValue() {
+        return conditionValue;
     }
 
     public void setRule(Rule rule) {
         this.rule = rule;
     }
 
-    public void setKey(String key) {
-        this.key = key;
+    public void setConditionName(String conditionName) {
+        this.conditionName = conditionName;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setConditionValue(String conditionValue) {
+        this.conditionValue = conditionValue;
     }
+    
+    
 }

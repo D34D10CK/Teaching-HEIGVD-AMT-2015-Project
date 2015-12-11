@@ -1,13 +1,12 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
-import java.util.Calendar;
 import java.util.HashMap;
 
 public class EventTriggerDTO {
     private String eventName;
     private String userId;
-    private Calendar eventDate;
-    private HashMap<String, String> conditions = new HashMap<>();
+    private long eventDate;
+    private HashMap<String, String> conditions;
 
     public String getEventName() {
         return eventName;
@@ -17,7 +16,7 @@ public class EventTriggerDTO {
         return userId;
     }
 
-    public Calendar getEventDate() {
+    public long getEventDate() {
         return eventDate;
     }
 
@@ -33,8 +32,8 @@ public class EventTriggerDTO {
         this.userId = userId;
     }
 
-    public void setEventDate(Calendar cal) {
-        this.eventDate = cal;
+    public void setEventDate(long date) {
+        this.eventDate = date;
     }
 
     public void setConditions(HashMap<String, String> conditions) {
