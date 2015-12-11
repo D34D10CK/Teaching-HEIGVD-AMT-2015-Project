@@ -61,7 +61,7 @@ public class EventResource {
     
     @POST
     @Consumes("application/json")
-    public Response triggerEvent(EventTriggerDTO dto ,@HeaderParam("apiKey") String apiKey){
+    public Response triggerEvent(EventTriggerDTO dto, @HeaderParam("apiKey") String apiKey){
         // on recupere l'application
         Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
         // on recupere l'utilisateur concerne

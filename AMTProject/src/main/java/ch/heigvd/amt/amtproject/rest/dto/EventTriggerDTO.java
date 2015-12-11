@@ -6,7 +6,7 @@ public class EventTriggerDTO {
     private String eventName;
     private String userId;
     private long eventDate;
-    private HashMap<String, String> conditions = new HashMap<>();
+    private HashMap<String, String> conditions;
 
     public String getEventName() {
         return eventName;

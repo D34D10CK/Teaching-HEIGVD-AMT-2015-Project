@@ -21,7 +21,7 @@ public class EndUserDAO extends GenericDAO<EndUser, Long> implements EndUserDAOL
     @Override
     public EndUser findByAppAndUserId(Application app, String userId){
         return (EndUser) em.createNamedQuery("EndUser.findByAppAndUserId")
-                .setParameter("app", app).setParameter("userid", userId)
+                .setParameter("userid", userId)
                 .getSingleResult();
     }
 }

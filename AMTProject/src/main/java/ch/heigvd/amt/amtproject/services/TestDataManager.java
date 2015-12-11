@@ -83,8 +83,6 @@ public class TestDataManager implements TestDataManagerLocal {
 		// LevelDAO.create(l1);
 		// LevelDAO.create(l2);
 
-		RulelDAO.create(new Rule());
-
 		//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");
         

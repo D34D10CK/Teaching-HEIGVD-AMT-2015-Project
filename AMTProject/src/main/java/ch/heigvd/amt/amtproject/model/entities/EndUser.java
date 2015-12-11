@@ -18,7 +18,7 @@ import javax.persistence.UniqueConstraint;
 @NamedQueries({
     @NamedQuery(name = "EndUser.findByApp", query = "select e from EndUser e where e.app = :app"),
     @NamedQuery(name = "EndUser.findByAppAndUserId", 
-            query = "select e from EndUser e where e.app = :app and e.userId = :userid")
+            query = "select e from EndUser e where e.userId = :userid")
 })
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "userid"}))
 public class EndUser extends AbstractEntity<Long> {
