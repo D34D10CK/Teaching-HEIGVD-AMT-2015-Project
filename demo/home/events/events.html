@@ -1,0 +1,18 @@
+<template name="eventsTemplate">
+	<h2>Events</h2>
+	<p>Give
+		<select class="btn btn-sm">
+			{{#each users}}
+				<option data-id="{{ id }}">{{ name }}</option>
+			{{/each}}
+		</select>
+		
+		<select class="btn btn-sm">
+			<option>Event 01</option>
+			<option>Event 02</option>
+			<option>Event 03</option>
+		</select>
+
+		<input class="btn btn-primary btn-sm" type="submit">
+	</p>
+</template>
