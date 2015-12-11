@@ -5,8 +5,6 @@
  */
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
-import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.EventCondition;
 import ch.heigvd.amt.amtproject.model.entities.Rule;
 import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
@@ -17,9 +15,22 @@ import javax.ejb.Stateless;
 public class RuleDAO extends GenericDAO<Rule, Long> implements RuleDAOLocal{
     @Override
     public Rule findAppRuleByEventAndConditions(String eventName, List<EventCondition> conditions){
-        return (Rule)em.createNamedQuery("Rule.findByEventAndConditions")
+        List<Rule> rules = em.createNamedQuery("Rule.findByEvent")
                 .setParameter("event", eventName)
-                .setParameter("conditions", conditions)
-                .getSingleResult();
+                .getResultList();
+        for (Rule r : rules){
+            boolean passed = true;
+            List<EventCondition> rConditions = r.getConditions();
+            for (EventCondition c : conditions){
+                if (!rConditions.contains(c)){
+                    passed = false;
+                    break;
+                }
+            }
+            if (passed){
+                return r;
+            }
+        }
+        return null;
     }
 }
