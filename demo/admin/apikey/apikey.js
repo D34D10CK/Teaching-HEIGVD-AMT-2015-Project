@@ -4,7 +4,6 @@ if (Meteor.isServer) {
 			API_KEY = key;
 		},
 		getApiKey: function () {
-			console.log(API_KEY)
 			return API_KEY;
 		}
 	});

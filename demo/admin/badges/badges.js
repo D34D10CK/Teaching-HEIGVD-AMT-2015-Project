@@ -17,8 +17,8 @@ if (Meteor.isClient) {
 			var name = document.querySelector('#new-badge-name').value;
 			var url = document.querySelector('#new-badge-url').value;
 
-			var name = document.querySelector('#new-badge-name').value = '';
-			var url = document.querySelector('#new-badge-url').value = '';
+			document.querySelector('#new-badge-name').value = '';
+			document.querySelector('#new-badge-url').value = '';
 
 			Meteor.call('newBadge', name, url);
 		}
@@ -28,7 +28,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 	Meteor.methods({
 		refreshBadges: function () {
-			HTTP.get(API_URL + "badges/", {
+			HTTP.get(API_URL + "badges", {
 				headers: {
 					'apiKey': API_KEY
 				}
@@ -48,6 +48,7 @@ if (Meteor.isServer) {
 			});
 		},
 		newBadge: function (name, url) {
+			console.log(name, url);
 			HTTP.call('POST', API_URL + "badges", {
 				data: {
 					name: name,

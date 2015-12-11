@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.resources;
 
+import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
 import ch.heigvd.amt.amtproject.model.entities.Level;
 import ch.heigvd.amt.amtproject.rest.dto.LevelCreationDTO;
@@ -48,8 +49,8 @@ public class LevelRessource {
 
     @POST
     @Consumes("application/json")
-    public Response createLevel(LevelCreationDTO newLevel) {
-        Application app = applicationDAO.getAppByApiKey(newLevel.getApiKey());
+    public Response createLevel(LevelCreationDTO newLevel, @HeaderParam("apiKey") String apiKey) {
+        Application app = applicationDAO.getAppByApiKey(new ApiKey(apiKey));
 
         Level level = new Level();
         level.setApplication(app);
