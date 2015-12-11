@@ -6,5 +6,9 @@ import javax.ejb.Stateless;
 
 @Stateless
 public class PointAwardDAO extends GenericDAO<PointAward, Long> implements PointAwardDAOLocal {
-    
+
+    @Override
+    public int getPointsById(long id) {
+        return em.createNamedQuery("PointAward.getPointsOfUser").setParameter("user", id).getFirstResult();
+    }
 }

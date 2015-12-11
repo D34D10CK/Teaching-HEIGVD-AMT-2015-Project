@@ -7,9 +7,7 @@ import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.ApiKeyDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
-import ch.heigvd.amt.amtproject.services.dao.rest.BadgeDAOLocal;
-import ch.heigvd.amt.amtproject.services.dao.rest.LevelDAO;
-import ch.heigvd.amt.amtproject.services.dao.rest.LevelDAOLocal;
+import ch.heigvd.amt.amtproject.services.dao.rest.*;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -37,6 +35,9 @@ public class TestDataManager implements TestDataManagerLocal {
 
 	@EJB
 	LevelDAOLocal levelDAO;
+
+	@EJB
+	RuleDAOLocal RulelDAO;
 
     @Override
     public void generateTestData() {
@@ -81,6 +82,8 @@ public class TestDataManager implements TestDataManagerLocal {
 
 		// LevelDAO.create(l1);
 		// LevelDAO.create(l2);
+
+		RulelDAO.create(new Rule());
 
 		//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");

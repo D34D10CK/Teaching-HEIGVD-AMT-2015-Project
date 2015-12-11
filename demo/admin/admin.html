@@ -5,9 +5,14 @@
 		<p>Welcome to the admin zone!<br>
 		From here, you can manage the gamification app as you want!</p> 
 
+		{{> apiKeyTemplate}}
+
 		<div class="row">
-			<div class="col-md-4">
+			<div class="col-md-6">
 				{{> adminBadgesTemplate}}
+			</div>
+			<div class="col-md-6">
+				{{> adminLevelsTemplate}}
 			</div>
 		</div>
 	</div>

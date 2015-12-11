@@ -2,7 +2,9 @@ package ch.heigvd.amt.amtproject.rest.resources;
 
 import ch.heigvd.amt.amtproject.model.entities.ApiKey;
 import ch.heigvd.amt.amtproject.model.entities.Application;
+import ch.heigvd.amt.amtproject.model.entities.Badge;
 import ch.heigvd.amt.amtproject.model.entities.Level;
+import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
 import ch.heigvd.amt.amtproject.rest.dto.LevelCreationDTO;
 import ch.heigvd.amt.amtproject.rest.dto.LevelDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
@@ -12,12 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.HeaderParam;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
@@ -49,8 +46,8 @@ public class LevelRessource {
 
     @POST
     @Consumes("application/json")
-    public Response createLevel(LevelCreationDTO newLevel) {
-        Application app = applicationDAO.getAppByApiKey(newLevel.getApiKey());
+    public Response createLevel(LevelCreationDTO newLevel, @HeaderParam("apiKey") String apiKey) {
+        Application app = applicationDAO.getAppByApiKey(new ApiKey(apiKey));
 
         Level level = new Level();
         level.setApplication(app);
@@ -62,8 +59,18 @@ public class LevelRessource {
         URI href = uriInfo
                 .getBaseUriBuilder()
                 .path(LevelRessource.class)
+				.path(LevelRessource.class, "deleteLevel")
                 .build(id);
 
         return Response.created(href).build();
     }
+
+
+	@DELETE
+	@Path("/{id}")
+	public Response deleteLevel(@PathParam(value = "id") long id) {
+		Level level = levelDAO.findById(id);
+		levelDAO.delete(level);
+		return Response.ok().build();
+	}
 }

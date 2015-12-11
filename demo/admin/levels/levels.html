@@ -1,0 +1,30 @@
+<template name="adminLevelsTemplate">
+	<h2>Manage Levels</h2>
+
+	<h3>Existing Levels</h3>
+	<table class="table table-bordered" id="existing-badges">
+		<tbody>
+			<tr><th>Name</th><th>Points Required</th><th>Actions</th></tr>
+			{{#each levels}}
+				<tr>
+					<td>{{ name }}</td>
+					<td>{{ requiredPoints }}</td>
+					<td><button class="btn btn-sm btn-danger delete-level-button" data-href="{{ href }}"><span class="glyphicon glyphicon-minus"></span></button></td>
+
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+
+	<h3>Add a new Level</h3>
+	<table class="table table-bordered">
+		<tbody>
+			<tr><th>Name</th><th>Image</th><th>Actions</th></tr>
+			<tr>
+				<td><input type="text" placeholder="Name" id="new-level-name"></td>
+				<td><input type="number" placeholder="Points Required" id="new-level-points"></td>
+				<td><button class="btn btn-success btn-sm" id="add-new-level"><span class="glyphicon glyphicon-plus"></span></button></td>
+			</tr>
+		</tbody>
+	</table>
+</template>

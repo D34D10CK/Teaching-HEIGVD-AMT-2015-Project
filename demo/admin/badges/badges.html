@@ -9,7 +9,7 @@
 				<tr>
 					<td>{{ name }}</td>
 					<td><img src="{{ url }}" class="small-badge"></td>
-					<td><button class="btn btn-sm btn-danger"><span class="glyphicon glyphicon-minus"></span></button></td>
+					<td><button class="btn btn-sm btn-danger delete-badge-button" data-href="{{ href }}"><span class="glyphicon glyphicon-minus"></span></button></td>
 				</tr>
 			{{/each}}
 		</tbody>
@@ -20,7 +20,7 @@
 		<tbody>
 			<tr><th>Name</th><th>Image</th><th>Actions</th></tr>
 			<tr>
-				<td><input type="text" placeholder="Text" id="new-badge-name"></td>
+				<td><input type="text" placeholder="Name" id="new-badge-name"></td>
 				<td><input type="url" placeholder="URL" id="new-badge-url"></td>
 				<td><button class="btn btn-success btn-sm" id="add-new-badge"><span class="glyphicon glyphicon-plus"></span></button></td>
 			</tr>

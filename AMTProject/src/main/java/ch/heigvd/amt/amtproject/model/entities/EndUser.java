@@ -20,7 +20,7 @@ import javax.persistence.UniqueConstraint;
     @NamedQuery(name = "EndUser.findByAppAndUserId", 
             query = "select e from EndUser e where e.app = :app and e.userId = :userid")
 })
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "userid"})) 
+@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"app_id", "userid"}))
 public class EndUser extends AbstractEntity<Long> {
 
     @Column(nullable = false)
@@ -33,10 +33,10 @@ public class EndUser extends AbstractEntity<Long> {
     @ManyToOne
     private Application app;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "endUser")
     List<PointAward> points;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "endUser")
     List<BadgeAward> badges;
 
     public EndUser() {

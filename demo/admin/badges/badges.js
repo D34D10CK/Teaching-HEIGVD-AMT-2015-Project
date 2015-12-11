@@ -11,16 +11,22 @@ if (Meteor.isClient) {
 
 	Template.adminBadgesTemplate.events({
 		'click #add-new-badge': function (event) {
-			// Prevent default browser form submit
 			event.preventDefault();
 
 			var name = document.querySelector('#new-badge-name').value;
 			var url = document.querySelector('#new-badge-url').value;
 
-			var name = document.querySelector('#new-badge-name').value = '';
-			var url = document.querySelector('#new-badge-url').value = '';
+			document.querySelector('#new-badge-name').value = '';
+			document.querySelector('#new-badge-url').value = '';
 
 			Meteor.call('newBadge', name, url);
+		},
+		'click .delete-badge-button': function (event) {
+			event.preventDefault();
+
+			var href = event.target.getAttribute('data-href');
+
+			Meteor.call('deleteBadge', href);
 		}
 	});
 }
@@ -28,7 +34,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
 	Meteor.methods({
 		refreshBadges: function () {
-			HTTP.get(API_URL + "badges/", {
+			HTTP.get(API_URL + "badges", {
 				headers: {
 					'apiKey': API_KEY
 				}
@@ -48,6 +54,7 @@ if (Meteor.isServer) {
 			});
 		},
 		newBadge: function (name, url) {
+			console.log(name, url);
 			HTTP.call('POST', API_URL + "badges", {
 				data: {
 					name: name,
@@ -69,12 +76,27 @@ if (Meteor.isServer) {
 				}
 			},
 			function (err, result) {
+				if (err) {
+					console.error(err);
+					return;
+				}
+
 				var badge = result.data;
 				Badges.insert({
 					name: badge.name,
 					href: href,
 					url: badge.imageUrl
 				})
+			});
+		},
+		deleteBadge: function (href) {
+			HTTP.call('delete', href, {
+				headers: {
+					'apiKey': API_KEY
+				}
+			},
+			function (err, result) {
+				Meteor.call("refreshBadges");
 			});
 		}
 	});
