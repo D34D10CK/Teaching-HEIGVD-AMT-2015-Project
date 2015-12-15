@@ -5,7 +5,7 @@ define({ "api": [
     "title": "Get a given badge",
     "name": "GetBadge",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -59,7 +59,7 @@ define({ "api": [
     "title": "Get every badges",
     "name": "GetBadges",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -91,7 +91,7 @@ define({ "api": [
     "title": "Add a new badge",
     "name": "PostBadges",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -138,12 +138,78 @@ define({ "api": [
     "groupTitle": "Badges"
   },
   {
+    "type": "POST",
+    "url": "/events",
+    "title": "Trigger an event",
+    "name": "PostEvent",
+    "group": "Events",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "eventName",
+            "description": "<p>Name of the Event</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Number</p> ",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Identification number of the User</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Date</p> ",
+            "optional": false,
+            "field": "eventDate",
+            "description": "<p>Datetime of the event</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>[Object]</p> ",
+            "optional": false,
+            "field": "conditions",
+            "description": "<p>Conditions of the event</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "specifications/api-doc.java",
+    "groupTitle": "Events"
+  },
+  {
     "type": "GET",
     "url": "/levels/{id}",
     "title": "Get a given level",
     "name": "GetLevel",
     "group": "Levels",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -197,7 +263,7 @@ define({ "api": [
     "title": "Get the levels",
     "name": "GetLevels",
     "group": "Levels",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -238,7 +304,7 @@ define({ "api": [
     "title": "Post a new Level",
     "name": "PostLevels",
     "group": "Levels",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
@@ -290,7 +356,7 @@ define({ "api": [
     "title": "Get the reputation for a given user",
     "name": "GetReputation",
     "group": "Reputation",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "header": {
       "fields": {
         "Header": [
