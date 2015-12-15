@@ -26,16 +26,24 @@ In the first part of the project, we will apply techniques presented in the cour
 ## User Guide
 
 ### How to execute and access the application
+
+- Make sure MySQL is started and configured properly
+- In Netbeans, simply run the project
+
 ### How to use the application
+
+- Once the application is deployed, if using the default config you should be able to access it through http://localhost:8080/AMTProject
+
 ### How to update, build and deploy the application
 
-Building the application should be pretty straightforward.      
-Deploying the application can be done on the admin console of glassfish (localhost:4848).
-Before beig able to run the application, the user must create a local mysql database named "AMTdatabase" and a user
-"AMTUser" with password "amtpassword".
+- Start by cloning th repository localy
+- In MySQL, create a database named "AMTdatabase"
+- then create a user named "AMTUser" with password "amtpassword", give this user admin privileges on the previously created database
+- Compiling and deploying the application is done in Netbeans. Just load the project and hit the "play" button.
 
 ### How to run the automated test procedure
 
+No automatic testing has been done yet.
 
 ## Design
 
