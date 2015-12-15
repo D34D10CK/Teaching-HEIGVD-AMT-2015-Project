@@ -354,7 +354,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"name\": \"Level 1\",\n    \"requiredPoints\": 100\n}",
+          "content": "{\n  \"name\": \"Level 1\",\n  \"requiredPoints\": 100\n}",
           "type": "json"
         }
       ]
@@ -363,7 +363,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 Created",
+          "content": "HTTP/1.1 201 Created\nLocation: http://localhost:8080/AMTProject/api/levels/2",
           "type": "json"
         }
       ]

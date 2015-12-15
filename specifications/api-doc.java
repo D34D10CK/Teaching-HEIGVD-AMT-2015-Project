@@ -115,12 +115,13 @@
  *
  * @apiParamExample {json} Request-Example:
  * {
- *     "name": "Level 1",
- *     "requiredPoints": 100
+ *   "name": "Level 1",
+ *   "requiredPoints": 100
  * }
  *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 201 Created
+ * Location: http://localhost:8080/AMTProject/api/levels/2
  */
 
 // Reputation
