@@ -283,5 +283,59 @@ define({ "api": [
     },
     "filename": "specifications/api-doc.java",
     "groupTitle": "Levels"
+  },
+  {
+    "type": "GET",
+    "url": "/reputation/{id}",
+    "title": "Get the reputation for a given user",
+    "name": "GetReputation",
+    "group": "Reputation",
+    "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>Number</p> ",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Identification number of the User</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"points\": 1200,\n  \"badges\": [{\n    \"name\": \"CoolBadge\"\n    \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n    \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "specifications/api-doc.java",
+    "groupTitle": "Reputation"
   }
 ] });

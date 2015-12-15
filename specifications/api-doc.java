@@ -15,7 +15,6 @@
  *   "imageUrl": "https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png"
  *   "href": "http://localhost:8080/AMTProject/api/badges/3"
  * }]
- * 
  */
 
 /**
@@ -110,4 +109,30 @@
  *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 201 Created
+ */
+
+// Reputation
+/**
+ * @api {GET} /reputation/{id} Get the reputation for a given user
+ * @apiName GetReputation
+ * @apiGroup Reputation
+ * @apiVersion 0.1.0
+ * @apiHeader {String} apiKey Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)
+ *
+ * @apiParam {Number} id Identification number of the User
+ *
+ * @apiSuccessExample Success-Response:
+ * HTTP/1.1 200 OK
+ * {
+ *   "points": 1200,
+ *   "badges": [{
+ *     "name": "CoolBadge"
+ *     "imageUrl": "https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png"
+ *     "href": "http://localhost:8080/AMTProject/api/badges/3"
+ *   }]
+ * }
+ *
+ * @apiErrorExample Error-Response:
+ * HTTP/1.1 404 Not Found
+ * 
  */
