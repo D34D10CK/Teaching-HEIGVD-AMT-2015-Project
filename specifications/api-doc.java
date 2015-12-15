@@ -49,6 +49,12 @@
  *
  * @apiParam {String} name Name of the Badge
  * @apiParam {String} imageUrl URL of the Badge's image
+ * 
+ * @apiParamExample {json} Request-Example:
+ * {
+ *   "name": "Newbie",
+ *   "imageUrl": "https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png",
+ * }
  *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 201 Created
@@ -107,6 +113,12 @@
  * @apiParam {String} Name Name of the level
  * @apiParam {Int} RequiredPoints Points required for the level
  *
+ * @apiParamExample {json} Request-Example:
+ * {
+ *     "name": "Level 1",
+ *     "requiredPoints": 100
+ * }
+ *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 201 Created
  */
@@ -147,8 +159,18 @@
  *
  * @apiParam {String} eventName Name of the Event
  * @apiParam {Number} userId Identification number of the User
- * @apiParam {Date} eventDate Datetime of the event
- * @apiParam {[Object]} conditions Conditions of the event
+ * @apiParam {Timestamp} eventDate Timestamp of the Event
+ * @apiParam {[Object]} conditions Conditions of the Event
+ *
+ * @apiParamExample {json} Request-Example:
+ * {
+ *   "eventName": "Message Posted",
+ *   "userId": "c636606b-c7bb-4ea6-a257-2fa2340d12f3",
+ *   "eventDate": "1449798437032",
+ *   "conditions": {
+ *     "difficulty":"hard"
+ *   }
+ * }
  *
  * @apiSuccessExample Success-Response:
  * HTTP/1.1 200 OK

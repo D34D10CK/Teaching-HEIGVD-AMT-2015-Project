@@ -123,7 +123,14 @@ define({ "api": [
             "description": "<p>URL of the Badge's image</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"name\": \"Newbie\",\n  \"imageUrl\": \"https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png\",\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
@@ -176,20 +183,27 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "<p>Date</p> ",
+            "type": "<p>Timestamp</p> ",
             "optional": false,
             "field": "eventDate",
-            "description": "<p>Datetime of the event</p> "
+            "description": "<p>Timestamp of the Event</p> "
           },
           {
             "group": "Parameter",
             "type": "<p>[Object]</p> ",
             "optional": false,
             "field": "conditions",
-            "description": "<p>Conditions of the event</p> "
+            "description": "<p>Conditions of the Event</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"eventName\": \"Message Posted\",\n  \"userId\": \"c636606b-c7bb-4ea6-a257-2fa2340d12f3\",\n  \"eventDate\": \"1449798437032\",\n  \"conditions\": {\n    \"difficulty\":\"hard\"\n  }\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
@@ -336,7 +350,14 @@ define({ "api": [
             "description": "<p>Points required for the level</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"name\": \"Level 1\",\n    \"requiredPoints\": 100\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
