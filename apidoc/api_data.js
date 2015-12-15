@@ -1,11 +1,24 @@
 define({ "api": [
   {
-    "type": "DELETE",
-    "url": "/badges/:id",
-    "title": "Delete a badge",
-    "name": "DeleteBadges",
+    "type": "GET",
+    "url": "/badges/{id}",
+    "title": "Get a given badge",
+    "name": "GetBadge",
     "group": "Badges",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -14,7 +27,7 @@ define({ "api": [
             "type": "<p>Number</p> ",
             "optional": false,
             "field": "id",
-            "description": "<p>Badge unique ID.</p> "
+            "description": "<p>Identification number of the Badge</p> "
           }
         ]
       }
@@ -23,7 +36,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\"Badge deleted\"",
+          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"CoolBadge\"\n  \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n  \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n}",
           "type": "json"
         }
       ]
@@ -47,11 +60,24 @@ define({ "api": [
     "name": "GetBadges",
     "group": "Badges",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"CoolBadge\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"CoolBadge\"\n  \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n  \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n}]",
           "type": "json"
         }
       ]
@@ -66,6 +92,19 @@ define({ "api": [
     "name": "PostBadges",
     "group": "Badges",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -75,6 +114,13 @@ define({ "api": [
             "optional": false,
             "field": "name",
             "description": "<p>Name of the Badge</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>URL of the Badge's image</p> "
           }
         ]
       }
@@ -83,7 +129,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 Created",
+          "content": "HTTP/1.1 201 Created\nLocation: http://localhost:8080/AMTProject/api/badges/4",
           "type": "json"
         }
       ]
@@ -92,12 +138,25 @@ define({ "api": [
     "groupTitle": "Badges"
   },
   {
-    "type": "PUT",
-    "url": "/badges/:id",
-    "title": "Update a badge",
-    "name": "PutBadges",
-    "group": "Badges",
+    "type": "GET",
+    "url": "/levels/{id}",
+    "title": "Get a given level",
+    "name": "GetLevel",
+    "group": "Levels",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -106,14 +165,7 @@ define({ "api": [
             "type": "<p>Number</p> ",
             "optional": false,
             "field": "id",
-            "description": "<p>Badge unique ID.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>String</p> ",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Name of the Badge</p> "
+            "description": "<p>Identification number of the Level</p> "
           }
         ]
       }
@@ -122,7 +174,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\"Badge updated\"",
+          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"Level 1\"\n  \"requiredPoints\": 100\n  \"href\": \"http://localhost:8080/AMTProject/api/levels/2\"\n}",
           "type": "json"
         }
       ]
@@ -137,7 +189,7 @@ define({ "api": [
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "Badges"
+    "groupTitle": "Levels"
   },
   {
     "type": "GET",
@@ -146,11 +198,24 @@ define({ "api": [
     "name": "GetLevels",
     "group": "Levels",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n\t\"name\": \"level1\"\n\t\"requiredPoints\": 9001\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"Level 1\"\n  \"requiredPoints\": 100\n  \"href\": \"http://localhost:8080/AMTProject/api/levels/2\"\n}]",
           "type": "json"
         }
       ]
@@ -174,6 +239,19 @@ define({ "api": [
     "name": "PostLevels",
     "group": "Levels",
     "version": "0.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
