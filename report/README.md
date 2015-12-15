@@ -32,7 +32,7 @@ In the first part of the project, we will apply techniques presented in the cour
 
 ### How to use the application
 
-- Once the application is deployed, if using the default config you should be able to access it through http://localhost:8080/AMTProject
+- Once the application is deployed, if using the default config, you should be able to access it through http://localhost:8080/AMTProject
 
 ### How to update, build and deploy the application
 
@@ -51,6 +51,9 @@ No automatic testing has been done yet.
 ### Gamification features
 ### User interface
 ### REST API
+
+Please refer to the folder containing the APIdoc.
+
 ### Design patterns
 
 
