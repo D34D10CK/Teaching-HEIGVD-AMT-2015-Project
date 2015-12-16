@@ -60,6 +60,100 @@ Please refer to the folder containing the APIdoc.
 ## Implementation
 
 ### Package structure
+
+```
+amtproject
+├───entities
+│       AbstractEntity.java
+│       Account.java
+│       ApiKey.java
+│       Application.java
+│       Award.java
+│       Badge.java
+│       BadgeAward.java
+│       EndUser.java
+│       EventAction.java
+│       EventCondition.java
+│       Level.java
+│       PointAward.java
+│       Rule.java
+│       UserRole.java
+│
+├───rest
+│   │   PackageInfo.java
+│   │
+│   ├───config
+│   │       ApplicationConfig.java
+│   │       JacksonConfigurationProvider.java
+│   │       JsonExceptionMapper.java
+│   │
+│   ├───dto
+│   │       BadgeCreationDTO.java
+│   │       BadgeDTO.java
+│   │       BadgeSummaryDTO.java
+│   │       EventTriggerDTO.java
+│   │       LevelCreationDTO.java
+│   │       LevelDTO.java
+│   │       ReputationDTO.java
+│   │
+│   └───resources
+│           BadgesResource.java
+│           EventResource.java
+│           LevelRessource.java
+│           ReputationRessource.java
+│
+├───services
+│   │   AppsManager.java
+│   │   AppsManagerLocal.java
+│   │   TestDataManager.java
+│   │   TestDataManagerLocal.java
+│   │
+│   └───dao
+│       │   ApiKeyDAO.java
+│       │   ApiKeyDAOLocal.java
+│       │   ApplicationDAO.java
+│       │   ApplicationDAOLocal.java
+│       │   EndUserDAO.java
+│       │   EndUserDAOLocal.java
+│       │   GenericDAO.java
+│       │   IGenericDAO.java
+│       │   RoleDAO.java
+│       │   RoleDAOLocal.java
+│       │   UserDAO.java
+│       │   UserDAOLocal.java
+│       │
+│       └───rest
+│               BadgeAwardDAO.java
+│               BadgeAwardDAOLocal.java
+│               BadgeDAO.java
+│               BadgeDAOLocal.java
+│               EventConditionDAO.java
+│               EventConditionDAOLocal.java
+│               LevelDAO.java
+│               LevelDAOLocal.java
+│               PointAwardDAO.java
+│               PointAwardDAOLocal.java
+│               RuleDAO.java
+│               RuleDAOLocal.java
+│
+├───utils
+│       MonitoringListener.java
+│
+└───web
+    ├───controller
+    │       AccountServlet.java
+    │       AppDetailsServlet.java
+    │       DashborardServlet.java
+    │       HomeServlet.java
+    │       ListUsersServlet.java
+    │       LogoutServlet.java
+    │       NewAppServlet.java
+    │       RegistrationServlet.java
+    │
+    └───filters
+            SecurityFilter.java
+```
+
 ### Selected aspects
 
 
