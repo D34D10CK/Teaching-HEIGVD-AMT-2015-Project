@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @NamedQueries({
@@ -13,11 +14,11 @@ import javax.persistence.OneToOne;
 @Entity
 public class BadgeAward extends Award {
 
-    @OneToOne
+    @OneToMany(mappedBy="badgeAwards")
     private Badge badge;
-
+    
     @ManyToOne
-    private EndUser endUser;
+    private EndUser user;
 
     public Badge getBadge() {
         return badge;
@@ -27,11 +28,11 @@ public class BadgeAward extends Award {
         this.badge = badge;
     }
 
-    public EndUser getEndUser() {
-        return endUser;
+    public EndUser getUser() {
+        return user;
     }
 
-    public void setEndUser(EndUser endUser) {
-        this.endUser = endUser;
+    public void setUser(EndUser user) {
+        this.user = user;
     }
 }

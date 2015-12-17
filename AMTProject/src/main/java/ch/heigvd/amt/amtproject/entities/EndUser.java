@@ -33,10 +33,10 @@ public class EndUser extends AbstractEntity<Long> {
     @ManyToOne
     private Application app;
 
-    @OneToMany(mappedBy = "endUser")
+    @OneToMany(mappedBy = "user")
     List<PointAward> points;
 
-    @OneToMany(mappedBy = "endUser")
+    @OneToMany(mappedBy = "user")
     List<BadgeAward> badges;
 
     public EndUser() {

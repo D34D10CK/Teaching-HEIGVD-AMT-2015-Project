@@ -14,9 +14,9 @@ public class PointAward extends Award {
 
     @NotNull
     private int points;
-
+    
     @ManyToOne
-    private EndUser endUser;
+    private EndUser user;
 
     public int getPoints() {
         return points;
@@ -26,11 +26,12 @@ public class PointAward extends Award {
         this.points = points;
     }
 
-    public EndUser getEndUser() {
-        return endUser;
+    public EndUser getUser() {
+        return user;
     }
 
-    public void setEndUser(EndUser endUser) {
-        this.endUser = endUser;
+    public void setUser(EndUser user) {
+        this.user = user;
     }
+    
 }

@@ -41,6 +41,7 @@ public class TestDataManager implements TestDataManagerLocal {
 
     @Override
     public void generateTestData() {
+        
         Account u = new Account("test@t.com", "t", "t", "t");
         Account u2 = new Account("marc@heig-vd.ch", "Marc", "Pellet", "bonjour");
         
@@ -65,10 +66,11 @@ public class TestDataManager implements TestDataManagerLocal {
         applicationDAO.create(a2);
         applicationDAO.create(a3);
         
+        int id = 1;
         for(int i = 0; i < 154; i++){
-            createEndUser(a3);
-            createEndUser(a1);
-            createEndUser(a2);
+            createEndUser(a3, id);
+            createEndUser(a1, id);
+            createEndUser(a2, id);
         }
 
 		Badge b1 = new Badge("Test1", "https://playfoursquare.s3.amazonaws.com/badge/300/local.png", a1);
@@ -90,9 +92,11 @@ public class TestDataManager implements TestDataManagerLocal {
         //roleDAO.create(r2);
     }
     
-    private void createEndUser(Application app){
+    private void createEndUser(Application app, int id){
         EndUser e = new EndUser();
+        
         e.setApp(app);
+        e.setUserId("" + id++);
         enduUserDAO.create(e);
     }
 

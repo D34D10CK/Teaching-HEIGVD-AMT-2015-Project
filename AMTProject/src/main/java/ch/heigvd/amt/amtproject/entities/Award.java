@@ -18,13 +18,9 @@ public abstract class Award extends AbstractEntity<Long> {
     @NotNull
     private String reason;
     
-    @ManyToOne
-    private EndUser user;
-
-    public Award(Calendar obtainmentDate, String reason, EndUser user) {
+    public Award(Calendar obtainmentDate, String reason) {
         this.reason = reason;
         this.obtainmentDate = obtainmentDate;
-        this.user = user;
     }
 
     public Award() {
@@ -45,14 +41,5 @@ public abstract class Award extends AbstractEntity<Long> {
     public void setReason(String reason) {
         this.reason = reason;
     }
-
-    public EndUser getUser() {
-        return user;
-    }
-
-    public void setUser(EndUser user) {
-        this.user = user;
-    }
-    
     
 }

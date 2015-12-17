@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.model.entities;
 
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -27,6 +28,9 @@ public class Badge extends AbstractEntity<Long> {
 
     @ManyToOne
     private Application app;
+    
+    @ManyToOne
+    private List<BadgeAward> badgeAwards;
 
     public Badge(String name, String url, Application app) {
         this.name = name;
@@ -60,4 +64,14 @@ public class Badge extends AbstractEntity<Long> {
     public void setApp(Application app) {
         this.app = app;
     }
+
+    public List<BadgeAward> getBadgeAwards() {
+        return badgeAwards;
+    }
+
+    public void setBadgeAwards(List<BadgeAward> badgeAwards) {
+        this.badgeAwards = badgeAwards;
+    }
+    
+    
 }
