@@ -5,16 +5,33 @@
 
 ### Team
 
-Last name, first name | Github id   | Main role in the project
+Last name, first name | Github id   | Main role in the project part 1
 ----------------------|-------------|-------------------------
 Berney Léonard        | D3410CK     | Database
 Bron Sacha            | BinaryBrain | Views
 Villa David           | yoaaaarp    | Controller
 Pellet Marc           | Marcpellet  | Controller
 
+Last name, first name | Github id   | Main role in the project part 2
+----------------------|-------------|-------------------------
+Berney Léonard        | D3410CK     | REST-API
+Bron Sacha            | BinaryBrain | Demo App
+Villa David           | yoaaaarp    | REST-API
+Pellet Marc           | Marcpellet  | Bugs fix part 1 & SQL queries
+
 ### Tasks realized by the different team members
-
-
+Berney Léonard :
+	- API, levels
+	- Debug & Testing
+Bron Sacha :
+	- Demo App
+	- Debug & Testing
+Villa David :
+	- API, Events & Badges
+	- Debug & Testing
+Pellet Marc :
+	- Bugs fixing Part 1
+	- SQL queries & Debug
 
 ## Introduction
 
@@ -22,6 +39,10 @@ This is a group project for the AMT course of HEIG-VD. The goal is to developp a
 
 ###Part 1
 In the first part of the project, we will apply techniques presented in the course to build the foundation of the gamification platform. We will implement a simple domain model to deal with user accounts, roles, applications and API keys. We will also implement a web UI to manage these elements. An automated test procedure will also be written.
+
+###Part 2
+In the second part of the project, we will deploy the REST-API used by the gamification platform. This platform will provide three types of gamification : Badges, Points and Levels. An application's admin will be able to create, update and delete his own badges/levels and will be able to trigger existing rules by sending events to the REST-API. 
+We will also implement a demo application which will use this API to create ressources and interact throughout events. 
 
 ## User Guide
 
