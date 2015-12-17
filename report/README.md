@@ -228,7 +228,15 @@ The Bootstrap libraries are used for the design of the views.
 ### Procedures
 ### Results
 
-## Administrative information
+## Demo
+
+### Screenshots
+
+Home
+![DemoHome](screenshots/demo-home.png)
+
+Admin
+![DemoAdmin](screenshots/demo-admin.png)
 
 ## Known Issues
 
