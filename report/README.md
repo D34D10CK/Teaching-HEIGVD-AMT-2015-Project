@@ -62,6 +62,10 @@ No automatic testing has been done yet.
 ## Design
 
 ### System overview
+
+### Domain Model
+![UML](UML.png)
+
 ### Gamification features
 The end user can earn :
  - Badges
@@ -90,14 +94,12 @@ The Gamification's entities are :
 You can find them into the global [models domain](#domain-model) schema.
 
 ### User interface
+
 ### REST API
 
 The API documentation can be found [here](http://myproject.download/amt/apidoc/)
 
 ### Design patterns
-
-### Domain Model
-![UML](UML.png)
 
 ## Implementation
 
@@ -197,7 +199,7 @@ amtproject
 ```
 
 ### Selected aspects
-
+The Bootstrap libraries are used for the design of the views.
 
 ## Testing and validation
 
@@ -209,7 +211,7 @@ amtproject
 
 ## Known Issues
 
-- Competition not handled
+- Competition not managed due a lack of time
 - Error not handled on the server side
 
 ## Conclusion
