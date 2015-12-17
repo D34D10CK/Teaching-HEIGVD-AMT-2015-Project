@@ -77,6 +77,8 @@ Please refer to the folder containing the APIdoc.
 
 ### Design patterns
 
+### Domain Model
+![UML](UML.png)
 
 ## Implementation
 
