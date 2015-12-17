@@ -1,4 +1,4 @@
-package ch.heigvd.amt.amtproject.model.entities;
+package ch.heigvd.amt.amtproject.entities;
 
 import java.io.Serializable;
 import javax.persistence.GeneratedValue;

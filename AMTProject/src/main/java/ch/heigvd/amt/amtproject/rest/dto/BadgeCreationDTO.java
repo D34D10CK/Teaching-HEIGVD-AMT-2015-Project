@@ -10,7 +10,7 @@
  */
 package ch.heigvd.amt.amtproject.rest.dto;
 
-import ch.heigvd.amt.amtproject.model.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Application;
 
 public class BadgeCreationDTO {
 

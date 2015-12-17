@@ -1,7 +1,7 @@
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.EventCondition;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.EventCondition;
 import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
 import javax.ejb.Stateless;
 

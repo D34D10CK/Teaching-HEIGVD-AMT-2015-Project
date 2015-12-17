@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
-import ch.heigvd.amt.amtproject.model.entities.AbstractEntity;
+import ch.heigvd.amt.amtproject.entities.AbstractEntity;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import javax.persistence.EntityManager;

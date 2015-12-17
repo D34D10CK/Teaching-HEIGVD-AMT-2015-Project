@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import ch.heigvd.amt.amtproject.model.entities.Account;
+import ch.heigvd.amt.amtproject.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 import javax.ejb.EJB;
 

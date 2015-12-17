@@ -2,10 +2,10 @@ package ch.heigvd.amt.amtproject.services.dao;
 
 import javax.ejb.Stateless;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.Account;
-import ch.heigvd.amt.amtproject.model.entities.Badge;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Account;
+import ch.heigvd.amt.amtproject.entities.Badge;
 
 import java.util.List;
 import java.util.UUID;

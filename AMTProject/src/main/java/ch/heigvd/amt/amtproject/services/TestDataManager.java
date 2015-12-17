@@ -1,6 +1,11 @@
 package ch.heigvd.amt.amtproject.services;
 
-import ch.heigvd.amt.amtproject.model.entities.*;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Level;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.EndUser;
+import ch.heigvd.amt.amtproject.entities.Account;
+import ch.heigvd.amt.amtproject.entities.Badge;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 

@@ -5,10 +5,10 @@
  */
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.EventCondition;
-import ch.heigvd.amt.amtproject.model.entities.Rule;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.EventCondition;
+import ch.heigvd.amt.amtproject.entities.Rule;
 import ch.heigvd.amt.amtproject.services.dao.IGenericDAO;
 import java.util.List;
 import javax.ejb.Local;
