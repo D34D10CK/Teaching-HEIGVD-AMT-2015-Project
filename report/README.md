@@ -20,9 +20,9 @@ Villa David           | yoaaaarp    | REST-API
 Pellet Marc           | Marcpellet  | Bugs fix part 1 & SQL queries
 
 ### Tasks realized by the different team members
-Bugs fix part 1.
-Definition and implementation of the Gamification's features (badge, point, level, reputation, event).
-Implementation of a demo application.
+Bugs fix part 1.  
+Definition and implementation of the Gamification's features (badge, point, level, reputation, event).  
+Implementation of a demo application.  
 
 
 ## Introduction
@@ -75,7 +75,7 @@ The application's admin can create for his application :
  - Levels
 
 We've followed the approach just below to implement the REST API :
-![REST API approach](resources/rest-implementation.png)
+![REST API approach](resources/rest-implementation.jpg)
 
 The Gamification's entities are :
  - Level
@@ -209,7 +209,7 @@ amtproject
 
 ## Known Issues
 
-- Concurrency not handled
+- Competition not handled
 - Error not handled on the server side
 
 ## Conclusion
