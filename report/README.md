@@ -228,6 +228,7 @@ The Bootstrap libraries are used for the design of the views.
 ### Procedures
 ### Results
 
+## Administrative information
 
 ## Known Issues
 
