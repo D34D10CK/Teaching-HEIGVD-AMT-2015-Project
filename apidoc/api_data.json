@@ -1,11 +1,24 @@
 [
   {
-    "type": "DELETE",
-    "url": "/badges/:id",
-    "title": "Delete a badge",
-    "name": "DeleteBadges",
+    "type": "GET",
+    "url": "/badges/{id}",
+    "title": "Get a given badge",
+    "name": "GetBadge",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -14,7 +27,7 @@
             "type": "<p>Number</p> ",
             "optional": false,
             "field": "id",
-            "description": "<p>Badge unique ID.</p> "
+            "description": "<p>Identification number of the Badge</p> "
           }
         ]
       }
@@ -23,7 +36,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\"Badge deleted\"",
+          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"CoolBadge\"\n  \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n  \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n}",
           "type": "json"
         }
       ]
@@ -46,12 +59,25 @@
     "title": "Get every badges",
     "name": "GetBadges",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"CoolBadge\"\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"CoolBadge\"\n  \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n  \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n}]",
           "type": "json"
         }
       ]
@@ -65,7 +91,20 @@
     "title": "Add a new badge",
     "name": "PostBadges",
     "group": "Badges",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -75,15 +114,29 @@
             "optional": false,
             "field": "name",
             "description": "<p>Name of the Badge</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "imageUrl",
+            "description": "<p>URL of the Badge's image</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"name\": \"Newbie\",\n  \"imageUrl\": \"https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png\",\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 Created",
+          "content": "HTTP/1.1 201 Created\nLocation: http://localhost:8080/AMTProject/api/badges/4",
           "type": "json"
         }
       ]
@@ -92,12 +145,98 @@
     "groupTitle": "Badges"
   },
   {
-    "type": "PUT",
-    "url": "/badges/:id",
-    "title": "Update a badge",
-    "name": "PutBadges",
-    "group": "Badges",
-    "version": "0.1.0",
+    "type": "POST",
+    "url": "/events",
+    "title": "Trigger an event",
+    "name": "PostEvent",
+    "group": "Events",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>String</p> ",
+            "optional": false,
+            "field": "eventName",
+            "description": "<p>Name of the Event</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Number</p> ",
+            "optional": false,
+            "field": "userId",
+            "description": "<p>Identification number of the User</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>Timestamp</p> ",
+            "optional": false,
+            "field": "eventDate",
+            "description": "<p>Timestamp of the Event</p> "
+          },
+          {
+            "group": "Parameter",
+            "type": "<p>[Object]</p> ",
+            "optional": false,
+            "field": "conditions",
+            "description": "<p>Conditions of the Event</p> "
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"eventName\": \"Message Posted\",\n  \"userId\": \"c636606b-c7bb-4ea6-a257-2fa2340d12f3\",\n  \"eventDate\": \"1449798437032\",\n  \"conditions\": {\n    \"difficulty\":\"hard\"\n  }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "specifications/api-doc.java",
+    "groupTitle": "Events"
+  },
+  {
+    "type": "GET",
+    "url": "/levels/{id}",
+    "title": "Get a given level",
+    "name": "GetLevel",
+    "group": "Levels",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -106,14 +245,7 @@
             "type": "<p>Number</p> ",
             "optional": false,
             "field": "id",
-            "description": "<p>Badge unique ID.</p> "
-          },
-          {
-            "group": "Parameter",
-            "type": "<p>String</p> ",
-            "optional": false,
-            "field": "name",
-            "description": "<p>Name of the Badge</p> "
+            "description": "<p>Identification number of the Level</p> "
           }
         ]
       }
@@ -122,7 +254,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n\"Badge updated\"",
+          "content": "HTTP/1.1 200 OK\n{\n  \"name\": \"Level 1\"\n  \"requiredPoints\": 100\n  \"href\": \"http://localhost:8080/AMTProject/api/levels/2\"\n}",
           "type": "json"
         }
       ]
@@ -137,7 +269,7 @@
       ]
     },
     "filename": "specifications/api-doc.java",
-    "groupTitle": "Badges"
+    "groupTitle": "Levels"
   },
   {
     "type": "GET",
@@ -145,12 +277,25 @@
     "title": "Get the levels",
     "name": "GetLevels",
     "group": "Levels",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n\t\"name\": \"level1\"\n\t\"requiredPoints\": 9001\n}]",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"name\": \"Level 1\"\n  \"requiredPoints\": 100\n  \"href\": \"http://localhost:8080/AMTProject/api/levels/2\"\n}]",
           "type": "json"
         }
       ]
@@ -173,7 +318,20 @@
     "title": "Post a new Level",
     "name": "PostLevels",
     "group": "Levels",
-    "version": "0.1.0",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -192,18 +350,79 @@
             "description": "<p>Points required for the level</p> "
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"name\": \"Level 1\",\n  \"requiredPoints\": 100\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 201 Created",
+          "content": "HTTP/1.1 201 Created\nLocation: http://localhost:8080/AMTProject/api/levels/2",
           "type": "json"
         }
       ]
     },
     "filename": "specifications/api-doc.java",
     "groupTitle": "Levels"
+  },
+  {
+    "type": "GET",
+    "url": "/reputation/{id}",
+    "title": "Get the reputation for a given user",
+    "name": "GetReputation",
+    "group": "Reputation",
+    "version": "0.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "apiKey",
+            "description": "<p>Application Key (e.g. c45e61bf-dbf1-4404-bf6d-7fcbb83d4d26)</p> "
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "<p>Number</p> ",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Identification number of the User</p> "
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"points\": 1200,\n  \"badges\": [{\n    \"name\": \"CoolBadge\"\n    \"imageUrl\": \"https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png\"\n    \"href\": \"http://localhost:8080/AMTProject/api/badges/3\"\n  }]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "examples": [
+        {
+          "title": "Error-Response:",
+          "content": "HTTP/1.1 404 Not Found",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "specifications/api-doc.java",
+    "groupTitle": "Reputation"
   }
 ]

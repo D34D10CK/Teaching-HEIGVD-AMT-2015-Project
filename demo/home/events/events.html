@@ -1,0 +1,28 @@
+<template name="eventsTemplate">
+	<h2>Events</h2>
+	<p>Give
+		<select class="btn btn-sm" id="send-event-user">
+			{{#each users}}
+				<option value="{{ id }}">{{ name }}</option>
+			{{/each}}
+		</select>
+		
+		<select class="btn btn-sm" id="send-event-event">
+			<option value="1">Event 01</option>
+			<option value="2">Event 02</option>
+		</select>
+
+		<input class="btn btn-primary btn-sm" id="send-event-button" type="submit">
+	</p>
+
+	<p>
+		<h2>Reputations</h2>
+		{{#each users}}
+			<h3>Reputation of {{ name }}</h3>
+			<ul>
+				<li>Points: {{ points }}</li>
+				<li>Badges: {{#each badges}} <img href="{{ url }}"> {{/each}}</li>
+			</ul>
+		{{/each}}
+	</p>
+</template>
