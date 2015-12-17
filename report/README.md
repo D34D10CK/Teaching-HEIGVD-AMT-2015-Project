@@ -20,18 +20,10 @@ Villa David           | yoaaaarp    | REST-API
 Pellet Marc           | Marcpellet  | Bugs fix part 1 & SQL queries
 
 ### Tasks realized by the different team members
-Berney Léonard :
- - API, levels
- - Debug & Testing
-Bron Sacha :
- - Demo App
- - Debug & Testing
-Villa David :
- - API, Events & Badges
- - Debug & Testing
-Pellet Marc :
- - Bugs fixing Part 1
- - SQL queries & Debug
+Bugs fix part 1.
+Definition and implementation of the Gamification's features (badge, point, level, reputation, event).
+Implementation of a demo application.
+
 
 ## Introduction
 
@@ -49,6 +41,7 @@ We will also implement a demo application which will use this API to create ress
 ### How to execute and access the application
 
 - Make sure MySQL is started and configured properly
+- Same for Glassfish server
 - In Netbeans, simply run the project
 
 ### How to use the application
@@ -70,10 +63,36 @@ No automatic testing has been done yet.
 
 ### System overview
 ### Gamification features
+The end user can earn :
+ - Badges
+ - Points
+ - Levels (automatically, according to the total points)
+
+End user stats can be retrieved through the reputation API.
+ 
+The application's admin can create for his application :
+ - Badges
+ - Levels
+
+We've followed the approach just below to implement the REST API :
+![REST API approach](resources/rest-implementation.png)
+
+The Gamification's entities are :
+ - Level
+ - Badge
+ - Rule
+ - EventCondition
+ - EventAction
+ - Award
+ - BadgeAward
+ - PointAward
+
+You can find them into the global [models domain](#domain-model) schema.
+
 ### User interface
 ### REST API
 
-Please refer to the folder containing the APIdoc.
+The API documentation can be found [here](http://myproject.download/amt/apidoc/)
 
 ### Design patterns
 
@@ -190,10 +209,8 @@ amtproject
 
 ## Known Issues
 
-- Statistiques doesn't appears when loading de page from index
-- Number of EndUser associate to an application is always 0
-- User can't change state(enable/disable) in the appDetail page
-- Creation date of EndUser in the list doesn't appears sometimes
+- Concurrency not handled
+- Error not handled on the server side
 
 ## Conclusion
 
