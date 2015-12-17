@@ -46,7 +46,7 @@ We will also implement a demo application which will use this API to create ress
 
 ### How to use the application
 
-- Once the application is deployed, if using the default config, you should be able to access it through http://localhost:8080/AMTProject
+- Once the application is deployed, if using the default config, you should be able to access it through [http://localhost:8080/AMTProject](http://localhost:8080/AMTProject)
 
 ### How to update, build and deploy the application
 
