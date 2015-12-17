@@ -98,7 +98,7 @@ Home & Login
 ![HomeAndLogin](screenshots/home.png)
 
 Home & Login fail
-![HomeAndLoginFail](screenshots/homeFail.png)
+![HomeAndLoginFail](screenshots/home-fail.png)
 
 Registration
 ![Registration](screenshots/new-account.png)
@@ -232,9 +232,8 @@ The Bootstrap libraries are used for the design of the views.
 ## Known Issues
 
 - Competition not managed due a lack of time
-- Error not handled on the server side
+- Errors not handled on the server side
 
 ## Conclusion
 
-## Appending A: Auto Evaluation
 
