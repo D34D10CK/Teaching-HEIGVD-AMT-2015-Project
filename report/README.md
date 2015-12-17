@@ -62,6 +62,7 @@ No automatic testing has been done yet.
 ## Design
 
 ### System overview
+![system overview](resources/system-overview.png)
 
 ### Domain Model
 ![UML](UML.png)
