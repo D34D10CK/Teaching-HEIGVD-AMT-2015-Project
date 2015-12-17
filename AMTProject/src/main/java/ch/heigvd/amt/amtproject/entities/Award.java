@@ -1,4 +1,4 @@
-package ch.heigvd.amt.amtproject.model.entities;
+package ch.heigvd.amt.amtproject.entities;
 
 import java.util.Calendar;
 import javax.persistence.Column;

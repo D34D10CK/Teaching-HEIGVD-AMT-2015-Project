@@ -1,7 +1,7 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.EndUser;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.EndUser;
 import java.util.List;
 import javax.ejb.Local;
 

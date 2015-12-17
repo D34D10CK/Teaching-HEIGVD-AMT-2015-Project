@@ -1,14 +1,14 @@
 package ch.heigvd.amt.amtproject.rest.resources;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.Badge;
-import ch.heigvd.amt.amtproject.model.entities.BadgeAward;
-import ch.heigvd.amt.amtproject.model.entities.EndUser;
-import ch.heigvd.amt.amtproject.model.entities.EventAction;
-import ch.heigvd.amt.amtproject.model.entities.EventCondition;
-import ch.heigvd.amt.amtproject.model.entities.PointAward;
-import ch.heigvd.amt.amtproject.model.entities.Rule;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Badge;
+import ch.heigvd.amt.amtproject.entities.BadgeAward;
+import ch.heigvd.amt.amtproject.entities.EndUser;
+import ch.heigvd.amt.amtproject.entities.EventAction;
+import ch.heigvd.amt.amtproject.entities.EventCondition;
+import ch.heigvd.amt.amtproject.entities.PointAward;
+import ch.heigvd.amt.amtproject.entities.Rule;
 import ch.heigvd.amt.amtproject.rest.dto.EventTriggerDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;

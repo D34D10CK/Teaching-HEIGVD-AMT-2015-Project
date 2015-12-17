@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import ch.heigvd.amt.amtproject.model.entities.Account;
+import ch.heigvd.amt.amtproject.entities.Account;
 import javax.persistence.FieldResult;
 import javax.servlet.annotation.WebFilter;
 

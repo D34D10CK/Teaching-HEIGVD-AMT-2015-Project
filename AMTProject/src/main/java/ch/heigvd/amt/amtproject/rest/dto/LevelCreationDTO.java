@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
 
 public class LevelCreationDTO {
 

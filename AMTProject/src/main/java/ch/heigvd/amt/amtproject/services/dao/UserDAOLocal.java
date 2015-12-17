@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao;
 
-import ch.heigvd.amt.amtproject.model.entities.Account;
+import ch.heigvd.amt.amtproject.entities.Account;
 import javax.ejb.Local;
 
 @Local

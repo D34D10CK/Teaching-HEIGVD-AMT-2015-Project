@@ -1,8 +1,8 @@
 package ch.heigvd.amt.amtproject.web.controller;
 
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
-import ch.heigvd.amt.amtproject.model.entities.Application;
-import ch.heigvd.amt.amtproject.model.entities.Account;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Account;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

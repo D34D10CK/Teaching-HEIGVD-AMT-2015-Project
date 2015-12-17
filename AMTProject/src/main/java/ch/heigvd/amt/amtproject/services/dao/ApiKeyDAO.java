@@ -1,5 +1,5 @@
 package ch.heigvd.amt.amtproject.services.dao;
-import ch.heigvd.amt.amtproject.model.entities.ApiKey;
+import ch.heigvd.amt.amtproject.entities.ApiKey;
 
 import javax.ejb.Stateless;
 

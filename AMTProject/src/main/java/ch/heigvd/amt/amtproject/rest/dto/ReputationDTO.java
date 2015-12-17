@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
-import ch.heigvd.amt.amtproject.model.entities.Badge;
+import ch.heigvd.amt.amtproject.entities.Badge;
 import java.util.List;
 
 public class ReputationDTO {

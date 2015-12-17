@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
-import ch.heigvd.amt.amtproject.model.entities.Level;
+import ch.heigvd.amt.amtproject.entities.Level;
 import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
 import java.util.List;
 import javax.ejb.Stateless;

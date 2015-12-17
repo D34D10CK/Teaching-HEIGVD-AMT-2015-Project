@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.services;
 
-import ch.heigvd.amt.amtproject.model.entities.Application;
+import ch.heigvd.amt.amtproject.entities.Application;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;

@@ -1,6 +1,6 @@
 package ch.heigvd.amt.amtproject.rest.dto;
 
-import ch.heigvd.amt.amtproject.model.entities.Level;
+import ch.heigvd.amt.amtproject.entities.Level;
 import java.net.URI;
 
 public class LevelDTO {
