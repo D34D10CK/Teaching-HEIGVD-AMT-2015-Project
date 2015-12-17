@@ -21,17 +21,17 @@ Pellet Marc           | Marcpellet  | Bugs fix part 1 & SQL queries
 
 ### Tasks realized by the different team members
 Berney Léonard :
-	- API, levels
-	- Debug & Testing
+ - API, levels
+ - Debug & Testing
 Bron Sacha :
-	- Demo App
-	- Debug & Testing
+ - Demo App
+ - Debug & Testing
 Villa David :
-	- API, Events & Badges
-	- Debug & Testing
+ - API, Events & Badges
+ - Debug & Testing
 Pellet Marc :
-	- Bugs fixing Part 1
-	- SQL queries & Debug
+ - Bugs fixing Part 1
+ - SQL queries & Debug
 
 ## Introduction
 
