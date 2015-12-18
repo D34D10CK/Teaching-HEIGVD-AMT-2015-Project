@@ -259,4 +259,7 @@ Admin
 
 ## Conclusion
 
-
+The development of a Java EE application is new for us and we are still learning (often the hard way).  
+Java EE showed us that there is some clever ideas and concept allowing us to write less code and have more flexible application. For example, with Jax-RS, if we want to add a new key-value in the sent Json, we just have to add a property in the DTO and call it correctly in the resource file and it works. On the other hand, if we make a small mistake, like giving getters/setters non-standard names, the app won't work and it can be very hard to debug it.  
+Speaking about debugging, it can be very hard to do it because of the IoC and very long stack traces that list functions that are not in our code. We think that stack traces are great in Java, but inappropriate in Java EE.  
+In the end, we lost a lot of time trying to debug simple things or insignificant exceptions.
