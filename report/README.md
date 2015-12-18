@@ -231,6 +231,19 @@ The Bootstrap libraries are used for the design of the views.
 
 ## Demo
 
+The demo application has been created with the help of Meteor.
+
+Meteor is a web framework based on Node and giving the ability to realise client-serveur applications easily.  
+Among its main features, Meteor has a pretty clever protocol called DDP (Distributed Data Protocol) that keep server data synchronized with client data. To achieve this, it uses a small MongoDB on the client-side as well.  
+Meteor also takes every files in the project and include them on both sides, giving us the possibility to reuse code.
+
+Our app is consisting of two pages:
+- Home
+- Admin
+
+The home page is here to trigger events and act like any app during its lifetime.  
+The admin page is giving us the possibility to prepare the app by creating badges and levels. 
+
 ### Screenshots
 
 Home
