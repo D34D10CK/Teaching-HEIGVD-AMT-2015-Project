@@ -224,10 +224,7 @@ The Bootstrap libraries are used for the design of the views.
 
 ## Testing and validation
 
-### Test strategy
-### Tools
-### Procedures
-### Results
+We don't have and unit tests or regression tests. We tested features of our server using the API via Postman.
 
 ## Demo
 
