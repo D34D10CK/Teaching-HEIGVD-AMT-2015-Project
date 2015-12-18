@@ -95,7 +95,9 @@ The Gamification's entities are :
 You can find them into the global [models domain](#domain-model) schema.
 
 ### User interface
+
 Home & Login
+
 ![HomeAndLogin](screenshots/home.png)
 
 Home & Login fail
