@@ -46,7 +46,7 @@ We will also implement a demo application which will use this API to create ress
 
 ### How to use the application
 
-- Once the application is deployed, if using the default config, you should be able to access it through http://localhost:8080/AMTProject
+- Once the application is deployed, if using the default config, you should be able to access it through [http://localhost:8080/AMTProject](http://localhost:8080/AMTProject)
 
 ### How to update, build and deploy the application
 
@@ -62,6 +62,7 @@ No automatic testing has been done yet.
 ## Design
 
 ### System overview
+![system overview](resources/system-overview.png)
 
 ### Domain Model
 ![UML](UML.png)
@@ -94,7 +95,9 @@ The Gamification's entities are :
 You can find them into the global [models domain](#domain-model) schema.
 
 ### User interface
-Home & Login  
+
+Home & Login
+
 ![HomeAndLogin](screenshots/home.png)
 
 Home & Login fail
@@ -223,11 +226,30 @@ The Bootstrap libraries are used for the design of the views.
 
 ## Testing and validation
 
-### Test strategy
-### Tools
-### Procedures
-### Results
+We don't have and unit tests or regression tests. We tested features of our server using the API via Postman.
 
+## Demo
+
+The demo application has been created with the help of Meteor.
+
+Meteor is a web framework based on Node and giving the ability to realise client-serveur applications easily.  
+Among its main features, Meteor has a pretty clever protocol called DDP (Distributed Data Protocol) that keep server data synchronized with client data. To achieve this, it uses a small MongoDB on the client-side as well.  
+Meteor also takes every files in the project and include them on both sides, giving us the possibility to reuse code.
+
+Our app is consisting of two pages:
+- Home
+- Admin
+
+The home page is here to trigger events and act like any app during its lifetime.  
+The admin page is giving us the possibility to prepare the app by creating badges and levels. 
+
+### Screenshots
+
+Home
+![DemoHome](screenshots/demo-home.png)
+
+Admin
+![DemoAdmin](screenshots/demo-admin.png)
 
 ## Known Issues
 
@@ -236,4 +258,7 @@ The Bootstrap libraries are used for the design of the views.
 
 ## Conclusion
 
-
+The development of a Java EE application is new for us and we are still learning (often the hard way).  
+Java EE showed us that there is some clever ideas and concept allowing us to write less code and have more flexible application. For example, with Jax-RS, if we want to add a new key-value in the sent Json, we just have to add a property in the DTO and call it correctly in the resource file and it works. On the other hand, if we make a small mistake, like giving getters/setters non-standard names, the app won't work and it can be very hard to debug it.  
+Speaking about debugging, it can be very hard to do it because of the IoC and very long stack traces that list functions that are not in our code. We think that stack traces are great in Java, but inappropriate in Java EE.  
+In the end, we lost a lot of time trying to debug simple things or insignificant exceptions.
