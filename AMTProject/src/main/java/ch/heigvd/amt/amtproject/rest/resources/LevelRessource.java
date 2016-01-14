@@ -2,9 +2,7 @@ package ch.heigvd.amt.amtproject.rest.resources;
 
 import ch.heigvd.amt.amtproject.entities.ApiKey;
 import ch.heigvd.amt.amtproject.entities.Application;
-import ch.heigvd.amt.amtproject.entities.Badge;
 import ch.heigvd.amt.amtproject.entities.Level;
-import ch.heigvd.amt.amtproject.rest.dto.BadgeDTO;
 import ch.heigvd.amt.amtproject.rest.dto.LevelCreationDTO;
 import ch.heigvd.amt.amtproject.rest.dto.LevelDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
