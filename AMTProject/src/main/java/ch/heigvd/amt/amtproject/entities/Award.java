@@ -23,8 +23,7 @@ public abstract class Award extends AbstractEntity<Long> {
         this.obtainmentDate = obtainmentDate;
     }
 
-    public Award() {
-    }
+    public Award() { }
 
     public Calendar getObtainmentDate() {
         return obtainmentDate;

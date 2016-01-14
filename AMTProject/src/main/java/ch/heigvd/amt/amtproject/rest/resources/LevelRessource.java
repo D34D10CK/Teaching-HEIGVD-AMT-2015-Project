@@ -36,13 +36,13 @@ public class LevelRessource {
         List<LevelDTO> dtos = new ArrayList<>();
         List<Level> levels = levelDAO.getLevels(apiKey);
 
-        for (Level l : levels) {
-            LevelDTO dto = new LevelDTO(l);
+        for (Level lvl : levels) {
+            LevelDTO dto = new LevelDTO(lvl);
             URI href = uriInfo
                     .getBaseUriBuilder()
                     .path(LevelRessource.class)
                     .path(LevelRessource.class, "getLevel")
-                    .build(l.getId());
+                    .build(lvl.getId());
             dto.setHref(href);
             dtos.add(dto);
         }

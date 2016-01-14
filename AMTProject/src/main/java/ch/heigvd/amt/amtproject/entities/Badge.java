@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -29,7 +30,7 @@ public class Badge extends AbstractEntity<Long> {
     @ManyToOne
     private Application app;
     
-    @ManyToOne
+    @OneToMany(mappedBy = "badge")
     private List<BadgeAward> badgeAwards;
 
     public Badge(String name, String url, Application app) {

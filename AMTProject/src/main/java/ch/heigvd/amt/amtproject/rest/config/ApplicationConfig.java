@@ -30,6 +30,7 @@ public class ApplicationConfig extends Application {
     resources.add(ch.heigvd.amt.amtproject.rest.config.JacksonConfigurationProvider.class);
     resources.add(ch.heigvd.amt.amtproject.rest.config.JsonExceptionMapper.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.BadgesResource.class);
+        resources.add(ch.heigvd.amt.amtproject.rest.resources.EndUserResource.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.EventResource.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.LevelRessource.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.ReputationRessource.class);

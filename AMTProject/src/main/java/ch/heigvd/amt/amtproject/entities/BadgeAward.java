@@ -8,17 +8,19 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @NamedQueries({
-    @NamedQuery(name = "BadgeAward.getBadgesOfUser", query = "select b from BadgeAward b where b.endUser.id = :user")
+    @NamedQuery(name = "BadgeAward.getBadgesOfUser", query = "select b from BadgeAward b where b.user.userId = :user")
 })
 
 @Entity
 public class BadgeAward extends Award {
 
-    @OneToMany(mappedBy="badgeAwards")
+    @ManyToOne//(mappedBy="badgeAwards")
     private Badge badge;
     
     @ManyToOne
     private EndUser user;
+    
+    public BadgeAward(){ }
 
     public Badge getBadge() {
         return badge;
