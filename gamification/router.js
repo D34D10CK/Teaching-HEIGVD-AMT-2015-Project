@@ -11,7 +11,6 @@ Router.route('/callback', {
 		Meteor.call('callback', code, function (err, result) {
 			if (result.access_token) {
 				Session.set('token', result.access_token);
-				users
 			}
 		});
 

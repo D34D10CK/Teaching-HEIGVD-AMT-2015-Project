@@ -21,8 +21,4 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
 	API_URL = "http://localhost:8080/AMTProject/api/";
-
-	Meteor.startup(function () {
-		Future = Npm.require('fibers/future');
-	});
 }
