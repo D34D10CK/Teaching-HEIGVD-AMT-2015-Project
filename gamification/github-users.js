@@ -1,12 +1,12 @@
 if (Meteor.isServer) {
 	Meteor.methods({
-		getUser: function () {
+		getUser: function (token) {
 			var result = HTTP.get("https://api.github.com/user", {
 				headers: {
 					"User-Agent": "GitHub Gamification"
 				},
 				params: {
-					access_token: TOKEN
+					access_token: token
 				}
 			});
 

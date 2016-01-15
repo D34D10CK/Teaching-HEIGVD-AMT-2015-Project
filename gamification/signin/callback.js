@@ -29,9 +29,11 @@ if (Meteor.isServer) {
 				params[kv[0]] = kv[1];
 			});
 
-			TOKEN = params.access_token;
+			var token = params.access_token;
 
-			Meteor.call('getUser', function (err, result) {	
+			var future = new Future();
+
+			Meteor.call('getUser', token, function (err, result) {	
 				if (err) {
 					console.error(err);
 					return err;
@@ -47,10 +49,17 @@ if (Meteor.isServer) {
 					githubId: result.data.id,
 					username: result.data.login,
 					avatar: result.data.avatar_url,
+					token: token,
+				});
+
+				future['return']({
+					githubId: result.data.id,
+					token: token,
 				});
 			});
 
-			return params;
+
+			return future.wait();
 		}
 	})
 }
