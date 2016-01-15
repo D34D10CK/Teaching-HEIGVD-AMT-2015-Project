@@ -1,0 +1,80 @@
+#dashboard {
+	@avatar-margin: 40px;
+	@avatar-width: 150px;
+	@dashboard-status-padding-top: 30px;
+	@badge-size: 80px;
+
+	margin: auto;
+	padding: 0 200px;
+	max-width: 1400px;
+
+	#dashboardTitle {
+		text-align: center;
+		padding-top: 20px;
+		padding-bottom: 50px;
+	}
+
+	#signinTitle {}
+	#dashboard-status {
+		border: 3px solid black;
+		padding: @dashboard-status-padding-top;
+		border-radius: 5px;
+		min-height: @avatar-width + 2 * @dashboard-status-padding-top;
+
+		.avatar {
+			float: left;
+			margin-right: @avatar-margin;
+
+			img {
+				width: @avatar-width;
+				height: @avatar-width;
+			}
+		}
+		.infos {
+			margin-left: @avatar-width + @avatar-margin;
+
+			h3 {}
+
+			.level {
+				font-style: italic;
+				font-size: 1.3em;
+				padding-bottom: 10px;
+			}
+
+			.xp-bar {
+				position: relative;
+				height: 30px;
+				border: 3px solid black;
+				overflow: hidden;
+				border-radius: 100px;
+				margin: 10px 0;
+
+				.xp {
+					position: absolute;
+					left: 0;
+					top: 0;
+					bottom: 0;
+					width: 70%;
+					background-color: lightgreen;
+				}
+				.xp-text {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					text-align: center;
+					padding: 5px;
+				}
+			}
+		}
+		.badges {
+			clear: both;
+
+			.badge {
+				img {
+					width: @badge-size;
+					height: @badge-size;
+				}
+			}
+		}
+	}
+}
