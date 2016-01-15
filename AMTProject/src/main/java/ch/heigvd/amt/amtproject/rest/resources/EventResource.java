@@ -64,7 +64,7 @@ public class EventResource {
     public Response triggerEvent(EventTriggerDTO dto, @HeaderParam("apiKey") String apiKey){
         // on recupere l'application
         Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
-        // on recupere l'utilisateur concerne
+        // on recupere l'utilisateur concerné
         EndUser user = endUsersDAO.findByAppAndUserId(app, dto.getUserId());
         // on extrait toutes les conditions liées a l'event
         List<EventCondition> conditions = extractCondition(dto.getConditions(), app);

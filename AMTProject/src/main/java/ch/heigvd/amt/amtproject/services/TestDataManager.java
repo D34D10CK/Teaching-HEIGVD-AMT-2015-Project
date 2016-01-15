@@ -6,6 +6,9 @@ import ch.heigvd.amt.amtproject.entities.ApiKey;
 import ch.heigvd.amt.amtproject.entities.EndUser;
 import ch.heigvd.amt.amtproject.entities.Account;
 import ch.heigvd.amt.amtproject.entities.Badge;
+import ch.heigvd.amt.amtproject.entities.EventCondition;
+import ch.heigvd.amt.amtproject.entities.Rule;
+import ch.heigvd.amt.amtproject.entities.EventAction;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.UserDAOLocal;
 
@@ -14,6 +17,9 @@ import ch.heigvd.amt.amtproject.services.dao.EndUserDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.RoleDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.LevelDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -41,9 +47,15 @@ public class TestDataManager implements TestDataManagerLocal {
 
     @EJB
     LevelDAOLocal levelDAO;
-
+    
     @EJB
-    RuleDAOLocal RulelDAO;
+    EventConditionDAOLocal conditionsDAO;
+    
+    @EJB
+    EventActionDAOLocal actionsDAO;
+    
+    @EJB
+    RuleDAOLocal ruleDAO;
 
     @Override
     public void generateTestData() {
@@ -83,6 +95,47 @@ public class TestDataManager implements TestDataManagerLocal {
         Level l2 = new Level("Rookie", 200, a1);
         levelDAO.create(l1);
         levelDAO.create(l2);
+        
+        
+
+        // Creation d'une règle pour l'app 1
+        Rule rule = new Rule();
+        rule.setApp(a1);
+        rule.setEventType("msgPosted");
+        rule.setActions(null);
+        rule.setConditions(null);
+        ruleDAO.create(rule);
+        // creation d'une condition a la règle
+        EventCondition condition = new EventCondition();
+        condition.setConditionName("difficulty");
+        condition.setConditionValue("hard");
+        condition.setRule(rule);
+        conditionsDAO.create(condition);
+        // creation d'une action associée à la règle
+        EventAction action1 = new EventAction();
+        action1.setName("add5Pts");
+        action1.setNbPoint(5);
+        action1.setBadgeName(null);
+        action1.setRule(rule);
+        actionsDAO.create(action1);
+        EventAction action2 = new EventAction();
+        action2.setName("addNoobBadge");
+        action2.setNbPoint(0);
+        action2.setBadgeName("Newbie");
+        action2.setRule(rule);
+        actionsDAO.create(action2);
+        // ajout de(s) condition(s) et action(s) à la règle
+        List<EventCondition> conditions = new ArrayList<EventCondition>();
+        conditions.add(condition);
+        
+        List<EventAction> actions = new ArrayList<EventAction>();
+        actions.add(action1);
+        actions.add(action2);
+        
+        rule.setConditions(conditions);
+        rule.setActions(actions);
+        ruleDAO.update(rule);
+        
         
 	//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");
