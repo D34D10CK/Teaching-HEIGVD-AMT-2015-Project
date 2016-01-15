@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
+import ch.heigvd.amt.amtproject.entities.Application;
 import ch.heigvd.amt.amtproject.entities.PointAward;
 import ch.heigvd.amt.amtproject.services.dao.IGenericDAO;
 import javax.ejb.Local;
@@ -8,5 +9,5 @@ import javax.ejb.Local;
 
 public interface PointAwardDAOLocal extends IGenericDAO<PointAward, Long> {
 
-    int getPointsById(long id);
+    long getPointsById(String userId, Application app);
 }

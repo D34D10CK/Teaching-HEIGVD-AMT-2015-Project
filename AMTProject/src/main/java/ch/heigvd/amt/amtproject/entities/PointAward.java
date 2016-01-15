@@ -7,7 +7,8 @@ import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @NamedQueries({
-    @NamedQuery(name = "PointAward.getPointsOfUser", query = "select sum(p.points) from PointAward p where p.user.userId = :user")
+    @NamedQuery(name = "PointAward.getUserPoints", 
+            query = "select sum(p.points) from PointAward p where p.user.userId = :userId and p.user.app = :app")
 })
 @Entity
 public class PointAward extends Award {

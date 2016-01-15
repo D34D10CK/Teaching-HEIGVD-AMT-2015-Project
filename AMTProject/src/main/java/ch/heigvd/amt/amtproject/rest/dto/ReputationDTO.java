@@ -5,22 +5,32 @@ import java.util.List;
 
 public class ReputationDTO {
 
-    private List<Badge> badges;
-    private int points;
+    private List<BadgeDTO> badges;
+    private long points;
+    private String level;
 
-    public List<Badge> getBadges() {
+    public List<BadgeDTO> getBadges() {
         return badges;
     }
 
-    public void setBadges(List<Badge> badges) {
+    public void setBadges(List<BadgeDTO> badges) {
         this.badges = badges;
     }
 
-    public int getPoints() {
+    public long getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
+    public void setPoints(long points) {
         this.points = points;
     }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+    
 }

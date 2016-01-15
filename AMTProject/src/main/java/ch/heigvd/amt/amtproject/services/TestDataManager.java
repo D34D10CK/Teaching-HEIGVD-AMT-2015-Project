@@ -113,8 +113,8 @@ public class TestDataManager implements TestDataManagerLocal {
         conditionsDAO.create(condition);
         // creation d'une action associée à la règle
         EventAction action1 = new EventAction();
-        action1.setName("add5Pts");
-        action1.setNbPoint(5);
+        action1.setName("add110Pts");
+        action1.setNbPoint(110);
         action1.setBadgeName(null);
         action1.setRule(rule);
         actionsDAO.create(action1);
