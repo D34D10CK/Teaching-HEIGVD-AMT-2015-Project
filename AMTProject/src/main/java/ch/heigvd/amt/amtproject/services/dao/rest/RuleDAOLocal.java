@@ -15,5 +15,5 @@ import javax.ejb.Local;
 
 @Local
 public interface RuleDAOLocal extends IGenericDAO<Rule, Long>{
-    Rule findAppRuleByEventAndConditions(String eventName, List<EventCondition> conditions);
+    List<Rule> findAppRuleByEventAndConditions(String eventName, List<EventCondition> conditions);
 }

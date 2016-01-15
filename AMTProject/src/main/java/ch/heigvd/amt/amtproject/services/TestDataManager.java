@@ -121,14 +121,14 @@ public class TestDataManager implements TestDataManagerLocal {
         EventAction action2 = new EventAction();
         action2.setName("addNoobBadge");
         action2.setNbPoint(0);
-        action2.setBadgeName("Newbie");
+        action2.setBadgeName("Test1");
         action2.setRule(rule);
         actionsDAO.create(action2);
         // ajout de(s) condition(s) et action(s) à la règle
-        List<EventCondition> conditions = new ArrayList<EventCondition>();
+        List<EventCondition> conditions = new ArrayList<>();
         conditions.add(condition);
         
-        List<EventAction> actions = new ArrayList<EventAction>();
+        List<EventAction> actions = new ArrayList<>();
         actions.add(action1);
         actions.add(action2);
         
