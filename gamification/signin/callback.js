@@ -60,7 +60,6 @@ if (Meteor.isServer) {
 					githubId: result.data.id,
 				},
 				{
-					// TODO add AMT Server end-user ID
 					githubId: result.data.id,
 					username: result.data.login,
 					avatar: result.data.avatar_url,
