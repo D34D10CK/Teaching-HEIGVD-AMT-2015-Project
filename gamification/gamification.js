@@ -37,7 +37,7 @@ if (Meteor.isServer) {
 								}
 
 								var header = {
-									apiKey = AMT_KEY
+									apiKey: AMT_KEY
 								}
 
 								HTTP.post(API_URL, {headers: header, content: event}, (err, res) => {
