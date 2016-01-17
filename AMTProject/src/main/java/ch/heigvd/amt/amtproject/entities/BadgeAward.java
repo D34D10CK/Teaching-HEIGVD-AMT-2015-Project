@@ -4,11 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 @NamedQueries({
-    @NamedQuery(name = "BadgeAward.getBadgesOfUser", query = "select b from BadgeAward b where b.user.userId = :user")
+    @NamedQuery(name = "BadgeAward.getBadgesOfUser", 
+            query = "select b.badge from BadgeAward b where b.user.userId = :userId and b.user.app = :app")
 })
 
 @Entity

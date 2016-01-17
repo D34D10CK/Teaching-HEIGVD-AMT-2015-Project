@@ -64,14 +64,17 @@ public class EventResource {
     public Response triggerEvent(EventTriggerDTO dto, @HeaderParam("apiKey") String apiKey){
         // on recupere l'application
         Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
-        // on recupere l'utilisateur concerne
+        // on recupere l'utilisateur concerné
         EndUser user = endUsersDAO.findByAppAndUserId(app, dto.getUserId());
         // on extrait toutes les conditions liées a l'event
         List<EventCondition> conditions = extractCondition(dto.getConditions(), app);
-        // on recupère la regle correspondant aux conditions et au type d'evenement
-        Rule rule = rulesDAO.findAppRuleByEventAndConditions(dto.getEventName(), conditions);
-        // une fois la regle recuperee, on applique les actions associees
-        applyActions(rule.getActions(), user, dto.getEventDate(), app);
+        
+        // on recupère les règles correspondantes aux conditions et au type d'evenement
+        List<Rule> rules = rulesDAO.findAppRuleByEventAndConditions(dto.getEventName(), conditions);
+        // une fois les règles recupérées, on applique les actions associees
+        for (Rule rule : rules){
+            applyActions(rule.getActions(), user, dto.getEventDate(), app);
+        }
         
         return Response.ok().build();
     }
@@ -103,7 +106,7 @@ public class EventResource {
                 pointAwardsDAO.create(pa);
             }
             // gestion des badges
-            if (!(a.getBadgeName().isEmpty())){
+            if (!(a.getBadgeName() == null || a.getBadgeName().isEmpty())){
                 // recuperation du badge
                 Badge badge = badgesDAO.findByName(a.getBadgeName(), app);
                 BadgeAward ba = new BadgeAward();
