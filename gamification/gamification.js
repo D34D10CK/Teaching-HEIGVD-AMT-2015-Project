@@ -24,7 +24,31 @@ if (Meteor.isServer) {
 					ETags.upsert({user: user.username}, {user: user.username, etag: res.headers.etag});
 					console.log(res);
 					if (res.statusCode != '304') {
-						res.content.forEach(element => Events.insert({user: user.username, eventType: element.type}));
+						res.content.forEach(element => {
+							Events.insert({user: user.username, eventType: element.type});
+							if (element.type == 'PushEvent') {
+								var event = {
+									eventName: 'commit'
+									userId: user.githubId,
+									eventDate: new Date().getTime(),
+									conditions: {
+										difficulty: 'hard'
+									}
+								}
+
+								var header = {
+									apiKey = AMT_KEY
+								}
+
+								HTTP.post(API_URL, {headers: header, content: event}, (err, res) => {
+									if (!err) {
+										console.log(res);
+									} else {
+										console.log(err);
+									}
+								});
+							}
+						});
 					}
 				} else {
 					console.log(err);
