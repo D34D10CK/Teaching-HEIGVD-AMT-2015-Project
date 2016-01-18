@@ -136,6 +136,67 @@ public class TestDataManager implements TestDataManagerLocal {
         rule.setActions(actions);
         ruleDAO.update(rule);
         
+        Rule r1 = new Rule();
+        r1.setApp(a1);
+        r1.setEventType("msgCommit");
+        r1.setActions(null);
+        r1.setConditions(null);
+        ruleDAO.create(r1);
+        
+        EventAction ea1 = new EventAction();
+        ea1.setName("give1point");
+        ea1.setNbPoint(1);
+        ea1.setBadgeName(null);
+        ea1.setRule(r1);
+        actionsDAO.create(ea1);
+        
+        List<EventAction> as1 = new ArrayList<>();
+        as1.add(ea1);
+        r1.setActions(as1);
+        
+        Rule r2 = new Rule();
+        r2.setApp(a1);
+        r2.setEventType("msgCommit");
+        r2.setActions(null);
+        r2.setConditions(null);
+        ruleDAO.create(r2);
+        
+        EventCondition c1 = new EventCondition();
+        c1.setConditionName("firstCommit");
+        c1.setConditionValue("true");
+        c1.setRule(r2);
+        conditionsDAO.create(c1);
+        
+        EventAction ea2 = new EventAction();
+        ea2.setName("giveFirstCommitBadge");
+        ea2.setNbPoint(0);
+        ea2.setBadgeName("firstCommit");
+        ea2.setRule(r2);
+        actionsDAO.create(ea2);
+        
+        List<EventAction> as2 = new ArrayList<>();
+        as2.add(ea2);
+        List<EventCondition> cs1 = new ArrayList<>();
+        cs1.add(c1);
+        r2.setActions(as2);
+        r2.setConditions(cs1);
+        
+        Rule r3 = new Rule();
+        r3.setApp(a1);
+        r3.setEventType("newUser");
+        r3.setActions(null);
+        r3.setConditions(null);
+        ruleDAO.create(r3);
+        
+        EventAction ea3 = new EventAction();
+        ea3.setName("giveNewUserBadge");
+        ea3.setNbPoint(0);
+        ea3.setBadgeName("newUser");
+        ea3.setRule(r3);
+        actionsDAO.create(ea3);
+        
+        List<EventAction> as3 = new ArrayList<>();
+        r3.setActions(as3);
         
 	//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");
