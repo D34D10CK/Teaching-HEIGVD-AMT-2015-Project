@@ -22,17 +22,27 @@ if (Meteor.isServer) {
 			HTTP.get('https://api.github.com/users/' + user.username + '/events/public', {headers: header}, (err, res) => {
 				if (!err) {
 					ETags.upsert({user: user.username}, {user: user.username, etag: res.headers.etag});
-					console.log(res);
+
 					if (res.statusCode != '304') {
-						res.content.forEach(element => {
-							Events.insert({user: user.username, eventType: element.type});
-							if (element.type == 'PushEvent') {
-								var event = {
-									eventName: 'commit'
-									userId: user.githubId,
-									eventDate: new Date().getTime(),
-									conditions: {
-										difficulty: 'hard'
+						for(var i = 0; i < res.data.length; i++) {
+							Events.insert({user: user.username, eventType: res.data[i].type});
+							if (res.data[i].type == 'PushEvent') {
+								var event;
+								if (!Events.find({user: user.username})) {
+									event = {
+										eventName: 'msgCommit',
+										userId: user.githubId,
+										eventDate: new Date().getTime(),
+										conditions: {
+											firstCommit: 'true'
+										}
+									}
+								} else {
+									event = {
+										eventName: 'msgCommit',
+										userId: user.githubId,
+										eventDate: new Date().getTime(),
+										conditions: {}
 									}
 								}
 
@@ -40,7 +50,7 @@ if (Meteor.isServer) {
 									apiKey: AMT_KEY
 								}
 
-								HTTP.post(API_URL, {headers: header, content: event}, (err, res) => {
+								HTTP.post(API_URL + 'events', {headers: header, data: event}, (err, res) => {
 									if (!err) {
 										console.log(res);
 									} else {
@@ -48,7 +58,7 @@ if (Meteor.isServer) {
 									}
 								});
 							}
-						});
+						}
 					}
 				} else {
 					console.log(err);
