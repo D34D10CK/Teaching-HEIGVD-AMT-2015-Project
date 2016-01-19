@@ -99,7 +99,7 @@ public class EventResource {
             // gestion des pts
             if (a.getNbPoint() != 0){
                 PointAward pa = new PointAward();
-                pa.setReason("none yet");
+                pa.setReason(a.getName());
                 pa.setPoints(a.getNbPoint());
                 pa.setUser(user);
                 pa.setObtainmentDate(calendar);
@@ -110,7 +110,7 @@ public class EventResource {
                 // recuperation du badge
                 Badge badge = badgesDAO.findByName(a.getBadgeName(), app);
                 BadgeAward ba = new BadgeAward();
-                ba.setReason("none yet");
+                ba.setReason(a.getName());
                 ba.setBadge(badge);
                 ba.setUser(user);
                 ba.setObtainmentDate(calendar);

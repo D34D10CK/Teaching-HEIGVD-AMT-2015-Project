@@ -34,6 +34,7 @@ public class ApplicationConfig extends Application {
         resources.add(ch.heigvd.amt.amtproject.rest.resources.EventResource.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.LevelRessource.class);
         resources.add(ch.heigvd.amt.amtproject.rest.resources.ReputationRessource.class);
+        resources.add(ch.heigvd.amt.amtproject.rest.resources.RuleResource.class);
   }
 
 }

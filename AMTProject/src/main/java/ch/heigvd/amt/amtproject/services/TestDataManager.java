@@ -138,11 +138,13 @@ public class TestDataManager implements TestDataManagerLocal {
         rule.setActions(actions);
         ruleDAO.update(rule);
         
+        /*
+        // REGLE DE LEO 
         Rule r1 = new Rule();
         r1.setApp(a1);
         r1.setEventType("msgCommit");
         r1.setActions(null);
-        r1.setConditions(null);
+        r1.setConditions(new ArrayList<EventCondition>());
         ruleDAO.create(r1);
         
         EventAction ea1 = new EventAction();
@@ -155,6 +157,7 @@ public class TestDataManager implements TestDataManagerLocal {
         List<EventAction> as1 = new ArrayList<>();
         as1.add(ea1);
         r1.setActions(as1);
+        ruleDAO.update(r1);
         
         Rule r2 = new Rule();
         r2.setApp(a1);
@@ -182,6 +185,7 @@ public class TestDataManager implements TestDataManagerLocal {
         cs1.add(c1);
         r2.setActions(as2);
         r2.setConditions(cs1);
+        ruleDAO.update(r2);
         
         Rule r3 = new Rule();
         r3.setApp(a1);
@@ -199,11 +203,13 @@ public class TestDataManager implements TestDataManagerLocal {
         
         List<EventAction> as3 = new ArrayList<>();
         r3.setActions(as3);
-        
+        ruleDAO.update(r3);
+        */
 	//UserRole r1 = new UserRole("admin");
         //UserRole r2 = new UserRole("developper");
         //roleDAO.create(r1);
         //roleDAO.create(r2);
+                
     }
 
     private void createEndUser(Application app, int id) {
