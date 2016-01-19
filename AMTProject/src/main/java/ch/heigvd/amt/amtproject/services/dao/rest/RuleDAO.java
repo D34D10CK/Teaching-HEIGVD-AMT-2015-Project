@@ -1,5 +1,6 @@
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
+import ch.heigvd.amt.amtproject.entities.Application;
 import ch.heigvd.amt.amtproject.entities.EventCondition;
 import ch.heigvd.amt.amtproject.entities.Rule;
 import ch.heigvd.amt.amtproject.services.dao.GenericDAO;
@@ -30,5 +31,12 @@ public class RuleDAO extends GenericDAO<Rule, Long> implements RuleDAOLocal{
             }
         }
         return result;
+    }
+    
+    @Override
+    public List<Rule> getAppRules(Application app){
+        return em.createNamedQuery("Rule.findByApp")
+                .setParameter("app", app)
+                .getResultList();
     }
 }

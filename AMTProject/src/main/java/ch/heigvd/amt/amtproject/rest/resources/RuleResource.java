@@ -6,7 +6,10 @@ import ch.heigvd.amt.amtproject.entities.EventAction;
 import ch.heigvd.amt.amtproject.entities.EventCondition;
 import ch.heigvd.amt.amtproject.entities.Rule;
 import ch.heigvd.amt.amtproject.rest.dto.EventActionDTO;
+import ch.heigvd.amt.amtproject.rest.dto.EventConditionDTO;
 import ch.heigvd.amt.amtproject.rest.dto.RuleCreationDTO;
+import ch.heigvd.amt.amtproject.rest.dto.RuleDTO;
+import ch.heigvd.amt.amtproject.rest.dto.RuleSummaryDTO;
 import ch.heigvd.amt.amtproject.services.dao.ApplicationDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.EventActionDAOLocal;
 import ch.heigvd.amt.amtproject.services.dao.rest.EventConditionDAOLocal;
@@ -32,7 +35,7 @@ import javax.ws.rs.core.UriInfo;
 
 
 @Stateless
-@Path("rule")
+@Path("rules")
 public class RuleResource {
     @EJB
     private ApplicationDAOLocal appDAO;
@@ -52,7 +55,6 @@ public class RuleResource {
     @POST
     @Consumes("application/json")
     public Response createRule(RuleCreationDTO dto, @HeaderParam("apiKey") String apiKey){
-        System.out.println("PROUT");
         // on recupere l'application
         Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
         // on crée la règle et on l'ajoute à la DB
@@ -65,6 +67,7 @@ public class RuleResource {
         
         linkActions(dto.getActions(), rule);
         linkConditions(dto.getConditions(), rule);
+        // on met a jour notre règles après lui avoir ajouté les actions et conditions
         ruleDAO.update(rule);
         
         URI href = uriInfo
@@ -73,18 +76,36 @@ public class RuleResource {
                 .path(RuleResource.class, "getRule")
                 .build(ruleId);
         
-        //return Response
-        //        .created(href)
-        //        .build();
-        return Response.ok().build();
+        return Response
+                .created(href)
+                .build();
+        //return Response.ok().build();
     }
     
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Response getRule(@PathParam(value = "id") long id) {
+    public RuleDTO getRule(@PathParam(value = "id") long id) {
+        Rule rule = ruleDAO.findById(id);
+        RuleDTO dto = new RuleDTO();
+        populateDTOFromEntity(rule, dto);
+        return dto;
+    }
+    
+    @GET
+    @Produces("application/json")
+    public List<RuleSummaryDTO> getAppRules(@HeaderParam("apiKey") String apiKey) {
+        // on recupere l'application
+        Application app = appDAO.getAppByApiKey(new ApiKey(apiKey));
         
-        return Response.ok().build();
+        List<Rule> rules = ruleDAO.getAppRules(app);
+        List<RuleSummaryDTO> result = new ArrayList<>();
+        for (Rule rule : rules) {
+            RuleSummaryDTO temp = new RuleSummaryDTO();
+            populateSummaryDTOFromEntity(rule, temp);
+            result.add(temp);
+        }
+        return result;
     }
     
     private void linkConditions(HashMap<String,String> conditions, Rule rule){
@@ -122,5 +143,40 @@ public class RuleResource {
         }
         // on lie les actions à la règle
         rule.setActions(actionsList);
+    }
+    
+    private void populateSummaryDTOFromEntity(Rule rule, RuleSummaryDTO dto) {
+        long ruleId = rule.getId();
+        URI ruleHref = uriInfo
+                .getAbsolutePathBuilder()
+                .path(RuleResource.class, "getRule")
+                .build(ruleId);
+        dto.setHref(ruleHref);
+        dto.setEventType(rule.getEventType());
+    }
+    
+    private void populateDTOFromEntity(Rule rule, RuleDTO dto) {
+        populateSummaryDTOFromEntity(rule, dto);
+        
+        List<EventAction> actions = rule.getActions();
+        List<EventActionDTO> actionsDTO = new ArrayList<>();
+        for (EventAction action : actions){
+            EventActionDTO actionDTO = new EventActionDTO();
+            actionDTO.setBadgeName(action.getBadgeName());
+            actionDTO.setName(action.getName());
+            actionDTO.setNbPoints(action.getNbPoint());
+            actionsDTO.add(actionDTO);
+        }
+        dto.setActions(actionsDTO);
+        
+        List<EventCondition> conditions = rule.getConditions();
+        List<EventConditionDTO> conditionsDTO = new ArrayList<>();
+        for (EventCondition condition : conditions){
+            EventConditionDTO conditionDTO = new EventConditionDTO();
+            conditionDTO.setKey(condition.getConditionName());
+            conditionDTO.setValue(condition.getConditionValue());
+            conditionsDTO.add(conditionDTO);
+        }
+        dto.setConditions(conditionsDTO);
     }
 }

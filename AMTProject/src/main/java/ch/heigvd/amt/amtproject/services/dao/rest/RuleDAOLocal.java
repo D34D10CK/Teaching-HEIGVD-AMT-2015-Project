@@ -5,7 +5,6 @@
  */
 package ch.heigvd.amt.amtproject.services.dao.rest;
 
-import ch.heigvd.amt.amtproject.entities.ApiKey;
 import ch.heigvd.amt.amtproject.entities.Application;
 import ch.heigvd.amt.amtproject.entities.EventCondition;
 import ch.heigvd.amt.amtproject.entities.Rule;
@@ -16,4 +15,5 @@ import javax.ejb.Local;
 @Local
 public interface RuleDAOLocal extends IGenericDAO<Rule, Long>{
     List<Rule> findAppRuleByEventAndConditions(String eventName, List<EventCondition> conditions);
+    List<Rule> getAppRules(Application app);
 }
