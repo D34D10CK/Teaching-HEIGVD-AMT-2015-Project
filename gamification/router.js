@@ -1,25 +1,6 @@
 Router.route('/', function () {
 	if (Session.get('githubId')) {
-		this.render('dashboard', {
-			data: function () {
-				// TODO request to AMT Project
-				var reputation = {
-					"points": 1200,
-					"badges": [{
-						"name": "CoolBadge",
-						"imageUrl": "https://codeinperson.com/assets/guided/guided-meteor-c528c258ba015fadac6142d9503967bd.png",
-						"href": "http://localhost:8080/AMTProject/api/badges/3"
-					}]
-				};
-
-				var user = Users.findOne({ githubId: Session.get('githubId') });
-
-				return {
-					user: user,
-					reputation: reputation,
-				};
-			}
-		});
+		this.render('dashboard');
 	} else {
 		this.render('signInGitHub');
 	}
