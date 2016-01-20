@@ -91,9 +91,11 @@ public class TestDataManager implements TestDataManagerLocal {
         badgeDAO.create(b1);
         badgeDAO.create(b2);
         // creation de deux levels
-        Level l1 = new Level("Newbie", 100, a1);
-        Level l2 = new Level("Rookie", 200, a1);
-        levelDAO.create(l1);
+		Level l0 = new Level("Newbie", 0, a1);
+        Level l1 = new Level("Rookie", 100, a1);
+        Level l2 = new Level("Pro", 200, a1);
+		levelDAO.create(l0);
+		levelDAO.create(l1);
         levelDAO.create(l2);
         
         

@@ -41,19 +41,16 @@ if (Meteor.isServer) {
 
 				var user = Users.findOne({ githubId: result.data.id });
 				if (!user) {
-					console.log("creating user", AMT_KEY);
-
 					HTTP.post(API_URL + "users", {
 						headers: {
 							'Content-Type': 'application/json',
 							apiKey: AMT_KEY
 						},
 						data: {
-							"userId": result.data.id + ""
+							"userId": result.data.id + "",
+							"date": new Date().getTime()
 						}
 					});
-				} else {
-					console.log("user exists");
 				}
 
 				Users.upsert({

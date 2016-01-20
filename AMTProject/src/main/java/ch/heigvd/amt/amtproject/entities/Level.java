@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
     @NamedQuery(name = "Level.findByApiKey", 
             query = "select l from Level l where l.application.apiKey.apiKey = :apiKey"),
     @NamedQuery(name = "Level.findUserLevel",
-            query = "select l from Level l where l.application = :app and l.requiredPoints < :nbPoints order by l.requiredPoints")
+            query = "select l from Level l where l.application = :app and l.requiredPoints <= :nbPoints order by l.requiredPoints")
 })
 
 @Entity
