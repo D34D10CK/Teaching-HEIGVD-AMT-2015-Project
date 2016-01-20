@@ -93,7 +93,10 @@ public class TestDataManager implements TestDataManagerLocal {
         // creation de deux levels
 		Level l0 = new Level("Newbie", 0, a1);
         Level l1 = new Level("Rookie", 100, a1);
-		Level l2 = new Level("Pro", 200, a1);
+		Level l2 = new Level("Amateur", 200, a1);
+		Level l3 = new Level("Pro", 1000, a1);
+		Level l4 = new Level("Super User", 5000, a1);
+		Level l5 = new Level("Robot", 100000, a1);
 
 		Level lGod = new Level("God", 1000000, a1);
 
@@ -101,6 +104,9 @@ public class TestDataManager implements TestDataManagerLocal {
 		levelDAO.create(l0);
 		levelDAO.create(l1);
 		levelDAO.create(l2);
+		levelDAO.create(l3);
+		levelDAO.create(l4);
+		levelDAO.create(l5);
 
 		levelDAO.create(lGod);
 
@@ -121,7 +127,7 @@ public class TestDataManager implements TestDataManagerLocal {
         // action -> points
         EventAction action1 = new EventAction();
         action1.setName("add110Pts");
-        action1.setNbPoint(110);
+        action1.setNbPoint(24);
         action1.setBadgeName(null);
         action1.setRule(rule);
         actionsDAO.create(action1);

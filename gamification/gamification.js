@@ -12,12 +12,11 @@ if (Meteor.isServer) {
 
 	Meteor.setInterval(() => {
 		Users.find().forEach((user) => {
-			console.log('token ' + user.token);
 			var user_etag = ETags.findOne({user: user.username});
 			var header = {
 				Authorization: 'token ' + user.token,
 				'User-Agent': 'Github Gamification',
-				// 'If-None-Match': user_etag ? user_etag.etag : '""'
+				'If-None-Match': user_etag ? user_etag.etag : '""'
 			};
 
 			HTTP.get('https://api.github.com/users/' + user.username + '/events/public', {headers: header}, (err, res) => {
@@ -39,7 +38,7 @@ if (Meteor.isServer) {
 								var event;
 								if (!Events.find({user: user.username})) {
 									event = {
-										eventName: 'msgCommit',
+										eventName: 'msgPosted',
 										userId: user.githubId,
 										eventDate: new Date().getTime(),
 										conditions: {
@@ -48,7 +47,7 @@ if (Meteor.isServer) {
 									}
 								} else {
 									event = {
-										eventName: 'msgCommit',
+										eventName: 'msgPosted',
 										userId: user.githubId,
 										eventDate: new Date().getTime(),
 										conditions: {}
@@ -62,10 +61,11 @@ if (Meteor.isServer) {
 								console.info(API_URL + 'events', header, event);
 
 								HTTP.post(API_URL + 'events', {headers: header, data: event}, (err, res) => {
-									if (!err) {
-										console.log(res);
-									} else {
+									if (err) {
 										console.error(err);
+										return;
+									} else {
+										console.log(res);
 									}
 								});
 							}
