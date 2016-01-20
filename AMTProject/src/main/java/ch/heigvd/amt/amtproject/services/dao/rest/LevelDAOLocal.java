@@ -11,4 +11,5 @@ public interface LevelDAOLocal extends IGenericDAO<Level, Long>{
 
     List<Level> getLevels(String apiKey);
     Level getUserLvl(int nbPoints, Application app);
+	Level getUserNextLvl(int nbPoints, Application app);
 }
