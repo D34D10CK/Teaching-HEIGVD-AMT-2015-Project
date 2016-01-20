@@ -9,6 +9,7 @@ public class ReputationDTO {
     private long points;
 	private String level;
 	private long nextLevel;
+	private long prevLevel;
 
     public List<BadgeDTO> getBadges() {
         return badges;
@@ -40,6 +41,13 @@ public class ReputationDTO {
 
 	public void setNextLevel(long nextLevel) {
 		this.nextLevel = nextLevel;
+	}
+	public long getPrevLevel() {
+		return prevLevel;
+	}
+
+	public void setPrevLevel(long prevLevel) {
+		this.prevLevel = prevLevel;
 	}
     
 }

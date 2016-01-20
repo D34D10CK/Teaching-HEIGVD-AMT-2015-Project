@@ -57,13 +57,14 @@ public class ReputationRessource {
         
         // recupération du level courant de l'utilisateur
         Level level = levelDAO.getUserLvl((new Long(points)).intValue(), app);
-        Level nextLevel = levelDAO.getUserNextLvl((new Long(points)).intValue(), app);
+		Level nextLevel = levelDAO.getUserNextLvl((new Long(points)).intValue(), app);
 
         ReputationDTO dto = new ReputationDTO();
         dto.setPoints(points);
         dto.setBadges(badgesDTO);
 		dto.setLevel(level.getName());
 		dto.setNextLevel(nextLevel.getRequiredPoints());
+		dto.setPrevLevel(level.getRequiredPoints());
         return dto;
     }
 }

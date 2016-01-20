@@ -8,8 +8,8 @@
 				<h3>{{ user.username }}</h3>
 				<div class="level">{{ reputation.level }}</div>
 				<div class="xp-bar">
-					<div class="xp"></div>
-					<div class="xp-text">{{ reputation.points }} / 10000</div>
+					<div class="xp" style="width: {{ reputation.percentage }}%;"></div>
+					<div class="xp-text">{{ reputation.points }} / {{ reputation.nextLevel }}</div>
 				</div>
 			</div>
 			<div class="badges">

@@ -22,7 +22,10 @@ if (Meteor.isClient) {
 					return;
 				}
 
-				Session.set('reputation', JSON.parse(res));
+				var reputation = JSON.parse(res);
+				reputation.percentage = (reputation.points - reputation.prevLevel) * 100 / reputation.nextLevel;
+
+				Session.set('reputation', reputation);
 			});
 
 			return Session.get('reputation');
