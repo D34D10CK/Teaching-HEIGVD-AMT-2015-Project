@@ -11,4 +11,5 @@ import javax.ejb.Local;
 public interface BadgeAwardDAOLocal extends IGenericDAO<BadgeAward, Long> {
 
     List<Badge> getBadgesById(String userId, Application app);
+    
 }

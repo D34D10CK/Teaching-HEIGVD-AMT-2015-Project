@@ -107,14 +107,27 @@ public class EventResource {
             }
             // gestion des badges
             if (!(a.getBadgeName() == null || a.getBadgeName().isEmpty())){
-                // recuperation du badge
-                Badge badge = badgesDAO.findByName(a.getBadgeName(), app);
-                BadgeAward ba = new BadgeAward();
-                ba.setReason(a.getName());
-                ba.setBadge(badge);
-                ba.setUser(user);
-                ba.setObtainmentDate(calendar);
-                badgeAwardsDAO.create(ba);
+                // contrôle si le badge est déjà attribué
+                List<Badge> currentBadges = badgeAwardsDAO.getBadgesById(user.getUserId(), app);
+                boolean found = false;
+                if(!currentBadges.isEmpty()){
+                    for (Badge b : currentBadges){
+                        if (b.getName().equals(a.getBadgeName())){
+                            found = true;
+                            break;
+                        }
+                    }
+                }
+                if (!found){
+                    // recuperation et attribution du badge
+                    Badge badge = badgesDAO.findByName(a.getBadgeName(), app);
+                    BadgeAward ba = new BadgeAward();
+                    ba.setReason(a.getName());
+                    ba.setBadge(badge);
+                    ba.setUser(user);
+                    ba.setObtainmentDate(calendar);
+                    badgeAwardsDAO.create(ba);
+                }
             }
         }
     }
