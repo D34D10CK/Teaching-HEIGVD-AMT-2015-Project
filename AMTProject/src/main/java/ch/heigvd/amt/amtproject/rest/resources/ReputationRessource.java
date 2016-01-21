@@ -43,7 +43,7 @@ public class ReputationRessource {
         // recupération de l'application concernée
         Application app = applicationDAO.getAppByApiKey(new ApiKey(apikey));
         // recupération des points de l'utilisateur concerné
-        long points = pointAwardDAO.getPointsById(userId, app);
+		long points = pointAwardDAO.getPointsById(userId, app);
         // recupération des badges gagnés par l'utilisateur concerné
         List<Badge> badges = badgeAwardDAO.getBadgesById(userId, app);
         
@@ -57,11 +57,14 @@ public class ReputationRessource {
         
         // recupération du level courant de l'utilisateur
         Level level = levelDAO.getUserLvl((new Long(points)).intValue(), app);
-        
+		Level nextLevel = levelDAO.getUserNextLvl((new Long(points)).intValue(), app);
+
         ReputationDTO dto = new ReputationDTO();
         dto.setPoints(points);
         dto.setBadges(badgesDTO);
-        dto.setLevel(level.getName());
+		dto.setLevel(level.getName());
+		dto.setNextLevel(nextLevel.getRequiredPoints());
+		dto.setPrevLevel(level.getRequiredPoints());
         return dto;
     }
 }

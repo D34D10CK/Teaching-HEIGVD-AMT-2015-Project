@@ -86,19 +86,31 @@ public class TestDataManager implements TestDataManagerLocal {
             createEndUser(a2, i);
         }
         // creation de deux badges
-        Badge b1 = new Badge("Test1", "https://playfoursquare.s3.amazonaws.com/badge/300/local.png", a1);
-        Badge b2 = new Badge("Test2", "https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png", a1);
+        Badge b1 = new Badge("Starter", "https://playfoursquare.s3.amazonaws.com/badge/300/local.png", a1);
+        Badge b2 = new Badge("Winner", "https://playfoursquare.s3.amazonaws.com/badge/300/newbie.png", a1);
         badgeDAO.create(b1);
         badgeDAO.create(b2);
         // creation de deux levels
-        Level l1 = new Level("Newbie", 100, a1);
-        Level l2 = new Level("Rookie", 200, a1);
-        levelDAO.create(l1);
-        levelDAO.create(l2);
-        
-        
+		Level l0 = new Level("Newbie", 0, a1);
+        Level l1 = new Level("Rookie", 100, a1);
+		Level l2 = new Level("Amateur", 200, a1);
+		Level l3 = new Level("Pro", 1000, a1);
+		Level l4 = new Level("Super User", 5000, a1);
+		Level l5 = new Level("Robot", 100000, a1);
 
-        // Creation d'une règle pour l'app 1
+		Level lGod = new Level("God", 1000000, a1);
+
+
+		levelDAO.create(l0);
+		levelDAO.create(l1);
+		levelDAO.create(l2);
+		levelDAO.create(l3);
+		levelDAO.create(l4);
+		levelDAO.create(l5);
+
+		levelDAO.create(lGod);
+
+		// Creation d'une règle pour l'app 1
         Rule rule = new Rule();
         rule.setApp(a1);
         rule.setEventType("msgPosted");
@@ -115,7 +127,7 @@ public class TestDataManager implements TestDataManagerLocal {
         // action -> points
         EventAction action1 = new EventAction();
         action1.setName("add110Pts");
-        action1.setNbPoint(110);
+        action1.setNbPoint(24);
         action1.setBadgeName(null);
         action1.setRule(rule);
         actionsDAO.create(action1);
@@ -123,7 +135,7 @@ public class TestDataManager implements TestDataManagerLocal {
         EventAction action2 = new EventAction();
         action2.setName("addNoobBadge");
         action2.setNbPoint(0);
-        action2.setBadgeName("Test1");
+        action2.setBadgeName("Starter");
         action2.setRule(rule);
         actionsDAO.create(action2);
         // ajout de(s) condition(s) et action(s) à la règle

@@ -28,4 +28,13 @@ public class LevelDAO extends GenericDAO<Level, Long> implements LevelDAOLocal {
                 .setMaxResults(1)
                 .getSingleResult();
     }
+
+	@Override
+	public Level getUserNextLvl(int nbPoints, Application app) {
+		return (Level) em.createNamedQuery("Level.findUserNextLevel")
+				.setParameter("nbPoints", nbPoints)
+				.setParameter("app", app)
+				.setMaxResults(1)
+				.getSingleResult();
+	}
 }
