@@ -94,9 +94,10 @@ public class TestDataManager implements TestDataManagerLocal {
 		Level l0 = new Level("Newbie", 0, a1);
         Level l1 = new Level("Rookie", 100, a1);
 		Level l2 = new Level("Amateur", 200, a1);
-		Level l3 = new Level("Pro", 1000, a1);
-		Level l4 = new Level("Super User", 5000, a1);
-		Level l5 = new Level("Robot", 100000, a1);
+		Level l3 = new Level("Enthusiast", 650, a1);
+		Level l4 = new Level("Pro", 1000, a1);
+		Level l5 = new Level("Super User", 5000, a1);
+		Level l6 = new Level("Robot", 100000, a1);
 
 		Level lGod = new Level("God", 1000000, a1);
 
@@ -107,6 +108,7 @@ public class TestDataManager implements TestDataManagerLocal {
 		levelDAO.create(l3);
 		levelDAO.create(l4);
 		levelDAO.create(l5);
+		levelDAO.create(l6);
 
 		levelDAO.create(lGod);
 
