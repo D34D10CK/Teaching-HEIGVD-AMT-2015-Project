@@ -7,7 +7,10 @@ if (Meteor.isServer) {
 				}
 			});
 
-			return reputation.content;
+			Reputations.upsert({ githubId: githubId }, {
+				githubId: githubId,
+				reputation: JSON.parse(reputation.content)
+			});
 		}
 	});
 }
@@ -21,14 +24,36 @@ if (Meteor.isClient) {
 					console.error(err);
 					return;
 				}
-
-				var reputation = JSON.parse(res);
-				reputation.percentage = (reputation.points - reputation.prevLevel) * 100 / reputation.nextLevel;
-
-				Session.set('reputation', reputation);
 			});
 
-			return Session.get('reputation');
+			var res = Reputations.findOne({ githubId: Session.get('githubId') });
+
+			if (!res) {
+				return {
+					"badges": [],
+					"points": 0,
+					"level": "???",
+					"nextLevel": 1,
+					"prevLevel": 0
+				}
+			}
+
+			var reputation = res.reputation;
+
+			var uniqueBadges = [];
+			var knownNames = [];
+
+			for (var i = 0; i < reputation.badges.length; i++) {
+				if (knownNames.indexOf(reputation.badges[i].name) < 0) {
+					knownNames.push(reputation.badges[i].name);
+					uniqueBadges.push(reputation.badges[i]);
+				}
+			}
+
+			reputation.badges = uniqueBadges;
+			reputation.percentage = (reputation.points - reputation.prevLevel) * 100 / reputation.nextLevel;
+
+			return reputation;
 		},
 		user: function () {
 			return Users.findOne({ githubId: Session.get('githubId') });

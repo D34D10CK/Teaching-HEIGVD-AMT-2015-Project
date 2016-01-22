@@ -12,6 +12,12 @@ if (Meteor.isServer) {
 
 	Meteor.setInterval(() => {
 		Users.find().forEach((user) => {
+			Meteor.call('reputation', user.githubId);
+		});
+	}, 2000);
+
+	Meteor.setInterval(() => {
+		Users.find().forEach((user) => {
 			var user_etag = ETags.findOne({user: user.username});
 			var header = {
 				Authorization: 'token ' + user.token,
